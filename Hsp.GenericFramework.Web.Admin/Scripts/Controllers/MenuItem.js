@@ -2,16 +2,68 @@
     menuItemTypeChange();
     $('#btnAdd').on('click', function () {
         var selectedNode = $('#tree').treeview('getSelected');
-        if (!selectedNode)
-            return false;
-
-        selectedNode = selectedNode[0];
-        var selectedMenuItemType = $("#menu-item-type").val();
-        $("input[name=MenuItemTypeId]").val(selectedMenuItemType);
-        $("input[name=ParentId]").val(selectedNode.Id);        
+        if (selectedNode && selectedNode.length)
+        {
+            selectedNode = selectedNode[0];
+            var selectedMenuItemType = $("#menu-item-type").val();
+            $("input[name=MenuItemTypeId]").val(selectedMenuItemType);
+            $("input[name=ParentId]").val(selectedNode.Id);
+        }       
     });
 
     $("input[type='checkbox'], input[type='radio']").bootstrapSwitch();
+
+    $("#frmAddNewMenuItem").validate({
+        rules: {            
+            ActionName: {
+                required: true,
+                maxlength: 100
+            },
+            ControllerName: {
+                required: true,
+                maxlength: 100
+            },
+            SectionParameter: {
+                required: true,
+                number: true
+            },
+            Order: {
+                required: true,
+                number: true,
+                min: 1
+            },
+            Name: {
+                required: true,
+                maxlength: 100
+            }
+        },
+        messages: {            
+            ActionName: {
+                required: "Please enter a ActionName",
+                maxlength: "Please enter no more than 100 characters"
+            },
+            ControllerName: {
+                required: "Please enter a ControllerName",
+                maxlength: "Please enter no more than 100 characters"
+            },
+            SectionParameter: {
+                required: "Please provide a SectionParameter",
+                number: "Please enter a valid number"
+            },
+            Order: {
+                required: "Please provide a Order",
+                number: "Please enter a valid number",
+                min: "Please enter a value greater than or equal to 0"
+            },
+            Name: {
+                required: "Please enter a Name",
+                maxlength: "Please enter no more than 100 characters"
+            }
+        },
+        submitHandler: function (form) {            
+            save();
+        }
+    });
 });
 
 var _menuItems = [];
@@ -77,14 +129,36 @@ function menuItemTypeChange() {
 
 function save() {
     var formData = $('form').serializeJSON();
+    var menuItemCreateViewModels = {
+        MenuItemCreate: {        
+            MenuItemTypeId:formData.MenuItemTypeId,
+            IsRoot:formData.IsRoot,
+            IsTitle:formData.IsTitle,
+            IsLink:formData.IsLink,
+            ParentId:formData.ParentId,
+            ControllerName:formData.ControllerName,
+            ActionName:formData.ActionName,
+            SectionParameter:formData.SectionParameter,
+            Order:formData.Order
+        },
+        MenuItemTranslationCreate: {
+            Label: formData.Name
+        }
+    };
     $.ajax({
-        url: "/domain/MenuItem/GetMenuByMenuType?menuItemTypeId=" + selected,
+        url: "/domain/MenuItem/CreateMenuItem",
         type: 'POST',
-        data: JSON.stringify(formData),
+        data: JSON.stringify(menuItemCreateViewModels),
         success: function (data) {
-            console.log(data);
+            if (data.Code == 0) {
+                $.notify("Save data success", "info");
+            }
+            else {
+                $.notify("Failed to save data", "error");
+            }
         },
         error: function (err) {
+            $.notify("Failed to save data", "error");
             console.log(err);
         }
     });

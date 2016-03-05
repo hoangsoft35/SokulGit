@@ -249,8 +249,8 @@ namespace Migration.Admin.Migrations
                 .WithColumn("LanguageId").AsInt32().NotNullable()
                 .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.Now)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset()
+                .WithColumn("UpdatedBy").AsGuid();
             Create.PrimaryKey("PK_MenuItemTypeTranslation_MenuItemTypeId_LanguageId")
                 .OnTable("MenuItemTypeTranslations")
                 .WithSchema("dbo").Columns("MenuItemTypeId", "LanguageId");
@@ -271,15 +271,15 @@ namespace Migration.Admin.Migrations
             Execute.Sql("insert into MenuItemTypes(Id, IsActive, Created, CreatedBy) values('" + adminMenuItemTypeId +
                         "',1, getDate(),'" + userId + "')");
             Execute.Sql(
-                "insert into MenuItemTypeTranslations(MenuItemTypeId, MenuItemTypeName, LanguageId, Created, CreatedBy) values('" +
-                adminMenuItemTypeId + "',N'Admin site',1,getDate(),'" + userId + "')");
+                "insert into MenuItemTypeTranslations(MenuItemTypeId, MenuItemTypeName, LanguageId, Created, CreatedBy, Updated, UpdatedBy) values('" +
+                adminMenuItemTypeId + "',N'Admin site',1,getDate(),'" + userId + "', getDate(),'" + userId + "')");
 
             var clientMenuItemTypeId = Guid.NewGuid();
             Execute.Sql("insert into MenuItemTypes(Id, IsActive, Created, CreatedBy) values('" + clientMenuItemTypeId +
                         "',1, getDate(),'" + userId + "')");
             Execute.Sql(
-                "insert into MenuItemTypeTranslations(MenuItemTypeId, MenuItemTypeName, LanguageId, Created, CreatedBy) values('" +
-                clientMenuItemTypeId + "',N'Client site',1,getDate(),'" + userId + "')");
+                "insert into MenuItemTypeTranslations(MenuItemTypeId, MenuItemTypeName, LanguageId, Created, CreatedBy, Updated, UpdatedBy) values('" +
+                clientMenuItemTypeId + "',N'Client site',1,getDate(),'" + userId + "', getDate(),'" + userId + "')");
 
 
             Create.Table("MenuItems").InSchema("dbo")

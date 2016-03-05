@@ -12,5 +12,12 @@ namespace Hsp.GenericFramework.Commons.Dtos
         public string Message { get; set; }
         public T ObjectData {get;set;}
         public List<T> ListData { get; set; }
+
+        
+    }
+    public class ErrorModel
+    {
+        public int Code { get; set; }
+        public string Message { get; set; }
     }
 }

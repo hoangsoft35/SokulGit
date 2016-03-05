@@ -25,7 +25,8 @@ namespace Hsp.GenericFramework.Web.Admin
                       "~/Scripts/Libs/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/common").Include(
-                "~/Scripts/Commons/menu.js",                
+                "~/Scripts/Commons/menu.js",
+                "~/Scripts/Libs/notify.js",
                 "~/Scripts/Commons/_layout.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -40,6 +41,7 @@ namespace Hsp.GenericFramework.Web.Admin
                 "~/Scripts/Libs/bootstrap-treeview.min.js",
                 "~/Scripts/Libs/bootstrap-switch.min.js",
                 "~/Scripts/Libs/jquery.serializejson.min.js",
+                "~/Scripts/Libs/jquery.validate.min.js",
                 "~/Scripts/Controllers/MenuItem.js"));
             bundles.Add(new StyleBundle("~/bundles/css/menuItemController").Include(
                       "~/Content/Libs/bootstrap-treeview.min.css",

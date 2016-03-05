@@ -1,4 +1,5 @@
-﻿using Hsp.GenericFramework.IServices.IServices;
+﻿using Hsp.GenericFramework.Commons.Dtos.ViewModels;
+using Hsp.GenericFramework.IServices.IServices;
 using Hsp.GenericFramework.Web.Admin.Controllers.Base;
 using Hsp.GenericFramework.Web.Admin.Models;
 using System.Web.Mvc;
@@ -30,6 +31,13 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers
         {            
             var menuItems = _menuItemService.GetMenuByMenuType(this.LanguageId, menuItemTypeId);
             return Json(menuItems, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult CreateMenuItem(MenuItemCreateViewModels menuItemCreateViewModels)
+        {            
+            var result = _menuItemService.SaveMenuItem(menuItemCreateViewModels);
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
     }
 }
