@@ -14,8 +14,8 @@ namespace Migration.Admin.Migrations
 
             Create.Table("SocialUsers").InSchema("dbo")
                 .WithColumn("Id").AsGuid().NotNullable().PrimaryKey("PK_SocialUsers_Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
-                .WithColumn("Updated").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("Updated").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("StatusId").AsInt32().NotNullable().WithDefaultValue(0)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
                 .WithColumn("UpdatedBy").AsGuid().NotNullable()
@@ -39,8 +39,8 @@ namespace Migration.Admin.Migrations
 
             Create.Table("SessionTokens").InSchema("dbo")
                 .WithColumn("Id").AsGuid().NotNullable().PrimaryKey("PK_SessionTokens_Id")
-               .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
-                .WithColumn("Updated").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+               .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("Updated").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("StatusId").AsInt32().NotNullable().WithDefaultValue(0)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
                 .WithColumn("UpdatedBy").AsGuid().NotNullable()
@@ -59,8 +59,8 @@ namespace Migration.Admin.Migrations
 
             Create.Table("Notifications").InSchema("dbo")
                 .WithColumn("Id").AsGuid().NotNullable().PrimaryKey("PK_Notifications_Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
-                .WithColumn("Updated").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("Updated").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("StatusId").AsInt32().NotNullable().WithDefaultValue(0)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
                 .WithColumn("UpdatedBy").AsGuid().NotNullable()
@@ -82,8 +82,8 @@ namespace Migration.Admin.Migrations
 
             Create.Table("Devices").InSchema("dbo")
                 .WithColumn("Id").AsGuid().NotNullable().PrimaryKey("PK_Devices_Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
-                .WithColumn("Updated").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("Updated").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("StatusId").AsInt32().NotNullable().WithDefaultValue(0)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
                 .WithColumn("UpdatedBy").AsGuid().NotNullable()
@@ -104,8 +104,6 @@ namespace Migration.Admin.Migrations
 
             #region Alter table
 
-            Alter.Table("Users").AddColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow);
-            Alter.Table("Users").AddColumn("Updated").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow);
             Alter.Table("Users").AddColumn("CreatedBy").AsGuid().Nullable();
             Alter.Table("Users").AddColumn("UpdatedBy").AsGuid().Nullable();
             Alter.Table("Users").AddColumn("StatusId").AsInt32().NotNullable().WithDefaultValue(0);
@@ -122,8 +120,6 @@ namespace Migration.Admin.Migrations
             Delete.Table("Notifications").InSchema("dbo");
             Delete.Table("Devices").InSchema("dbo");                        
 
-            Delete.Column("Created").FromTable("Users");
-            Delete.Column("Updated").FromTable("Users");
             Delete.Column("CreatedBy").FromTable("Users");
             Delete.Column("UpdatedBy").FromTable("Users");
             Delete.Column("StatusId").FromTable("Users");

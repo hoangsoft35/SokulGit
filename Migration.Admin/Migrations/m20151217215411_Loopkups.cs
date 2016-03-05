@@ -14,8 +14,8 @@ namespace Migration.Admin.Migrations
 
             Create.Table("Loopkups").InSchema("dbo")
                 .WithColumn("Id").AsString(50).NotNullable().PrimaryKey("PK_Loopkups_Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
-                .WithColumn("Updated").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("Updated").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("StatusId").AsInt32().Indexed().NotNullable().WithDefaultValue(0)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
                 .WithColumn("UpdatedBy").AsGuid().NotNullable()

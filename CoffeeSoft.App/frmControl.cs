@@ -230,26 +230,18 @@ namespace CoffeeSoft.App
         {
             try
             {
-
                 var listExp = service.ExportService.GetDetailExportByTableId(general.TableId);
-
                 this.BuildGridTotal(listExp);
-
-
             }
             catch (Exception ex)
             {
-
                 return;
             }
 
         }
 
-
-
         private void BuildGridTotal(List<ExportDetailModel> listExp)
         {
-
             decimal totalDicount = 0;
             decimal totalService = 0;
             decimal totalVAT = 0;
@@ -362,10 +354,6 @@ namespace CoffeeSoft.App
             txtService.Text = "0";
             txtDiscount.Text = "0";
             gridControl2.DataSource = listExp;
-
-
-
-
         }
 
         private void button_LostFocus(object sender, EventArgs e)
@@ -382,9 +370,6 @@ namespace CoffeeSoft.App
                 button.Appearance.ForeColor = Color.Black;
 
             }
-
-
-
         }
 
 
@@ -410,7 +395,6 @@ namespace CoffeeSoft.App
         private void btnSaveDiscount_Click(object sender, EventArgs e)
         {
             this.UpdateDiscount();
-
         }
 
         private void UpdateDiscount()
@@ -418,22 +402,15 @@ namespace CoffeeSoft.App
 
             this.expENT = new ExportModel();
             expENT.Id = General.general.ExportId;
-
             this.expENT.Service = decimal.Parse((this.txtService.Text == "" ? "0" : this.txtService.Text));
             this.expENT.Vat = decimal.Parse((this.txtVat.Text == "" ? "0" : this.txtVat.Text));
             this.expENT.TableDiscount = decimal.Parse((this.txtDiscount.Text == "" ? "0" : this.txtDiscount.Text));
 
-
             if (service.ExportService.UpdateServiceAndVat(this.expENT))
             {
-
                 this.LoadDataGridDetail();
             }
         }
-
-
-
-
 
         private void txtDiscount_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -453,19 +430,18 @@ namespace CoffeeSoft.App
                 {
 
                     // check table is having guest
-                    if (service.ExportService.InitUpdateExport(general.ExportId,general.TableId,general.UserKey,row.Id, 1, general.CompanyId, row.CurrentPriceId, row.CurrentPriceValue))
+                    if (service.ExportService.InitUpdateExport(general.ExportId, general.TableId, general.UserKey, row.Id, 1, general.CompanyId, row.CurrentPriceId, row.CurrentPriceValue))
                     {
                         this.LoadDataGridDetail();
-                        ActiveTableHaveGuest(Consts.TableStatus.HaveGuest);
+                        ActiveTableHaveGuest(Consts.TableStatus.HaveGuest, false);
                         return;
                     }
                     else
                     {
                         this.LoadDataGridDetail();
-                        ActiveTableHaveGuest(Consts.TableStatus.HaveGuest);
+                        ActiveTableHaveGuest(Consts.TableStatus.HaveGuest, false);
 
-                        return;
-                    }
+                        return;}
                 }
 
                 if ((e as DXMouseEventArgs).Button == System.Windows.Forms.MouseButtons.Right
@@ -474,24 +450,26 @@ namespace CoffeeSoft.App
 
                     if (!service.ExportService.InitUpdateExport(general.ExportId, general.TableId, general.UserKey, row.Id, -1, general.CompanyId, row.CurrentPriceId, row.CurrentPriceValue))
                     {
-                        ActiveTableHaveGuest(Consts.TableStatus.Selected);
+                        ActiveTableHaveGuest(Consts.TableStatus.Selected, false);
                     }
                     this.LoadDataGridDetail();
 
                 }
 
-        }
+            }
             catch (Exception ex)
             {
 
-                throw  new Exception(ex.Message);
-    }
+                throw new Exception(ex.Message);
+            }
 
-}
+        }
 
-        private void ActiveTableHaveGuest(int tableStatus)
+        private void ActiveTableHaveGuest(int tableStatus, bool isJoinOrSplit)
         {
-            var buttons = this.panelTable.Controls.Find(general.TableId.ToString(), true);
+            var tableId = "0";tableId = isJoinOrSplit ? general.tableIdJoinOrSplit.ToString() : general.TableId.ToString();
+
+            var buttons = this.panelTable.Controls.Find(tableId, true);
             foreach (var item in buttons)
             {
                 if (item.GetType() == typeof (SimpleButton))
@@ -525,47 +503,50 @@ namespace CoffeeSoft.App
         {
             try
             {
-                ExportDetailModel row = (ExportDetailModel)this.gridView2.GetFocusedRow();
-                if ((e as DXMouseEventArgs).Button == System.Windows.Forms.MouseButtons.Left
-                    && (e as DXMouseEventArgs).Clicks == 2)
+                var row = (ExportDetailModel)this.gridView2.GetFocusedRow();
+                if (row != null)
                 {
 
-                    // check table is having guest
-                    if (row.Price != null && service.ExportService.InitUpdateExport(general.ExportId, general.TableId, general.UserKey, row.ItemId, 1, general.CompanyId, row.ItemPriceId, (decimal)row.Price))
-                    { 
+                   
+                    if ((e as DXMouseEventArgs).Button == System.Windows.Forms.MouseButtons.Left
+                        && (e as DXMouseEventArgs).Clicks == 2)
+                    {
+
+                        // check table is having guest
+                        if (row.Price != null && service.ExportService.InitUpdateExport(general.ExportId, general.TableId, general.UserKey, row.ItemId, 1, general.CompanyId, row.ItemPriceId, (decimal)row.Price))
+                        {
+                            this.LoadDataGridDetail();
+                            ActiveTableHaveGuest(Consts.TableStatus.HaveGuest, false);
+                            return;
+                        }
+                        else
+                        {
+                            this.LoadDataGridDetail();
+                            ActiveTableHaveGuest(Consts.TableStatus.HaveGuest, false);
+
+                            return;
+                        }
+                    }
+
+                    if ((e as DXMouseEventArgs).Button == System.Windows.Forms.MouseButtons.Right
+                        && (e as DXMouseEventArgs).Clicks == 2)
+                    {
+
+                        if (row.Price != null && !service.ExportService.InitUpdateExport(general.ExportId, general.TableId, general.UserKey, row.ItemId, -1, general.CompanyId, row.ItemPriceId, row.Price.Value))
+                        {
+                            ActiveTableHaveGuest(Consts.TableStatus.NotHaveGuest, false);
+                        }
                         this.LoadDataGridDetail();
-                        ActiveTableHaveGuest(Consts.TableStatus.HaveGuest);
+
                         return;
                     }
-                    else
-                    {
-                        this.LoadDataGridDetail();
-                        ActiveTableHaveGuest(Consts.TableStatus.HaveGuest);
 
-                        return;
-                    }
                 }
-
-                if ((e as DXMouseEventArgs).Button == System.Windows.Forms.MouseButtons.Right
-                    && (e as DXMouseEventArgs).Clicks == 2)
-                {
-
-                    if (row.Price != null && !service.ExportService.InitUpdateExport(general.ExportId, general.TableId, general.UserKey, row.ItemId, -1, general.CompanyId, row.ItemPriceId, row.Price.Value))
-                    {
-                        ActiveTableHaveGuest(Consts.TableStatus.NotHaveGuest);
-                    }
-                    this.LoadDataGridDetail();
-
-                    return;
-                }
-
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                return;
+                throw ex;
             }
-
         }
 
         private void gridView2_PopupMenuShowing(
@@ -594,21 +575,24 @@ namespace CoffeeSoft.App
             try
             {
                 ExportDetailModel row = (ExportDetailModel)this.gridView2.GetFocusedRow();
-                decimal inSt = (decimal)((decimal)row.ItemDiscount == null ? 0 : row.ItemDiscount);
-                string cellValue = "0";
-                if (inSt < 0 || inSt > 100)
+                if (row != null)
                 {
-                    //Set errors with specific descriptions for the columns
-                    MessageBox.Show("Chỉ được giảm giá từ 0% đến 100%", "Thông báo");
+
+                    decimal inSt = (decimal)((decimal)row.ItemDiscount == null ? 0 : row.ItemDiscount);
+                    string cellValue = "0";
+                    if (inSt < 0 || inSt > 100)
+                    {
+                        //Set errors with specific descriptions for the columns
+                        MessageBox.Show("Chỉ được giảm giá từ 0% đến 100%", "Thông báo");
+                        this.LoadDataGridDetail();
+                        return;
+                    }
+
+                    service.ExportService.UpdateDiscountForItem(General.general.ExportId, row.ItemId, inSt);
                     this.LoadDataGridDetail();
-                    return;
+                    gridView2.FocusedRowHandle = gridView2.RowCount - 1;
+                    gridView2.Focus();
                 }
-
-
-                service.ExportService.UpdateDiscountForItem(General.general.ExportId, row.ItemId, inSt);
-                this.LoadDataGridDetail();
-                gridView2.FocusedRowHandle = gridView2.RowCount - 1;
-                gridView2.Focus();
             }
             catch (Exception)
             {
@@ -617,13 +601,14 @@ namespace CoffeeSoft.App
 
         }
 
-        private void gridView2_Click(object sender, EventArgs e)
-        {
+        private void gridView2_Click(object sender, EventArgs e){
             try
             {
                 ExportDetailModel row = (ExportDetailModel)this.gridView2.GetFocusedRow();
-                general.itemId = row.ItemId;
-
+                if (row != null)
+                {
+                    general.itemId = row.ItemId;
+                }
             }
             catch (Exception)
             {
@@ -649,7 +634,7 @@ namespace CoffeeSoft.App
                     UpdateDiscount();
                     if (service.ExportService.PaidBill(general.ExportId, customer, chkUseKul.Checked, general.TotalExportValue))
                     {
-                        ActiveTableHaveGuest(Consts.TableStatus.NotHaveGuest);
+                        ActiveTableHaveGuest(Consts.TableStatus.NotHaveGuest, false);
                     }
                     
                    
@@ -670,8 +655,7 @@ namespace CoffeeSoft.App
 
 
 
-        int x = 0;
-        int y = 0;
+        int x = 0;int y = 0;
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             x = 0;
@@ -1189,12 +1173,9 @@ namespace CoffeeSoft.App
                 if (!char.IsControl(e.KeyChar) && (!char.IsDigit(e.KeyChar)) && (e.KeyChar != '-'))
                     e.Handled = true;
 
-
                 // only allow minus sign at the beginning
                 if (e.KeyChar == '-' && (sender as TextBox).Text.Length > 0)
                     e.Handled = true;
-
-
 
                 if (((Keys)e.KeyChar == Keys.Enter))
                 {
@@ -1206,13 +1187,13 @@ namespace CoffeeSoft.App
                     var result = control.AddItemToExportForForm(int.Parse(this.txtQuantity.Text));
                     if (result == false)
                     {
-                        ActiveTableHaveGuest(Consts.TableStatus.NotHaveGuest);
+                        ActiveTableHaveGuest(Consts.TableStatus.NotHaveGuest, false);
                         this.LoadDataGridDetail();
                         showFilterItem();
                     }
                     else
                     {
-                        ActiveTableHaveGuest(Consts.TableStatus.HaveGuest);
+                        ActiveTableHaveGuest(Consts.TableStatus.HaveGuest, false);
                         this.txtShortcut.SelectAll();
                         this.txtShortcut.Focus();
                         this.LoadDataGridDetail();
@@ -1268,16 +1249,13 @@ namespace CoffeeSoft.App
         {
             try
             {
-
-
                 if (e.KeyData.ToString() == general.NEWTABLE)
                 {
                     if (flag == false)
                     {
                         if (general.TableId > 0)
                         {
-                            txttable.Text = general.TableId.ToString();
-                            txttable.SelectAll();
+                            txttable.Text = general.TableId.ToString();txttable.SelectAll();
                             txttable.Focus();
                             panelExportByForm.Visible = true;
                             txtShortcut.Focus();
@@ -1293,33 +1271,30 @@ namespace CoffeeSoft.App
                 if (e.KeyData.ToString() == general.SLIPT)
                 {
                     if (Application.OpenForms["frmSplitTable"] == null)
-                    {
-                        frmSplitTable area = new frmSplitTable();
+                    {var area = new frmSplitTable(service);
                         area.ShowDialog();
-                        ActiveTableHaveGuest(Consts.TableStatus.HaveGuest);
+                        ActiveTableHaveGuest(Consts.TableStatus.HaveGuest, true);
                         this.LoadDataGridDetail();
                         return;
                     }
                     Application.OpenForms["frmSplitTable"].ShowDialog();
-                    ActiveTableHaveGuest(Consts.TableStatus.HaveGuest);
+                    ActiveTableHaveGuest(Consts.TableStatus.HaveGuest, true);
                     this.LoadDataGridDetail();
                     return;
                 }
 
                 if (e.KeyData.ToString() == general.JOIN)
-                {
-                    if (Application.OpenForms["FrmJoinTable"] == null)
+                {if (Application.OpenForms["FrmJoinTable"] == null)
                     {
-                        FrmJoinTable area = new FrmJoinTable();
+                        FrmJoinTable area = new FrmJoinTable(service);
                         area.ShowDialog();
                         this.LoadDataGridDetail();
-                        ActiveTableHaveGuest(Consts.TableStatus.NotHaveGuest);
+                        ActiveTableHaveGuest(Consts.TableStatus.NotHaveGuest, false);
                         return;
                     }
                     Application.OpenForms["FrmJoinTable"].ShowDialog();
                     this.LoadDataGridDetail();
-                    ActiveTableHaveGuest(Consts.TableStatus.NotHaveGuest);
-                    return;
+                    ActiveTableHaveGuest(Consts.TableStatus.NotHaveGuest, false);return;
                 }
 
                 if (e.KeyData.ToString() == general.PAID)
@@ -1341,8 +1316,7 @@ namespace CoffeeSoft.App
                             UpdateDiscount();
                             if (service.ExportService.PaidBill(general.ExportId, customer, chkUseKul.Checked, general.TotalExportValue))
                             {
-                                ActiveTableHaveGuest(Consts.TableStatus.NotHaveGuest);
-                            }
+                                ActiveTableHaveGuest(Consts.TableStatus.NotHaveGuest, false);}
                         }
 
                     }
@@ -1375,13 +1349,8 @@ namespace CoffeeSoft.App
                     {
                         if (gridView2.RowCount > 0)
                         {
-
-
-
                             printDocument1.PrinterSettings.PrinterName = general.PrinterBillName;
                             printDocument1.Print();
-
-
                         }
 
                     }
@@ -1490,24 +1459,27 @@ namespace CoffeeSoft.App
                 //if (service.R(general.groupUserId, Role.split_table))
                 //{
 
-                //    if (Application.OpenForms["frmSplitTable"] == null)
-                //    {
-                //        frmSplitTable area = new frmSplitTable();
-                //        area.ShowDialog();
-                //        var button2 = (SimpleButton)this.panelTable.Controls.Find(general.TableId.ToString(), true)[1];
-                //        button2.Appearance.BackColor = System.Drawing.Color.DodgerBlue;
-                //        this.LoadDataGridDetail();
-                //        return;
-                //    }
-                //    Application.OpenForms["frmSplitTable"].ShowDialog();
-                //    if (general.SuccessFlag)
-                //    {
-                //        var button1 = (SimpleButton)this.panelTable.Controls.Find(general.TableId.ToString(), true)[1];
-                //        button1.Appearance.BackColor = System.Drawing.Color.DodgerBlue;
-                //        this.LoadDataGridDetail();
-                //    }
+                if (Application.OpenForms["frmSplitTable"] == null)
+                {
+                    frmSplitTable area = new frmSplitTable(service);
+                    area.ShowDialog();
+                    this.LoadDataGridDetail();
 
-                //    return;
+                }
+                else
+                {
+                    Application.OpenForms["frmSplitTable"].ShowDialog();
+                    
+                }
+
+
+                if (general.SuccessFlag)
+                {
+                    ActiveTableHaveGuest(Consts.TableStatus.HaveGuest, true);
+                   
+                    general.SuccessFlag = false;
+                }
+                
                 //}
                 //MessageBox.Show("Bạn chưa chưa được cấp quyền sử dụng cho tính năng này");
             }
@@ -1527,22 +1499,19 @@ namespace CoffeeSoft.App
 
                 //if (service.R(general.groupUserId, Role.join_table))
                 //{
-                //    if (Application.OpenForms["FrmJoinTable"] == null)
-                //    {
-                //        FrmJoinTable area = new FrmJoinTable();
-                //        area.ShowDialog();
-                //        this.LoadDataGridDetail();
-                //        var button1 = (SimpleButton)this.panelTable.Controls.Find(general.tableIdJoin.ToString(), true)[0];
-                //        button1.Appearance.BackColor = System.Drawing.Color.Wheat;
-                //        button1.Appearance.ForeColor = Color.Black;
-                //        return;
-                //    }
-                //    Application.OpenForms["FrmJoinTable"].ShowDialog();
-                //    this.LoadDataGridDetail();
-                //    var button = (SimpleButton)this.panelTable.Controls.Find(general.tableIdJoin.ToString(), true)[0];
-                //    button.Appearance.BackColor = System.Drawing.Color.Wheat;
-                //    button.Appearance.ForeColor = Color.Black;
-                //    return;
+                    if (Application.OpenForms["FrmJoinTable"] == null)
+                    {
+                        FrmJoinTable area = new FrmJoinTable(service);
+                        area.ShowDialog();
+                        this.LoadDataGridDetail();
+                       
+                    ActiveTableHaveGuest(Consts.TableStatus.NotHaveGuest,true);
+                    return;
+                    }
+                    Application.OpenForms["FrmJoinTable"].ShowDialog();
+                    this.LoadDataGridDetail();
+                ActiveTableHaveGuest(Consts.TableStatus.NotHaveGuest, true);
+                return;
                 //}
                 //MessageBox.Show("Bạn chưa chưa được cấp quyền sử dụng cho tính năng này");
             }
@@ -2017,8 +1986,6 @@ namespace CoffeeSoft.App
 
         private void ResetValueForMember()
         {
-
-
             lblCustomerName.Text = "";
             lblTotalKul.Text = "";
             lblKulCalculate.Text = "";
@@ -2070,9 +2037,6 @@ namespace CoffeeSoft.App
             var fieldName = gv.GetRowCellValue(e.RowHandle, gv.Columns["Note"]);
             if (fieldName != null)
             {
-
-
-
                 switch (fieldName.ToString())
                 {
                     case "True":
@@ -2124,15 +2088,20 @@ namespace CoffeeSoft.App
             if (check != null && (bool)check.EditValue)
             {
                 var row = (ExportDetailModel)this.gridView2.GetRow(gridView2.GetFocusedDataSourceRowIndex());
-                service.ExportService.UpdateNoteForExportDetailItem(general.ExportId, row.ItemId, true);
-                LoadDataGridDetail();
-
+                if (row != null)
+                {
+                    service.ExportService.UpdateNoteForExportDetailItem(general.ExportId, row.ItemId, true);
+                    LoadDataGridDetail();
+                }
             }
             else
             {
                 var row = (ExportDetailModel)this.gridView2.GetRow(gridView2.GetFocusedDataSourceRowIndex());
-                service.ExportService.UpdateNoteForExportDetailItem(general.ExportId, row.ItemId, false);
-                LoadDataGridDetail();
+                if (row != null)
+                {
+                    service.ExportService.UpdateNoteForExportDetailItem(general.ExportId, row.ItemId, false);
+                    LoadDataGridDetail();
+                }
             }
         }
 

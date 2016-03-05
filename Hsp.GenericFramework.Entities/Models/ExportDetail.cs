@@ -5,10 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hsp.GenericFramework.Entities.Base;
 
 namespace Hsp.GenericFramework.Entities.Models
 {
-    public class ExportDetail : BaseEntity
+    public class ExportDetail : BaseEntityWithUserInformation
     {
         [Key, Column(Order = 1)]
         public string ExportId { get; set; }

@@ -17,7 +17,7 @@ namespace Hsp.GenericFramework.Services.Services
         readonly IUnitOfWork _unitOfWork;
         readonly IGenericRepository<Language> _languageRepository;
         public UserProfileLogin _currentUser;
-        public LanguageService(IUnitOfWork unitOfWork, IGenericRepository<Language> languageRepository)
+        public LanguageService(IUnitOfWork unitOfWork, IGenericRepository<Language> languageRepository) : base(unitOfWork)
         {
             _languageRepository = languageRepository;
             _unitOfWork = unitOfWork;

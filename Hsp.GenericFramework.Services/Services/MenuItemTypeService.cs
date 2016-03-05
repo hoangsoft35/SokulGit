@@ -17,7 +17,7 @@ namespace Hsp.GenericFramework.Services.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IGenericRepository<MenuItemType> _menuItemTypeRepository;
         private readonly IGenericRepository<MenuItemAuthorisation> _menuItemAuthorisationRepository;
-        public MenuItemTypeService(IUnitOfWork unitOfWork, IGenericRepository<MenuItemType> menuItemTypeRepository, IGenericRepository<MenuItemAuthorisation> menuItemAuthorisationRepository)
+        public MenuItemTypeService(IUnitOfWork unitOfWork, IGenericRepository<MenuItemType> menuItemTypeRepository, IGenericRepository<MenuItemAuthorisation> menuItemAuthorisationRepository) : base(unitOfWork)
         {
             _unitOfWork = unitOfWork;
             _menuItemTypeRepository = menuItemTypeRepository;

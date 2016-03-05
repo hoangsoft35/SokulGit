@@ -1,5 +1,7 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using System.Linq;
+using Hsp.GenericFramework.Entities.Base;
 using Hsp.GenericFramework.Entities.Models;
 
 namespace Hsp.GenericFramework.Entities
@@ -26,8 +28,7 @@ namespace Hsp.GenericFramework.Entities
         public DbSet<User> Users { get; set; }
         public DbSet<Loopkup> Loopkups { get; set; }
 
-        public DbSet<ExportGiftDetail> ExportGiftDetails { get; set; }
-        public DbSet<ExportGift> ExportGifts { get; set; }
+        public DbSet<ExportGiftDetail> ExportGiftDetails { get; set; }public DbSet<ExportGift> ExportGifts { get; set; }
         public DbSet<ImportGiftDetail> ImportGiftDetails { get; set; }
         public DbSet<ImportGift> ImportGifts { get; set; }
         public DbSet<GiftStore> GiftStores { get; set; }
@@ -77,7 +78,38 @@ namespace Hsp.GenericFramework.Entities
         public DbSet<StatusTranslation> StatusTranslations { get; set; }
         public DbSet<Status> Statuses { get; set; }
         public DbSet<Resource> Resources { get; set; }
-        
+
+        public override int SaveChanges()
+        {
+            try
+            {
+                var changeSets = ChangeTracker.Entries<BaseEntityWithUserInformation>();
+                if (changeSets != null)
+                {
+                    foreach (var entry in changeSets.Where(ent => ent.State != EntityState.Unchanged))
+                    {
+                        if (entry.GetType().GetProperty("Created") != null && entry.GetType().GetProperty("Updated") != null)
+                        {
+                            if (entry.State == EntityState.Added)
+                            {
+                                entry.Entity.Created = DateTimeOffset.UtcNow;
+                            }
+                            else
+                            {
+                                entry.Entity.Updated = DateTimeOffset.UtcNow;
+                            }
+                        }
+                       
+                    }
+                }
+                return base.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
 
     }
 }

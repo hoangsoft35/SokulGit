@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hsp.GenericFramework.Entities.Base;
 
 namespace Hsp.GenericFramework.Entities.Models
 {
-    public class GiftType : BaseEntity
+    public class GiftType : BaseEntityWithUserInformation
     {
         [Key]
         public int Id { get; set; }

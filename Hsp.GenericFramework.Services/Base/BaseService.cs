@@ -9,15 +9,15 @@ using Hsp.GenericFramework.IServices.IServices;
 using Hsp.GenericFramework.Commons.Security;
 using Hsp.GenericFramework.Commons;
 using Hsp.GenericFramework.IServices.Base;
+using Hsp.GenericFramework.IUnitOfWorks;
 
 namespace Hsp.GenericFramework.Services.Base
 {
     public class BaseService: IBaseService
     {
 
-        public BaseService()
-        {
-           
+        public BaseService(IUnitOfWork unitOfWork){
+            UnitOfWork = unitOfWork;
         }
         public UserProfileLogin CurrentUser { get; set; }
         public int LanguageId
@@ -30,5 +30,7 @@ namespace Hsp.GenericFramework.Services.Base
             {
             }
         }
+
+        public IUnitOfWork UnitOfWork { get; set; }
     }
 }

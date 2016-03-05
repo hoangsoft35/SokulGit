@@ -17,6 +17,7 @@ namespace Hsp.GenericFramework.UnitOfWorks
        
         public int SaveChanges()
         {
+
             using (var tran = _context.Database.BeginTransaction())
             {
                 try
@@ -28,7 +29,7 @@ namespace Hsp.GenericFramework.UnitOfWorks
                 catch (Exception ex)
                 {
                     tran.Rollback();
-                    throw new Exception(ex.Message);
+                    throw ex;
 
                 }
             }

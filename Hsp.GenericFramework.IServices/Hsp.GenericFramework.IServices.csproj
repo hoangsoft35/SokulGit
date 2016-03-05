@@ -58,6 +58,10 @@
       <Project>{47387447-96B7-42FA-A69B-D97D75702B54}</Project>
       <Name>Hsp.GenericFramework.Commons</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Hsp.GenericFramework.IUnitOfWorks\Hsp.GenericFramework.IUnitOfWorks.csproj">
+      <Project>{E14586F5-1B7D-4BB4-AD32-5B7EEE6C8719}</Project>
+      <Name>Hsp.GenericFramework.IUnitOfWorks</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -7,6 +7,7 @@ namespace CoffeeSoft.App.General
 {
     public class general
     {
+
         public static bool isAdministrator=false;
 
         public static int TableId;
@@ -18,12 +19,11 @@ namespace CoffeeSoft.App.General
         public static int empId = 1;
         public static string ExportId;
 
-        public static int tableIdJoin;
+        public static int tableIdJoinOrSplit;
         public static DateTimeOffset DateCreate;
         public static DateTimeOffset? DatePaid;
         public static string tableName;
         public static string areaName;
-
         public static int groupUserCode;
 
         public static bool SuccessFlag = false;

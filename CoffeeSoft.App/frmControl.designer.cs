@@ -44,6 +44,7 @@
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.CurrentPriceId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtItemName = new DevExpress.XtraEditors.TextEdit();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -179,7 +180,6 @@
             this.hướngDẫnSửDụngChươngTrìnhToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vềSokulSoftwareToolStripMenuItem = new System.Windows.Forms.ToolStripSeparator();
             this.thôngTinVềPhầnMềmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CurrentPriceId = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelExportByForm)).BeginInit();
@@ -479,6 +479,12 @@
             this.gridColumn7.FieldName = "ItemTypeName";
             this.gridColumn7.Name = "gridColumn7";
             // 
+            // CurrentPriceId
+            // 
+            this.CurrentPriceId.Caption = "CurrentPriceId";
+            this.CurrentPriceId.FieldName = "CurrentPriceId";
+            this.CurrentPriceId.Name = "CurrentPriceId";
+            // 
             // labelControl8
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -759,7 +765,7 @@
             this.ITEMPRICE.Caption = "Đơn giá";
             this.ITEMPRICE.DisplayFormat.FormatString = "{0:0,0}";
             this.ITEMPRICE.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
-            this.ITEMPRICE.FieldName = "CurrentPrice";
+            this.ITEMPRICE.FieldName = "Price";
             this.ITEMPRICE.Name = "ITEMPRICE";
             this.ITEMPRICE.OptionsColumn.AllowEdit = false;
             this.ITEMPRICE.OptionsColumn.AllowFocus = false;
@@ -1979,12 +1985,6 @@
             this.thôngTinVềPhầnMềmToolStripMenuItem.Size = new System.Drawing.Size(252, 22);
             this.thôngTinVềPhầnMềmToolStripMenuItem.Text = "Thông tin về phần mềm";
             this.thôngTinVềPhầnMềmToolStripMenuItem.Click += new System.EventHandler(this.thôngTinVềPhầnMềmToolStripMenuItem_Click);
-            // 
-            // CurrentPriceId
-            // 
-            this.CurrentPriceId.Caption = "CurrentPriceId";
-            this.CurrentPriceId.FieldName = "CurrentPriceId";
-            this.CurrentPriceId.Name = "CurrentPriceId";
             // 
             // frmControl
             // 

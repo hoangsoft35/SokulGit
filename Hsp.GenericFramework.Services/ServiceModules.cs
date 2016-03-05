@@ -23,8 +23,7 @@ namespace Hsp.GenericFramework.Services
         protected override void Load(ContainerBuilder builder)
         {
           
-            if (_autofacModuleType == "web")
-            {
+            if (_autofacModuleType == "web"){
                 builder.RegisterAssemblyTypes(Assembly.Load("Hsp.GenericFramework.Services"))
                 .Where(x => x.Name.EndsWith("Service")).InstancePerLifetimeScope().AsImplementedInterfaces();
             }

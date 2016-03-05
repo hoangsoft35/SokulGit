@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using Hsp.GenericFramework.Entities.Base;
 
 namespace Hsp.GenericFramework.Entities.Models
 {
-    public class Table : BaseEntity
+    public class Table : BaseEntityWithUserInformation
     {
         [Key]
         public int Id { get; set; }

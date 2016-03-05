@@ -22,7 +22,7 @@ namespace Hsp.GenericFramework.Services.Services
         private readonly IGenericRepository<MenuItem> _menuItemRepository;
         private readonly IGenericRepository<MenuItemTranslation> _menuItemTranslationRepository;
         private readonly IGenericRepository<MenuItemAuthorisation> _menuItemAuthorisationRepository;
-        public MenuItemService(IUnitOfWork unitOfWork, IGenericRepository<MenuItem> menuItemRepository, IGenericRepository<MenuItemAuthorisation> menuItemAuthorisationRepository, IGenericRepository<MenuItemTranslation> menuItemTranslationRepository)
+        public MenuItemService(IUnitOfWork unitOfWork, IGenericRepository<MenuItem> menuItemRepository, IGenericRepository<MenuItemAuthorisation> menuItemAuthorisationRepository, IGenericRepository<MenuItemTranslation> menuItemTranslationRepository) : base(unitOfWork)
         {
             _unitOfWork = unitOfWork;
             _menuItemRepository = menuItemRepository;

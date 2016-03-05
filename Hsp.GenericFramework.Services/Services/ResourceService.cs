@@ -18,7 +18,7 @@ namespace Hsp.GenericFramework.Services.Services
         readonly IUnitOfWork _unitOfWork;
         readonly IGenericRepository<Resource> _resourceRepository;
         
-        public ResourceService(IUnitOfWork unitOfWork, IGenericRepository<Resource> loopkupRepository)
+        public ResourceService(IUnitOfWork unitOfWork, IGenericRepository<Resource> loopkupRepository) : base(unitOfWork)
         {
             _resourceRepository = loopkupRepository;
             _unitOfWork = unitOfWork;
