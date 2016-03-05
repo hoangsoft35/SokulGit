@@ -1,5 +1,23 @@
-﻿$(document).ready(function () {
+﻿//$(function () {
+//    $('.treeview li:has(ul)').find(' > span.icon').removeClass('glyphicon-minus');
+//    $('.treeview li:has(ul)').find(' > span.icon').addClass('glyphicon-plus');
+//    //$('.treeview li.parent_li > span').on('click', function (e) {
+//    //    var children = $(this).parent('li.parent_li').find(' > ul > li');
+//    //    if (children.is(":visible")) {
+//    //        children.hide('fast');
+//    //        $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
+//    //    } else {
+//    //        children.show('fast');
+//    //        $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
+//    //    }
+//    //    e.stopPropagation();
+//    //});
+//});
+
+
+$(document).ready(function () {
     menuItemTypeChange();
+    
     $('#btnAdd').on('click', function () {
         var selectedNode = $('#tree').treeview('getSelected');
         if (selectedNode && selectedNode.length)
@@ -110,7 +128,7 @@ function menuItemTypeChange() {
         type: 'GET',
         success: function (data) {
             _menuItems = data;
-            $('#tree').treeview({ data: mapMenuItemsData() });
+            $('#tree').treeview({ data: mapMenuItemsData() });            
             $('#tree').on('nodeSelected', function (event, data) {
                 console.log(data);
                 if (data.Level == 3) {
@@ -148,18 +166,38 @@ function save() {
     $.ajax({
         url: "/domain/MenuItem/CreateMenuItem",
         type: 'POST',
-        data: JSON.stringify(menuItemCreateViewModels),
+        data: menuItemCreateViewModels,
         success: function (data) {
-            if (data.Code == 0) {
-                $.notify("Save data success", "info");
+            $('#addNewModal').modal('toggle');
+            if (data.Code == 0) {                
+                alertify.success('Save data success');
             }
             else {
-                $.notify("Failed to save data", "error");
+                alertify.error('Failed to save data');
             }
         },
         error: function (err) {
-            $.notify("Failed to save data", "error");
+            alertify.error('Failed to save data');
             console.log(err);
         }
     });
+}
+
+
+
+function addNode() {
+    var tree = $('#tree').treeview('getTreeData');
+    var node = {
+        "Id": "fd76dc8c-79b1-4975-8525-d63d761f5422", "IsRoot": false, "IsActive": true,
+        "ParentId": "fd76dc8c-79b1-4975-8525-d63d761f54ae", "Label": "Users2", "IsTitle": true, "IsLink": false,
+        "ControllerName": "NULL", "ActionName": "NULL", "SectionParameter": 1, "Order": 7, "Level": 3, "text": "Users2", "nodes": [],
+        "nodeId": 16, "parentId": 7, "selectable": true, "state": {
+            "checked": false, "disabled": false, "expanded": false, "selected": false
+        }
+    };
+
+    var parent = _.find(tree, { Id: "fd76dc8c-79b1-4975-8525-d63d761f54ae" });
+    parent.nodes.push(node);
+    $('#tree').treeview('expandNode', parent, { ignoreChildren: false, silent: false });
+    console.log(tree);
 }

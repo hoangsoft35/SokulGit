@@ -1,8 +1,9 @@
-﻿using System;
+﻿using Hsp.GenericFramework.Commons.Dtos.Base;
+using System;
 
 namespace Hsp.GenericFramework.Commons.Dtos.Models
 {
-    public class MenuItemModel 
+    public class MenuItemModel : BaseEntityModel
     {
         public Guid Id { get; set; }
         public bool IsRoot { get; set; }

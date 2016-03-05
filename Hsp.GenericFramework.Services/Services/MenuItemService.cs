@@ -22,41 +22,30 @@ namespace Hsp.GenericFramework.Services.Services
         private readonly IGenericRepository<MenuItem> _menuItemRepository;
         private readonly IGenericRepository<MenuItemTranslation> _menuItemTranslationRepository;
         private readonly IGenericRepository<MenuItemAuthorisation> _menuItemAuthorisationRepository;
-        public MenuItemService(IUnitOfWork unitOfWork, IGenericRepository<MenuItem> menuItemRepository, IGenericRepository<MenuItemAuthorisation> menuItemAuthorisationRepository, IGenericRepository<MenuItemTranslation> menuItemTranslationRepository) : base(unitOfWork)
+        private readonly IGenericRepository<Language> _languageRepository;
+        public MenuItemService(IUnitOfWork unitOfWork, IGenericRepository<MenuItem> menuItemRepository, IGenericRepository<MenuItemAuthorisation> menuItemAuthorisationRepository, IGenericRepository<MenuItemTranslation> menuItemTranslationRepository, IGenericRepository<Language> languageRepository) : base(unitOfWork)
         {
             _unitOfWork = unitOfWork;
             _menuItemRepository = menuItemRepository;
             _menuItemAuthorisationRepository = menuItemAuthorisationRepository;
             _menuItemTranslationRepository = menuItemTranslationRepository;
+            _languageRepository = languageRepository;
         }
         public List<MenuItemModel> GetMenuByRole(string[] roleIds, int languageId)
         {
             var listMenuItem =
-                _menuItemAuthorisationRepository.Get(x => roleIds.Contains(x.RoleId.ToString())).Select(c => c.MenuItem).OrderBy(x => x.Order)
-                .Where(z => z.MenuItemTranslations.FirstOrDefault(x => x.LanguageId == languageId) != null).ToList();
+                _menuItemAuthorisationRepository.Get(x => roleIds.Contains(x.RoleId.ToString())).Select(c => c.MenuItem).OrderBy(r => r.Order).Select(r => r.Id);
 
-            foreach (var menuItem in listMenuItem)
-            {
-                menuItem.MenuItemTranslations = menuItem.MenuItemTranslations.Where(x => x.LanguageId == languageId).ToList();
-            }
+            var listMenuItemTranslate = _menuItemTranslationRepository.Get(r => listMenuItem.Contains(r.MenuItemId) && r.LanguageId == languageId).ToList();            
 
-            var itemModels =  listMenuItem.Select(Mapper.Map<MenuItemModel>).ToList();
+            var itemModels = listMenuItemTranslate.Select(Mapper.Map<MenuItemModel>).ToList();
             return itemModels;
         }
 
         public List<MenuItemModel> GetMenuByMenuType(int languageId, string menuItemTypeId)
         {
-            //var listMenuItem =
-            //    _menuItemRepository.Get(r=>r.MenuItemTypeId == new Guid(menuItemTypeId)).OrderBy(r=>r.Order)
-            //    .Where(z => z.MenuItemTranslations.FirstOrDefault(x => x.LanguageId == languageId) != null).ToList();
-
             var listMenuItem = _menuItemTranslationRepository.Get(r => r.MenuItem.MenuItemTypeId == new Guid(menuItemTypeId)
             && r.LanguageId == languageId).ToList();
-            //foreach (var menuItem in listMenuItem)
-            //{
-            //    var menuItemTranslations = menuItem.MenuItemTranslations.Where(x => x.LanguageId == languageId).ToList();
-            //}
-
             var itemModels = listMenuItem.Select(Mapper.Map<MenuItemModel>).ToList();
             return itemModels;
         }
@@ -69,11 +58,16 @@ namespace Hsp.GenericFramework.Services.Services
                 menuItem.Id = Guid.NewGuid();
                 _menuItemRepository.Add(menuItem);
 
-                MenuItemTranslation menuItemTranslation = new MenuItemTranslation();
-                menuItemTranslation = Mapper.Map<MenuItemTranslationCreateViewModel, MenuItemTranslation>(menuItemCreateViewModels.MenuItemTranslationCreate);
-                menuItemTranslation.MenuItemId = menuItem.Id;
-                menuItemTranslation.LanguageId = Consts.LangCultures.DefaultLanguage;
-                _menuItemTranslationRepository.Add(menuItemTranslation);
+                var languages = _languageRepository.GetAll().ToList();
+                foreach(var lang in languages)
+                {
+                    MenuItemTranslation menuItemTranslation = new MenuItemTranslation();
+                    menuItemTranslation = Mapper.Map<MenuItemTranslationCreateViewModel, MenuItemTranslation>(menuItemCreateViewModels.MenuItemTranslationCreate);
+                    menuItemTranslation.MenuItemId = menuItem.Id;
+                    menuItemTranslation.LanguageId = lang.Id;
+                    _menuItemTranslationRepository.Add(menuItemTranslation);
+                }
+                
                 _unitOfWork.SaveChanges();
                 return new ErrorModel();
             }

@@ -1,3 +1,7 @@
 ﻿#left-menu {
     display: none;
 }
+label.error {
+    color:#b94a48;
+    font-weight: normal !important;
+}
