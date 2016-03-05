@@ -29,10 +29,10 @@ namespace Migration.Admin.Migrations
 
         public override void Down()
         {
-            Execute.Sql("DELETE FROM MenuItemTranslations WHERE MenuItemId = (select top 1 MenuItemId from MenuItemTranslations where Label = N'Trang chủ' and LanguageId =2) and LanguageId =2");
-            Execute.Sql("DELETE FROM MenuItemTranslations WHERE MenuItemId = (select top 1 MenuItemId from MenuItemTranslations where Label = N'Quản trị nội dung' and LanguageId =2) and LanguageId =2");
-            Execute.Sql("DELETE FROM MenuItemTranslations WHERE MenuItemId = (select top 1 MenuItemId from MenuItemTranslations where Label = N'Quản trị hệ thống' and LanguageId =2) and LanguageId =2");
-            Execute.Sql("DELETE FROM MenuItemTranslations WHERE MenuItemId = (select top 1 MenuItemId from MenuItemTranslations where Label = N'Đăng xuất' and LanguageId =2) and LanguageId =2");
+            Execute.Sql("DELETE FROM MenuItemTranslations WHERE Label = N'Trang chủ' and LanguageId =2");
+            Execute.Sql("DELETE FROM MenuItemTranslations WHERE Label = N'Quản trị nội dung' and LanguageId =2");
+            Execute.Sql("DELETE FROM MenuItemTranslations WHERE Label = N'Quản trị hệ thống' and LanguageId =2");
+            Execute.Sql("DELETE FROM MenuItemTranslations WHERE Label = N'Đăng xuất' and LanguageId =2");
         }
     }
 }

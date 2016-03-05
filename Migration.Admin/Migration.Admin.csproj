@@ -41,6 +41,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Migrations\m20160305133116_InsertData_MenuItemTypes_And_Tranlation_Vi.cs" />
+    <Compile Include="Migrations\m20160305123953_InsertData_MenuItems_And_Tranlation_Vi2.cs" />
     <Compile Include="Migrations\m20160217215737_Resources.cs" />
     <Compile Include="Migrations\m20151221210439_Alter_Table_Users.cs" />
     <Compile Include="Migrations\m20151222175912_Insert_Basic_Data_Begin_From_ItemType.cs" />

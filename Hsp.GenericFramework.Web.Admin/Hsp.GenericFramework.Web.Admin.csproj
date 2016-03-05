@@ -200,8 +200,10 @@
     <Content Include="Scripts\Libs\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\Libs\lodash.js" />
     <Content Include="Scripts\Libs\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Libs\notify.js" />
     <Content Include="Scripts\Libs\respond.js" />
     <Content Include="Scripts\Libs\respond.min.js" />
+    <Content Include="Scripts\Libs\notify.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

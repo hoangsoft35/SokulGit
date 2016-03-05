@@ -14,7 +14,7 @@ namespace Hsp.GenericFramework.Commons.Dtos.Models
         public string ControllerName { get; set; }
         public string ActionName { get; set; }
         public int SectionParameter { get; set; }
-        public int Order { get; set; }
+        public int Order { get; set; }  
 
     }
 }

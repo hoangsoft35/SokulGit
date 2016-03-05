@@ -105,6 +105,20 @@ namespace Hsp.GenericFramework.Services.MapperProfiles
             Mapper.CreateMap<CustomerTranslation, CustomerModel>()
                 .ForMember(des => des.FullName, src => src.MapFrom(x => x.FullName))
                 .ForMember(des => des.KulPoint, src => src.MapFrom(x => x.Customer.KulPoint));
+
+            Mapper.CreateMap<MenuItemTranslation, MenuItemModel>()
+                .ForMember(to => to.Label, src => src.MapFrom(r => r.Label))
+                .ForMember(to => to.Id, src => src.MapFrom(r => r.MenuItemId))
+                .ForMember(to => to.IsLink, src => src.MapFrom(r => r.MenuItem.IsLink))
+                .ForMember(to => to.IsTitle, src => src.MapFrom(r => r.MenuItem.IsTitle))
+                .ForMember(to => to.IsRoot, src => src.MapFrom(r => r.MenuItem.IsRoot))
+                .ForMember(to => to.IsActive, src => src.MapFrom(r => r.MenuItem.IsActive))
+                .ForMember(to => to.ActionName, src => src.MapFrom(r => r.MenuItem.ActionName))
+                .ForMember(to => to.ControllerName, src => src.MapFrom(r => r.MenuItem.ControllerName))
+                .ForMember(to => to.Order, src => src.MapFrom(r => r.MenuItem.Order))
+                .ForMember(to => to.ParentId, src => src.MapFrom(r => r.MenuItem.ParentId))
+                .ForMember(to => to.SectionParameter, src => src.MapFrom(r => r.MenuItem.SectionParameter))
+                ;
         }
     }
 }
