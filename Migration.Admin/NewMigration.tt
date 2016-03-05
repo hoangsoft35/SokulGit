@@ -1,0 +1,58 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<# 
+	DateTime now =  DateTime.Now;
+	string versionNumber = now.Year + now.Month.ToString("d2") + now.Day.ToString("d2") + now.Hour.ToString("d2") + now.Minute.ToString("d2") + now.Second.ToString("d2");	
+	string className = 'm' + versionNumber + "_TestMigration";
+{#> 
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using FluentMigrator;
+
+namespace Migrations.Migrations
+{
+
+	// === Tables ===
+	// == create table ==
+	// Create.Table("TestTable")
+    //            .WithColumn("Id").AsInt32().NotNullable().PrimaryKey().Identity()
+    //            .WithColumn("Name").AsString(255).NotNullable().WithDefaultValue("Anonymous");
+	// == delete table ==
+	// Delete.Table("TestTable");
+	// ======
+    
+	// === Columns ===
+	// == add column ==
+	// Alter.Table("TestTable").AddColumn("custom_int_column").AsInt32().Nullable();
+	// == delete column ==
+	// Delete.Column("custom_int_column").FromTable("TestTable");
+	// == rename column ==
+	// Rename.Column("str_column_3").OnTable("TestTable").To("string_column");
+	// ======
+
+	// === Stored procedures ===
+	// up
+	// Execute.Sql("DROP PROCEDURE [RO].[Addon_Costed_ByAirport]");
+    // Execute.EmbeddedScript(@"RO_Addon_Costed_ByAirport.sql");
+	// down
+	// Execute.Sql("DROP PROCEDURE [RO].[Addon_Costed_ByAirport]");
+	// Execute.EmbeddedScript(@"201410301401_RO_Addon_Costed_ByAirport.sql");
+	// ======
+
+
+	[Migration(<#= versionNumber #>)]
+	public class <#= className #> : Migration {
+	    public override void Up()
+        {
+           
+        }
+
+        public override void Down()
+        {
+           
+        }
+	}
+}
+<#}#>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ShortcutSetting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SLIPT>F1</SLIPT>
+  <JOIN>F2</JOIN>
+  <NEWTABLE>F3</NEWTABLE>
+  <PAID>F4</PAID>
+  <PRINTAGAIN>F5</PRINTAGAIN>
+  <PRINTNOTPAY>F6</PRINTNOTPAY>
+  <REPORT>F7</REPORT>
+  <CHANGEPASS>F8</CHANGEPASS>
+  <HELP>F9</HELP>
+</ShortcutSetting>
