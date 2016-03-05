@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8494F506-F2D0-4224-A5DC-4E3631492943}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hsp.GenericFramework.Services</RootNamespace>
+    <AssemblyName>Hsp.GenericFramework.Services</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.4.0\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\BaseService.cs" />
+    <Compile Include="MapperProfiles\InitializeMapper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceModules.cs" />
+    <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\CustomerService.cs" />
+    <Compile Include="Services\ExportService.cs" />
+    <Compile Include="Services\AreaService.cs" />
+    <Compile Include="Services\ItemService.cs" />
+    <Compile Include="Services\MenuItemTypeService.cs" />
+    <Compile Include="Services\ResourceService.cs" />
+    <Compile Include="Services\TableService.cs" />
+    <Compile Include="Services\CompanyService .cs" />
+    <Compile Include="Services\LanguageService.cs" />
+    <Compile Include="Services\LoopkupService.cs" />
+    <Compile Include="Services\MenuItemService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hsp.GenericFramework.Commons\Hsp.GenericFramework.Commons.csproj">
+      <Project>{47387447-96B7-42FA-A69B-D97D75702B54}</Project>
+      <Name>Hsp.GenericFramework.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hsp.GenericFramework.Entities\Hsp.GenericFramework.Entities.csproj">
+      <Project>{1909A947-0647-4AB6-8427-082B99A99985}</Project>
+      <Name>Hsp.GenericFramework.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hsp.GenericFramework.GenericRepositories\Hsp.GenericFramework.GenericRepositories.csproj">
+      <Project>{B9761C5F-615C-4049-A889-B487EA06E160}</Project>
+      <Name>Hsp.GenericFramework.GenericRepositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hsp.GenericFramework.IGenericRepositories\Hsp.GenericFramework.IGenericRepositories.csproj">
+      <Project>{7A5AD29D-16BA-4F59-95AF-C12CC4023A95}</Project>
+      <Name>Hsp.GenericFramework.IGenericRepositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hsp.GenericFramework.IServices\Hsp.GenericFramework.IServices.csproj">
+      <Project>{C386717B-AE8C-4844-B73D-306864F47163}</Project>
+      <Name>Hsp.GenericFramework.IServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hsp.GenericFramework.IUnitOfWorks\Hsp.GenericFramework.IUnitOfWorks.csproj">
+      <Project>{E14586F5-1B7D-4BB4-AD32-5B7EEE6C8719}</Project>
+      <Name>Hsp.GenericFramework.IUnitOfWorks</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hsp.GenericFramework.UnitOfWorks\Hsp.GenericFramework.UnitOfWorks.csproj">
+      <Project>{5ED9559C-2A9D-40C2-A105-167F75F13C33}</Project>
+      <Name>Hsp.GenericFramework.UnitOfWorks</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,173 @@
+﻿@using Hsp.GenericFramework.Commons.Dtos.Models
+@using Hsp.GenericFramework.Web.Admin.Base;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HSP CMS</title>
+    <script type="text/javascript">
+        var rootPath = "@string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"))";
+    </script>
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/common")
+    @RenderSection("styles", required: false)
+
+</head>
+
+<body>
+@{
+    var BaseViewModel = (BaseViewModel)TempData["BaseViewModel"];    
+    var menus = BaseViewModel.MenuItems;
+    var topMenus = menus.Where(x => x.IsRoot).OrderBy(x=>x.Order).ToList();
+    var leftMenus = menus.Where(x => !x.IsRoot).ToList();
+    var leftMenuTitles = leftMenus.Where(x => x.IsTitle).ToList();
+}
+
+<div class="row">
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-10">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">HSP Content System Management</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+
+                        @foreach (var menu in topMenus)
+                        {
+                            if (!menu.IsLink)
+                            {
+                                <li><a href="javascript:void(0)" data-id="@menu.Id">@menu.Label</a></li>
+                            }
+                            else
+                            {
+                                <li>@Html.ActionLink(menu.Label, menu.ActionName, menu.ControllerName, null, new Dictionary<string, object> {{"data-id", menu.Id}, {"m", menu.SectionParameter}})</li>
+                            }
+                        }
+
+
+                        @*<li class="active"><a href="#">Home</a></li>
+                        <li><a href="#dashboard">Dashboard</a></li>
+                        <li><a href="#administration">Administration</a></li>
+                        <li><a href="#systemadmin">System Admin</a></li>
+                        <li><a href="#logout">Log Out</a></li>*@
+                        @*<li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-val="-1">Languages <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-val="1" data-selected="True">Action</a></li>
+                                <li><a href="#" data-val="-1" data-selected="False">Another action</a></li>
+                                <li><a href="#" data-val="-1" data-selected="False">Something else here</a></li>
+                                <li><a href="#" data-val="-1" data-selected="False">Separated link</a></li>
+                            </ul>
+                        </li>*@
+                    </ul>
+                    
+                    <form id="logoff" action="@Url.Action("LogOff","Account")" method="post"></form>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+    </div>
+</div>
+
+<div class="container-fluid body-content">
+
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <div class="row">
+                <div class="col-sm-3 col-md-2">
+                    <div class="container">
+                        <div class="dropdown">
+                            <select class="btn btn-default .language-fixed-width" onchange="ChangeLanguage(this.value)">
+                                @{ 
+                                    foreach(var item in BaseViewModel.LanguageModels)
+                                    {
+                                        <option value="@item.Value" selected="@item.Selected">@item.Text</option>
+                                    }
+                                }
+                            </select>                           
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <dl id="left-menu">
+                @foreach (var title in leftMenuTitles)
+                {
+
+                    <dt data-id="@title.Id" class="section-title" data-parent-id ="@title.ParentId" data-is-expand ="false">@title.Label</dt>
+                    var childMenu = leftMenus.Where(x => x.ParentId == title.Id);
+                    if (childMenu.Any())
+                    {
+                        <dd data-parent-id="@title.ParentId">
+                            <ul class="nav nav-sidebar">
+                                @foreach (var leftMenuItem in childMenu)
+                                {
+                                    <li class="curCol">@Html.ActionLink(@leftMenuItem.Label, @leftMenuItem.ActionName, @leftMenuItem.ControllerName, null, new Dictionary<string, object> {{ "m" , @leftMenuItem.SectionParameter },{"data-id",@leftMenuItem.Id}, { "data-parent-id", @leftMenuItem.ParentId } })</li>
+                                }
+
+                            </ul>
+                        </dd>
+                    }
+
+                }
+                
+            </dl>
+        </div>
+        <div class="col-sm-9 col-md-10">
+            <!-- Breadcrumb -->
+            <div class="row">
+                <ol class="breadcrumb">
+                    @foreach (var item in BaseViewModel.Breadcrumbs)
+                    {
+                        if (item.IsLink)
+                        {
+                            <li>@Html.ActionLink(@item.Label, @item.ActionName, @item.ControllerName)</li>
+                        }
+                        else
+                        {
+                            <li class="active">@item.Label</li>
+                        }
+                    }
+                   
+                </ol>
+            </div>
+            @*render body content*@
+            <div id="body-content" class="row">
+                @RenderBody()
+            </div>
+
+
+
+        </div>
+
+
+
+    </div>
+
+
+    <hr/>
+    <footer>
+        <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+    </footer>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
+</body>
+</html>
+
+
