@@ -1,0 +1,145 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hsp.GenericFramework.IGenericRepositories", "Hsp.GenericFramework.IGenericRepositories\Hsp.GenericFramework.IGenericRepositories.csproj", "{7A5AD29D-16BA-4F59-95AF-C12CC4023A95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hsp.GenericFramework.GenericRepositories", "Hsp.GenericFramework.GenericRepositories\Hsp.GenericFramework.GenericRepositories.csproj", "{B9761C5F-615C-4049-A889-B487EA06E160}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hsp.GenericFramework.UnitOfWorks", "Hsp.GenericFramework.UnitOfWorks\Hsp.GenericFramework.UnitOfWorks.csproj", "{5ED9559C-2A9D-40C2-A105-167F75F13C33}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hsp.GenericFramework.IUnitOfWorks", "Hsp.GenericFramework.IUnitOfWorks\Hsp.GenericFramework.IUnitOfWorks.csproj", "{E14586F5-1B7D-4BB4-AD32-5B7EEE6C8719}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hsp.GenericFramework.Services", "Hsp.GenericFramework.Services\Hsp.GenericFramework.Services.csproj", "{8494F506-F2D0-4224-A5DC-4E3631492943}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hsp.GenericFramework.IServices", "Hsp.GenericFramework.IServices\Hsp.GenericFramework.IServices.csproj", "{C386717B-AE8C-4844-B73D-306864F47163}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hsp.GenericFramework.Entities", "Hsp.GenericFramework.Entities\Hsp.GenericFramework.Entities.csproj", "{1909A947-0647-4AB6-8427-082B99A99985}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hsp.GenericFramework.Web.Admin", "Hsp.GenericFramework.Web.Admin\Hsp.GenericFramework.Web.Admin.csproj", "{D2631B75-75B1-4DB3-9D30-3141152EDE04}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{5AF6E5E8-993C-47BD-8D13-AFAF16042D85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hsp.GenericFramework.UnitTests", "Hsp.GenericFramework.UnitTests\Hsp.GenericFramework.UnitTests.csproj", "{CC240FA3-311A-46E3-B0FB-16A1477A54EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hsp.GenericFramework.Commons", "Hsp.GenericFramework.Commons\Hsp.GenericFramework.Commons.csproj", "{47387447-96B7-42FA-A69B-D97D75702B54}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Migration.Admin", "Migration.Admin\Migration.Admin.csproj", "{BEFF4413-74EF-410D-BF5A-B21FC8B2C951}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoffeeSoft.App", "CoffeeSoft.App\CoffeeSoft.App.csproj", "{FD4FB9CA-DEBF-4CD6-A32D-A1CA5456D6B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hsp.GenericFramwork.Api", "Hsp.GenericFramwork.Api\Hsp.GenericFramwork.Api.csproj", "{D0A9475A-5882-41AA-8052-77B3F248937D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A5AD29D-16BA-4F59-95AF-C12CC4023A95}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A5AD29D-16BA-4F59-95AF-C12CC4023A95}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A5AD29D-16BA-4F59-95AF-C12CC4023A95}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A5AD29D-16BA-4F59-95AF-C12CC4023A95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9761C5F-615C-4049-A889-B487EA06E160}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9761C5F-615C-4049-A889-B487EA06E160}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9761C5F-615C-4049-A889-B487EA06E160}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9761C5F-615C-4049-A889-B487EA06E160}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5ED9559C-2A9D-40C2-A105-167F75F13C33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5ED9559C-2A9D-40C2-A105-167F75F13C33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5ED9559C-2A9D-40C2-A105-167F75F13C33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5ED9559C-2A9D-40C2-A105-167F75F13C33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E14586F5-1B7D-4BB4-AD32-5B7EEE6C8719}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E14586F5-1B7D-4BB4-AD32-5B7EEE6C8719}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E14586F5-1B7D-4BB4-AD32-5B7EEE6C8719}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E14586F5-1B7D-4BB4-AD32-5B7EEE6C8719}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8494F506-F2D0-4224-A5DC-4E3631492943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8494F506-F2D0-4224-A5DC-4E3631492943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8494F506-F2D0-4224-A5DC-4E3631492943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8494F506-F2D0-4224-A5DC-4E3631492943}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C386717B-AE8C-4844-B73D-306864F47163}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C386717B-AE8C-4844-B73D-306864F47163}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C386717B-AE8C-4844-B73D-306864F47163}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C386717B-AE8C-4844-B73D-306864F47163}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1909A947-0647-4AB6-8427-082B99A99985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1909A947-0647-4AB6-8427-082B99A99985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1909A947-0647-4AB6-8427-082B99A99985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1909A947-0647-4AB6-8427-082B99A99985}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2631B75-75B1-4DB3-9D30-3141152EDE04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2631B75-75B1-4DB3-9D30-3141152EDE04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2631B75-75B1-4DB3-9D30-3141152EDE04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2631B75-75B1-4DB3-9D30-3141152EDE04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC240FA3-311A-46E3-B0FB-16A1477A54EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC240FA3-311A-46E3-B0FB-16A1477A54EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC240FA3-311A-46E3-B0FB-16A1477A54EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC240FA3-311A-46E3-B0FB-16A1477A54EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{47387447-96B7-42FA-A69B-D97D75702B54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{47387447-96B7-42FA-A69B-D97D75702B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{47387447-96B7-42FA-A69B-D97D75702B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{47387447-96B7-42FA-A69B-D97D75702B54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEFF4413-74EF-410D-BF5A-B21FC8B2C951}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEFF4413-74EF-410D-BF5A-B21FC8B2C951}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEFF4413-74EF-410D-BF5A-B21FC8B2C951}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEFF4413-74EF-410D-BF5A-B21FC8B2C951}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD4FB9CA-DEBF-4CD6-A32D-A1CA5456D6B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD4FB9CA-DEBF-4CD6-A32D-A1CA5456D6B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD4FB9CA-DEBF-4CD6-A32D-A1CA5456D6B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD4FB9CA-DEBF-4CD6-A32D-A1CA5456D6B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0A9475A-5882-41AA-8052-77B3F248937D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0A9475A-5882-41AA-8052-77B3F248937D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0A9475A-5882-41AA-8052-77B3F248937D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0A9475A-5882-41AA-8052-77B3F248937D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CC240FA3-311A-46E3-B0FB-16A1477A54EA} = {5AF6E5E8-993C-47BD-8D13-AFAF16042D85}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 14
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs40
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Hsp.GenericFramework.IGenericRepositories\\Hsp.GenericFramework.IGenericRepositories.csproj
+		SccProjectName1 = Hsp.GenericFramework.IGenericRepositories
+		SccLocalPath1 = Hsp.GenericFramework.IGenericRepositories
+		SccProjectUniqueName2 = Hsp.GenericFramework.GenericRepositories\\Hsp.GenericFramework.GenericRepositories.csproj
+		SccProjectName2 = Hsp.GenericFramework.GenericRepositories
+		SccLocalPath2 = Hsp.GenericFramework.GenericRepositories
+		SccProjectUniqueName3 = Hsp.GenericFramework.UnitOfWorks\\Hsp.GenericFramework.UnitOfWorks.csproj
+		SccProjectName3 = Hsp.GenericFramework.UnitOfWorks
+		SccLocalPath3 = Hsp.GenericFramework.UnitOfWorks
+		SccProjectUniqueName4 = Hsp.GenericFramework.IUnitOfWorks\\Hsp.GenericFramework.IUnitOfWorks.csproj
+		SccProjectName4 = Hsp.GenericFramework.IUnitOfWorks
+		SccLocalPath4 = Hsp.GenericFramework.IUnitOfWorks
+		SccProjectUniqueName5 = Hsp.GenericFramework.Services\\Hsp.GenericFramework.Services.csproj
+		SccProjectName5 = Hsp.GenericFramework.Services
+		SccLocalPath5 = Hsp.GenericFramework.Services
+		SccProjectUniqueName6 = Hsp.GenericFramework.IServices\\Hsp.GenericFramework.IServices.csproj
+		SccProjectName6 = Hsp.GenericFramework.IServices
+		SccLocalPath6 = Hsp.GenericFramework.IServices
+		SccProjectUniqueName7 = Hsp.GenericFramework.Entities\\Hsp.GenericFramework.Entities.csproj
+		SccProjectName7 = Hsp.GenericFramework.Entities
+		SccLocalPath7 = Hsp.GenericFramework.Entities
+		SccProjectUniqueName8 = Hsp.GenericFramework.Web.Admin\\Hsp.GenericFramework.Web.Admin.csproj
+		SccProjectName8 = Hsp.GenericFramework.Web.Admin
+		SccLocalPath8 = Hsp.GenericFramework.Web.Admin
+		SccProjectUniqueName9 = Hsp.GenericFramework.UnitTests\\Hsp.GenericFramework.UnitTests.csproj
+		SccProjectTopLevelParentUniqueName9 = Hsp.GenericFramework.sln
+		SccProjectName9 = Hsp.GenericFramework.UnitTests
+		SccLocalPath9 = Hsp.GenericFramework.UnitTests
+		SccProjectUniqueName10 = Hsp.GenericFramework.Commons\\Hsp.GenericFramework.Commons.csproj
+		SccProjectName10 = Hsp.GenericFramework.Commons
+		SccLocalPath10 = Hsp.GenericFramework.Commons
+		SccProjectUniqueName11 = Migration.Admin\\Migration.Admin.csproj
+		SccProjectName11 = Migration.Admin
+		SccLocalPath11 = Migration.Admin
+		SccProjectUniqueName12 = CoffeeSoft.App\\CoffeeSoft.App.csproj
+		SccProjectName12 = CoffeeSoft.App
+		SccLocalPath12 = CoffeeSoft.App
+		SccProjectUniqueName13 = Hsp.GenericFramwork.Api\\Hsp.GenericFramwork.Api.csproj
+		SccProjectName13 = Hsp.GenericFramwork.Api
+		SccLocalPath13 = Hsp.GenericFramwork.Api
+	EndGlobalSection
+EndGlobal
