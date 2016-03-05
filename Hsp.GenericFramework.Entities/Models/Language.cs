@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Hsp.GenericFramework.Entities.Base;
 
 namespace Hsp.GenericFramework.Entities.Models
 {
-    public class Language : BaseEntity
+    public class Language : BaseEntityWithUserInformation
     {
         [Key]
         public int Id { get; set; }

@@ -84,7 +84,9 @@ namespace Hsp.GenericFramework.Services.MapperProfiles
 
             Mapper.CreateMap<Table, TableModel>();
             Mapper.CreateMap<TableModel, Table>();
-
+            Mapper.CreateMap<TableTranslation, TableModel>()
+                .ForMember(to=>to.Id, src=>src.MapFrom(x=>x.TableId))
+                .ForMember(to => to.TableName, src => src.MapFrom(x => x.TableName));
             Mapper.CreateMap<TableTranslation, TableTranslationModel>().ForMember(to=>to.AreaId, x=>x.MapFrom(c=>c.Table.AreaId));
             Mapper.CreateMap<TableTranslationModel, TableTranslation>();
 

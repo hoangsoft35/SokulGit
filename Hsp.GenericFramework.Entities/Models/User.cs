@@ -1,14 +1,14 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Hsp.GenericFramework.Entities.Base;
 
 namespace Hsp.GenericFramework.Entities.Models
 {
-    public class User
+    public class User : BaseEntityWithoutUserInformation
     {
         public User()
         {
-            
         }
         [Key]
         public Guid Id { get; set; }
@@ -29,6 +29,8 @@ namespace Hsp.GenericFramework.Entities.Models
         public int LoginFailCount { get; set; }
         public DateTimeOffset? LastestLoginFailAt { get; set; }
         public DateTimeOffset? LastestLoginAt { get; set; }
+        public Guid? CreatedBy { get; set; }
+        public Guid? UpdatedBy { get; set; }
 
         public Guid GroupUserId { get; set; }
         [ForeignKey("GroupUserId")] 

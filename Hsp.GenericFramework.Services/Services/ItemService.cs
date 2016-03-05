@@ -21,7 +21,7 @@ namespace Hsp.GenericFramework.Services.Services
         readonly IGenericRepository<ItemTranslation> _itemTranslationRepository;
         public UserProfileLogin _currentUser;
         readonly IGenericRepository<Export> _exportRepository;
-        public ItemService(IUnitOfWork unitOfWork, IGenericRepository<Item> itemRepository, IGenericRepository<ItemTranslation> itemTranslationRepository)
+        public ItemService(IUnitOfWork unitOfWork, IGenericRepository<Item> itemRepository, IGenericRepository<ItemTranslation> itemTranslationRepository) : base(unitOfWork)
         {
             _itemRepository = itemRepository;
             _itemTranslationRepository = itemTranslationRepository;

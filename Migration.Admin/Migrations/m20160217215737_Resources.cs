@@ -17,8 +17,8 @@ namespace Migration.Admin.Migrations
                 .WithColumn("ViewId").AsString(50).Indexed().NotNullable()
                 .WithColumn("LanguageId").AsInt32().Indexed().NotNullable()
                 .ForeignKey("FK_Resources_LanguageId_Languages_Id", "Languages", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
-                .WithColumn("Updated").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("Updated").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("StatusId").AsInt32().Indexed().NotNullable().WithDefaultValue(0)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
                 .WithColumn("UpdatedBy").AsGuid().NotNullable()
@@ -32,8 +32,7 @@ namespace Migration.Admin.Migrations
             Execute.Sql("INSERT INTO Resources(Id, ViewId, LanguageId, CreatedBy, UpdatedBy, Value) VALUES('label_2', 'account_login', 1, (select id from Users where username ='hsproot'), (select id from Users where username ='hsproot'), 'label 2')");
 
             #endregion
-
-        }
+            }
 
         public override void Down()
         {

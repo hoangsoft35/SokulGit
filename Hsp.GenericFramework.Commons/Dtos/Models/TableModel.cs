@@ -9,6 +9,7 @@ namespace Hsp.GenericFramework.Commons.Dtos.Models
         public int Id { get; set; }
         public int AreaId { get; set; }
         public int StatusId { get; set; }
+        public string TableName { get; set; }
 
     }
 }

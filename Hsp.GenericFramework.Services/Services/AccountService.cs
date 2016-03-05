@@ -20,7 +20,7 @@ namespace Hsp.GenericFramework.Services.Services
         private readonly IGenericRepository<User> _userRepository;
         private readonly IGenericRepository<GroupUser> _groupUserRepository;
 
-        public AccountService(IUnitOfWork unitOfWork, IGenericRepository<User> userRepository, IGenericRepository<GroupUser> groupUserRepository)
+        public AccountService(IUnitOfWork unitOfWork, IGenericRepository<User> userRepository, IGenericRepository<GroupUser> groupUserRepository) : base(unitOfWork)
         {
             _userRepository = userRepository;
             _groupUserRepository = groupUserRepository;

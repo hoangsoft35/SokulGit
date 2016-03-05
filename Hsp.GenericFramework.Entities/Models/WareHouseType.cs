@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hsp.GenericFramework.Entities.Base;
 
 namespace Hsp.GenericFramework.Entities.Models
 {
-    public class WareHouseType : BaseEntity
+    public class WareHouseType : BaseEntityWithUserInformation
     {
         [Key]
         public int Id { get; set; }

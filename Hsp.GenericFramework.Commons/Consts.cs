@@ -59,12 +59,12 @@ namespace Hsp.GenericFramework.Commons
             CardLosting = 21,
             CardUsing = 22,
             CardBroken = 23,
- 
 
 
         }
         public const string MemberTypeStandard = "std";
         public const string MemberTypeSliver = "sli";
         public const string MemberTypeGold = "gol";
+
     }
 }

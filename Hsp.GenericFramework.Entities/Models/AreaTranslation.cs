@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hsp.GenericFramework.Entities.Base;
 
 namespace Hsp.GenericFramework.Entities.Models
 {
-    public class AreaTranslation : BaseEntity
+    public class AreaTranslation : BaseEntityWithUserInformation
     {
         [Key]
         public int Id { get; set; }

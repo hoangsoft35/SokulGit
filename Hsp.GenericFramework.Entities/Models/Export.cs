@@ -5,10 +5,11 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hsp.GenericFramework.Entities.Base;
 
 namespace Hsp.GenericFramework.Entities.Models
 {
-    public class Export : BaseEntity
+    public class Export : BaseEntityWithUserInformation
     {
         [Key]
         public string Id { get; set; }
@@ -27,6 +28,7 @@ namespace Hsp.GenericFramework.Entities.Models
 
         public int CompanyId { get; set; }
         public virtual Company Company { get; set; }
+
 
 
     }

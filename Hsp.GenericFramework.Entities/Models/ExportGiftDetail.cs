@@ -4,10 +4,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Hsp.GenericFramework.Entities.Base;
 
 namespace Hsp.GenericFramework.Entities.Models
 {
-    public class ExportGiftDetail : BaseEntity
+    public class ExportGiftDetail : BaseEntityWithUserInformation
     {
         [Key]
         public string ExportGiftId { get; set; }

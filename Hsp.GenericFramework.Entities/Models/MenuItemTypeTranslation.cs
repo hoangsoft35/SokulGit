@@ -1,10 +1,11 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Hsp.GenericFramework.Entities.Base;
 
 namespace Hsp.GenericFramework.Entities.Models
 {
-    public class MenuItemTypeTranslation : BaseEntity
+    public class MenuItemTypeTranslation : BaseEntityWithUserInformation
     {
         [Key, Column(Order = 1)]
         public Guid MenuItemTypeId { get; set; }

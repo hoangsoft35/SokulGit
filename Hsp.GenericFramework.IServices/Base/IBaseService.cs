@@ -1,4 +1,5 @@
 ﻿using Hsp.GenericFramework.Commons.Security;
+using Hsp.GenericFramework.IUnitOfWorks;
 
 namespace Hsp.GenericFramework.IServices.Base
 {
@@ -6,5 +7,6 @@ namespace Hsp.GenericFramework.IServices.Base
     {
         UserProfileLogin CurrentUser { get; set; }
         int LanguageId { get; set; }
+        IUnitOfWork UnitOfWork { get; set; }
     }
 }

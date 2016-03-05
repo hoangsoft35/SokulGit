@@ -15,10 +15,10 @@ namespace Migration.Admin.Migrations
             Create.Table("Statuses").InSchema("dbo")
                 .WithColumn("Id").AsInt32().NotNullable().PrimaryKey("PK_Statuses_Id")
                 .WithColumn("IsActive").AsBoolean().NotNullable().WithDefaultValue(true)
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             Create.Table("StatusTranslations").InSchema("dbo")
                 .WithColumn("Id").AsInt32().NotNullable().Identity().PrimaryKey("PK_StatusTranslations_Id")
@@ -32,10 +32,10 @@ namespace Migration.Admin.Migrations
                 .NotNullable()
                 .ForeignKey("FK_StatusTranslations_StatusId_Languages_Id", "Languages", "Id")
                 .WithColumn("Description").AsString(200).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_StatusTranslations_StatusId_LanguageId_Description")
                 .OnTable("StatusTranslations")
                 .Columns("StatusId", "LanguageId", "Description");
@@ -53,10 +53,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_Companies_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
 
             Create.Table("CompanyTranslations").InSchema("dbo")
@@ -71,10 +71,10 @@ namespace Migration.Admin.Migrations
                 .ForeignKey("FK_CompanyTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("CompanyName").AsString(200).NotNullable()
                 .WithColumn("CompanyAddress").AsString(200).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_CompanyTranslations_CompanyId_LanguageId_CompanyName")
                 .OnTable("CompanyTranslations")
                 .Columns("CompanyId", "LanguageId", "CompanyName");
@@ -97,10 +97,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_Areas_CompanyId_Companies_Id", "Companies", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             Create.Table("AreaTranslations").InSchema("dbo")
                 .WithColumn("Id").AsInt32().NotNullable().Identity().PrimaryKey("PK_AreaTranslations_Id")
@@ -113,10 +113,10 @@ namespace Migration.Admin.Migrations
                 .NotNullable()
                 .ForeignKey("FK_AreaTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("AreaName").AsString(50).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_AreaTranslations_AreaId_LanguageId_Description")
                 .OnTable("AreaTranslations")
                 .Columns("AreaId", "LanguageId", "AreaName");
@@ -133,10 +133,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_KulExchanges_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             Create.Table("KulExchangeTranslations").InSchema("dbo")
                 .WithColumn("Id").AsInt32().NotNullable().Identity().PrimaryKey("PK_KulExchangeTranslations_Id")
@@ -150,10 +150,10 @@ namespace Migration.Admin.Migrations
                 .ForeignKey("FK_KulExchangeTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("KulName").AsString(50).NotNullable()
                 .WithColumn("KulDescription").AsString(200).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_KulExchangeTranslations_KulExchangeId_LanguageId_KulName")
                 .OnTable("KulExchangeTranslations")
                 .Columns("KulExchangeId", "LanguageId", "KulName");
@@ -170,10 +170,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_MemberTypes_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
 
             Create.Table("MemberTypeTranslations").InSchema("dbo")
@@ -188,10 +188,10 @@ namespace Migration.Admin.Migrations
                 .ForeignKey("FK_MemberTypeTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("MemberTypeName").AsString(50).NotNullable()
                 .WithColumn("MemberTypeDescription").AsString(200).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_MemberTypeTranslations_MemberTypeId_LanguageId_MemberTypeName")
                 .OnTable("MemberTypeTranslations")
                 .Columns("MemberTypeId", "LanguageId", "MemberTypeName");
@@ -207,10 +207,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_MemberCards_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             #endregion
 
@@ -237,10 +237,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_Customers_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
 
             Create.Table("CustomerTranslations").InSchema("dbo")
@@ -258,10 +258,10 @@ namespace Migration.Admin.Migrations
                 .WithColumn("MiddleName").AsString(50).NotNullable()
                 .WithColumn("FullName").AsString(200).NotNullable()
                 .WithColumn("Address").AsString(200).Nullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_CustomerTranslations_CustomerId_LanguageId")
                 .OnTable("CustomerTranslations")
                 .Columns("CustomerId", "LanguageId");
@@ -282,10 +282,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_CustomerHistorys_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             #endregion
 
@@ -305,10 +305,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_KulExchangeDetailExports_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             #endregion
 
@@ -321,10 +321,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_Tables_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             Create.Table("TableTranslations").InSchema("dbo")
                 .WithColumn("Id").AsInt32().NotNullable().Identity().PrimaryKey("PK_TableTranslations_Id")
@@ -337,10 +337,10 @@ namespace Migration.Admin.Migrations
                 .NotNullable()
                 .ForeignKey("FK_TableTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("TableName").AsString(50).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_TableTranslations_TableId_LanguageId_TableName")
                 .OnTable("TableTranslations")
                 .Columns("TableId", "LanguageId", "TableName");
@@ -355,10 +355,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_Departments_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             Create.Table("DepartmentTranslations").InSchema("dbo")
                 .WithColumn("Id").AsInt32().NotNullable().Identity().PrimaryKey("PK_DepartmentTranslations_Id")
@@ -371,10 +371,10 @@ namespace Migration.Admin.Migrations
                 .NotNullable()
                 .ForeignKey("FK_DepartmentTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("DepartmentName").AsString(50).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_DepartmentTranslations_DepartmentId_LanguageId_DepartmentName")
                 .OnTable("DepartmentTranslations")
                 .Columns("DepartmentId", "LanguageId", "DepartmentName");
@@ -389,10 +389,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_WareHouseTypes_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             Create.Table("WareHouseTypeTranslations").InSchema("dbo")
                 .WithColumn("Id").AsInt32().NotNullable().Identity().PrimaryKey("PK_WareHouseTypeTranslations_Id")
@@ -406,10 +406,10 @@ namespace Migration.Admin.Migrations
                 .ForeignKey("FK_WareHouseTypeTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("WareHouseTypeName").AsString(50).NotNullable()
                 .WithColumn("WareHouseTypeDescription").AsString(50).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_WareHouseTypeTranslations_WareHouseTypeId_LanguageId_WareHouseTypeName")
                 .OnTable("WareHouseTypeTranslations")
                 .Columns("WareHouseTypeId", "LanguageId", "WareHouseTypeName");
@@ -432,10 +432,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_WareHouses_CompanyId_Companies_Id", "Companies", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             Create.Table("WareHouseTranslations").InSchema("dbo")
                 .WithColumn("Id").AsInt32().NotNullable().Identity().PrimaryKey("PK_WareHouseTranslations_Id")
@@ -449,10 +449,10 @@ namespace Migration.Admin.Migrations
                 .ForeignKey("FK_WareHouseTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("WareHouseName").AsString(50).NotNullable()
                 .WithColumn("WareHouseDescription").AsString(50).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_WareHouseTranslations_WareHouseId_LanguageId_WareHouseName")
                 .OnTable("WareHouseTranslations")
                 .Columns("WareHouseId", "LanguageId", "WareHouseName");
@@ -472,10 +472,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_WageFees_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_WageFees_DepartmentId_Price")
                 .OnTable("WageFees")
                 .Columns("Price", "DepartmentId");
@@ -492,10 +492,10 @@ namespace Migration.Admin.Migrations
                 .ForeignKey("FK_WageFeeTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("WageFeeName").AsString(50).NotNullable()
                 .WithColumn("WageFeeDescription").AsString(50).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_WageFeeTranslations_WageFeeId_LanguageId_WageFeeName")
                 .OnTable("WageFeeTranslations")
                 .Columns("WageFeeId", "LanguageId", "WageFeeName");
@@ -523,10 +523,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_Employers_CompanyId_Companies_Id", "Companies", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
 
             Create.Table("EmployerTranslations").InSchema("dbo")
@@ -544,10 +544,10 @@ namespace Migration.Admin.Migrations
                 .WithColumn("MiddleName").AsString(50).NotNullable()
                 .WithColumn("FullName").AsString(200).NotNullable()
                 .WithColumn("Address").AsString(200).Nullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_EmployerTranslations_EmployerId_LanguageId")
                 .OnTable("EmployerTranslations")
                 .Columns("EmployerId", "LanguageId");
@@ -564,10 +564,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_Units_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
 
             Create.Table("UnitTranslations").InSchema("dbo")
@@ -581,10 +581,10 @@ namespace Migration.Admin.Migrations
                 .NotNullable()
                 .ForeignKey("FK_UnitTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("UnitName").AsString(200).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_UnitTranslations_UnitId_LanguageId_UnitName")
                 .OnTable("UnitTranslations")
                 .Columns("UnitId", "LanguageId", "UnitName");
@@ -600,10 +600,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_Materials_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
 
             Create.Table("MaterialTranslations").InSchema("dbo")
@@ -617,10 +617,10 @@ namespace Migration.Admin.Migrations
                 .NotNullable()
                 .ForeignKey("FK_MaterialTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("MaterialName").AsString(50).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_MaterialTranslations_MaterialId_LanguageId_MaterialName")
                 .OnTable("MaterialTranslations")
                 .Columns("MaterialId", "LanguageId", "MaterialName");
@@ -635,10 +635,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_ItemTypes_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
 
             Create.Table("ItemTypeTranslations").InSchema("dbo")
@@ -652,10 +652,10 @@ namespace Migration.Admin.Migrations
                 .NotNullable()
                 .ForeignKey("FK_ItemTypeTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("ItemTypeName").AsString(50).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_ItemTypeTranslations_ItemTypeId_LanguageId_ItemTypeName")
                 .OnTable("ItemTypeTranslations")
                 .Columns("ItemTypeId", "LanguageId", "ItemTypeName");
@@ -676,10 +676,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_Items_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
 
             Create.Table("ItemTranslations").InSchema("dbo")
@@ -694,10 +694,10 @@ namespace Migration.Admin.Migrations
                 .ForeignKey("FK_ItemTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("ItemName").AsString(50).NotNullable()
                 .WithColumn("Shortcut").AsAnsiString(50).Nullable().WithDefaultValue("")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_ItemTranslations_ItemId_LanguageId_ItemName")
                 .OnTable("ItemTranslations")
                 .Columns("ItemId", "LanguageId", "ItemName");
@@ -721,10 +721,10 @@ namespace Migration.Admin.Migrations
                 .ForeignKey("FK_ItemPrices_CompanyId_Companies_Id", "Companies", "Id")
                 .WithColumn("EffectiveFromDate").AsDateTimeOffset().NotNullable()
                 .WithColumn("EffectiveToDate").AsDateTimeOffset().Nullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             #endregion
 
@@ -746,10 +746,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_DetailItemWareHouses_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             #endregion
 
@@ -766,10 +766,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_Imports_CompanyId_Companies_Id", "Companies", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             #endregion
 
@@ -791,10 +791,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_ImportDetails_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.PrimaryKey("PK_ImportDetails_ImportId_ItemId")
                 .OnTable("ImportDetails")
                 .Columns("ImportId", "MaterialId");
@@ -825,10 +825,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_Exports_CompanyId_Companies_Id", "Companies", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             #endregion
 
@@ -857,10 +857,11 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_ExportDetails_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable(); ;
+                 
             Create.PrimaryKey("PK_ExportDetails_ExportId_ItemId").OnTable("ExportDetails").Columns("ExportId", "ItemId");
 
             #endregion
@@ -873,10 +874,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_GiftTypes_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
 
             Create.Table("GiftTypeTranslations").InSchema("dbo")
@@ -890,10 +891,10 @@ namespace Migration.Admin.Migrations
                 .NotNullable()
                 .ForeignKey("FK_GiftTypeTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("GiftTypeName").AsString(50).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_GiftTypeTranslations_GiftTypeId_LanguageId_GiftTypeName")
                 .OnTable("GiftTypeTranslations")
                 .Columns("GiftTypeId", "LanguageId", "GiftTypeName");
@@ -908,10 +909,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_Gifts_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
 
             Create.Table("GiftTranslations").InSchema("dbo")
@@ -926,10 +927,10 @@ namespace Migration.Admin.Migrations
                 .ForeignKey("FK_GiftTranslations_LanguageId_Languages_Id", "Languages", "Id")
                 .WithColumn("GiftName").AsString(50).NotNullable()
                 .WithColumn("GiftDescription").AsString(50).NotNullable()
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.UniqueConstraint("UK_GiftTranslations_GiftId_LanguageId_GiftName")
                 .OnTable("GiftTranslations")
                 .Columns("GiftId", "LanguageId", "GiftName");
@@ -953,10 +954,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_GiftStores_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             #endregion
 
@@ -970,10 +971,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_ImportGifts_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             Create.Table("ImportGiftDetails").InSchema("dbo")
                 .WithColumn("ImportGiftId")
@@ -992,10 +993,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_ImportGiftDetails_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.PrimaryKey("PK_ImportGiftDetails_ImportGiftId_GiftID")
                 .OnTable("ImportGiftDetails")
                 .Columns("ImportGiftId", "GiftId", "PriceImportVnd");
@@ -1013,10 +1014,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_ExportGifts_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
 
             Create.Table("ExportGiftDetails").InSchema("dbo")
                 .WithColumn("ExportGiftId")
@@ -1034,10 +1035,10 @@ namespace Migration.Admin.Migrations
                 .AsInt32()
                 .NotNullable()
                 .ForeignKey("FK_ExportGiftDetails_StatusId_Statuses_Id", "Statuses", "Id")
-                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.UtcNow)
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
-                .WithColumn("Updated").AsGuid().Nullable()
-                .WithColumn("UpdatedBy").AsDateTimeOffset().Nullable();
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
             Create.PrimaryKey("PK_ExportGiftDetails_ExportGiftId_GiftID")
                 .OnTable("ExportGiftDetails")
                 .Columns("ExportGiftId", "GiftId");

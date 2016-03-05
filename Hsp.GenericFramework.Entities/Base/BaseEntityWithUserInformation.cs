@@ -1,13 +1,11 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
-namespace Hsp.GenericFramework.Entities
+namespace Hsp.GenericFramework.Entities.Base
 {
-    public class BaseEntity
+    public abstract class BaseEntityWithUserInformation
     {
         public DateTimeOffset Created { get; set; }
         public Guid CreatedBy { get; set; }
         public DateTimeOffset? Updated { get; set; }
         public Guid? UpdatedBy { get; set; }
-    }
-}
+    }}

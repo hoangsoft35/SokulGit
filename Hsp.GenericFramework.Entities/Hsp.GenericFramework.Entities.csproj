@@ -45,7 +45,8 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseEntity.cs" />
+    <Compile Include="Base\BaseEntityWithoutUserInformation.cs" />
+    <Compile Include="Base\BaseEntityWithUserInformation.cs" />
     <Compile Include="EFModules.cs" />
     <Compile Include="HspDbContext.cs" />
     <Compile Include="Models\ExportGiftDetail.cs" />

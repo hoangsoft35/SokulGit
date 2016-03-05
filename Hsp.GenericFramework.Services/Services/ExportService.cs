@@ -22,7 +22,7 @@ namespace Hsp.GenericFramework.Services.Services
         readonly IGenericRepository<KulExchangeDetailExport> _kulExchangeDetailExportRepository;
         readonly IGenericRepository<Customer> _customerRepository;
         public UserProfileLogin _currentUser;
-        public ExportService(IUnitOfWork unitOfWork, IGenericRepository<Export> exportRepository, IGenericRepository<ExportDetail> exportDetailRepository, IGenericRepository<KulExchangeDetailExport> kulExchangeDetailExportRepository, IGenericRepository<Customer> customerRepository)
+        public ExportService(IUnitOfWork unitOfWork, IGenericRepository<Export> exportRepository, IGenericRepository<ExportDetail> exportDetailRepository, IGenericRepository<KulExchangeDetailExport> kulExchangeDetailExportRepository, IGenericRepository<Customer> customerRepository) : base(unitOfWork)
         {
             _exportRepository = exportRepository;
             _exportDetailRepository = exportDetailRepository;
@@ -48,7 +48,7 @@ namespace Hsp.GenericFramework.Services.Services
                 }
                 AddItemToTable(NewInvoiceNumber("HDX"), itemId, quantity, companyId, itemPriceId, priceValue, false,tableId, userId);
             }
-            var a = _unitOfWork.SaveChanges();
+            var a = UnitOfWork.SaveChanges();
             return IsTableHaveGuest(tableId);}
         public string NewInvoiceNumber(string prefix)
         {
@@ -63,6 +63,7 @@ namespace Hsp.GenericFramework.Services.Services
                 newInvoiceNumber = string.Format("{0}{1}{2}", prefix,
                     baseString.Substring(tempIncreaseNum.ToString().Length), tempIncreaseNum);
             }
+             
             return newInvoiceNumber;
         }
         public List<ExportDetailModel> GetDetailExportByTableId(int tableId)
@@ -134,7 +135,7 @@ namespace Hsp.GenericFramework.Services.Services
                 export.TableDiscount = model.TableDiscount;
                 _exportRepository.Update(export);
             }
-            return _unitOfWork.SaveChanges() > 0;
+            return UnitOfWork.SaveChanges() > 0;
         }
 
         public bool UpdateDiscountForItem(string exportId, int itemId, decimal itemDiscount)
@@ -145,7 +146,7 @@ namespace Hsp.GenericFramework.Services.Services
             {
                 exportDetail.ItemDiscount = itemDiscount;
                 _exportDetailRepository.Update(exportDetail);
-               return _unitOfWork.SaveChanges() > 0;
+               return UnitOfWork.SaveChanges() > 0;
             }
             return false;
         }
@@ -169,7 +170,7 @@ namespace Hsp.GenericFramework.Services.Services
                 _customerRepository.Update(cus);
 
             }
-            return _unitOfWork.SaveChanges() > 0;
+            return UnitOfWork.SaveChanges() > 0;
         }
 
         public void UpdateNoteForExportDetailItem(string exportId, int itemId, bool note)
@@ -178,7 +179,7 @@ namespace Hsp.GenericFramework.Services.Services
             if (detail != null)
             {
                 detail.Note = note;
-                _unitOfWork.SaveChanges();
+                UnitOfWork.SaveChanges();
             }
 
         }
@@ -294,8 +295,7 @@ namespace Hsp.GenericFramework.Services.Services
                 _exportDetailRepository.Add(exportDetail);
             }
 
-
-        }
+            }
 
 
         #endregion

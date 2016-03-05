@@ -30,7 +30,9 @@ namespace Migration.Admin.Migrations
                 .WithColumn("LowercaseLetterValue").AsInt16().NotNullable().WithDefaultValue(0)
                 .WithColumn("IsAlphanumericRequired").AsBoolean().NotNullable()
                 .WithColumn("AlphanumericValue").AsInt16().NotNullable().WithDefaultValue(0)
-                .WithColumn("IsActive").AsBoolean().NotNullable();
+                .WithColumn("IsActive").AsBoolean().NotNullable()
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("Updated").AsDateTimeOffset().Nullable();
 
             var passwordRuleId = Guid.NewGuid();
             Insert.IntoTable("PasswordRules").InSchema("dbo").Row(new Dictionary<string, object>
@@ -59,6 +61,8 @@ namespace Migration.Admin.Migrations
             Create.Table("GroupUsers").InSchema("dbo")
                 .WithColumn("Id").AsGuid().NotNullable().PrimaryKey("PK_GroupUsers_Id")
                 .WithColumn("GroupUserName").AsString(100).NotNullable()
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
                 .WithColumn("IsActive").AsBoolean().NotNullable();
 
 
@@ -90,6 +94,8 @@ namespace Migration.Admin.Migrations
                 .WithColumn("UserName").AsString(50).NotNullable().Unique()
                 .WithColumn("SecurityStamp").AsString(int.MaxValue).Nullable()
                 .WithColumn("PasswordHash").AsString(int.MaxValue).Nullable()
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
                 .WithColumn("PasswordRuleId")
                 .AsGuid()
                 .NotNullable()
@@ -157,6 +163,8 @@ namespace Migration.Admin.Migrations
             #region Group User Roles
 
             Create.Table("GroupUserRoles").InSchema("dbo")
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
                 .WithColumn("RoleId")
                 .AsGuid()
                 .NotNullable()
@@ -293,7 +301,9 @@ namespace Migration.Admin.Migrations
                 .WithColumn("ControllerName").AsAnsiString(100).Nullable()
                 .WithColumn("ActionName").AsAnsiString(100).Nullable()
                 .WithColumn("SectionParameter").AsInt32().Nullable()
-                .WithColumn("Order").AsInt32().Nullable();
+                .WithColumn("Order").AsInt32().Nullable()
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("Updated").AsDateTimeOffset().Nullable();
             Create.ForeignKey("FK_MenuItems_MenuItemTypeId_MenuItemTypes_Id")
                 .FromTable("MenuItems")
                 .InSchema("dbo")
@@ -426,9 +436,10 @@ namespace Migration.Admin.Migrations
 
             Create.Table("MenuItemAuthorisations")
                 .WithColumn("MenuItemId").AsGuid().NotNullable()
-                .WithColumn("RoleId").AsGuid().NotNullable();
-            Create.PrimaryKey("PK_MenuItemAuthorisations_MenuItemId_RoleId")
-                .OnTable("MenuItemAuthorisations")
+                .WithColumn("RoleId").AsGuid().NotNullable()
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("Updated").AsDateTimeOffset().Nullable();
+            Create.PrimaryKey("PK_MenuItemAuthorisations_MenuItemId_RoleId").OnTable("MenuItemAuthorisations")
                 .WithSchema("dbo")
                 .Columns("MenuItemId", "RoleId");
             Create.ForeignKey("FK_MenuItemAuthorisations_MenuItemId_MenuItems_Id")

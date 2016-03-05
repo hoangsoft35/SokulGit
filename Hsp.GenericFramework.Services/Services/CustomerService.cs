@@ -19,7 +19,7 @@ namespace Hsp.GenericFramework.Services.Services
         readonly IGenericRepository<Customer> _customerRepository;
         readonly IGenericRepository<CustomerTranslation> _customerTranslationRepository;
         public UserProfileLogin _currentUser;
-        public CustomerService(IUnitOfWork unitOfWork, IGenericRepository<Customer> customerRepository, IGenericRepository<CustomerTranslation> customerTranslationRepository)
+        public CustomerService(IUnitOfWork unitOfWork, IGenericRepository<Customer> customerRepository, IGenericRepository<CustomerTranslation> customerTranslationRepository) : base(unitOfWork)
         {
             _customerRepository = customerRepository;
             _customerTranslationRepository = customerTranslationRepository;

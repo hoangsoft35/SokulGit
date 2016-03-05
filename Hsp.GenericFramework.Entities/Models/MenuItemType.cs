@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.DataAnnotations;
+using Hsp.GenericFramework.Entities.Base;
 
 namespace Hsp.GenericFramework.Entities.Models
 {
-    public class MenuItemType: BaseEntity
+    public class MenuItemType: BaseEntityWithUserInformation
     {
         public MenuItemType()
         {

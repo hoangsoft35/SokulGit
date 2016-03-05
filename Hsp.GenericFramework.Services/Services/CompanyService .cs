@@ -19,7 +19,7 @@ namespace Hsp.GenericFramework.Services.Services
         readonly IGenericRepository<Company> _companyRepository;
         readonly IGenericRepository<CompanyTranslation> _companyTranslationRepository;
         public UserProfileLogin _currentUser;
-        public CompanyService(IUnitOfWork unitOfWork, IGenericRepository<Company> companyRepository, IGenericRepository<CompanyTranslation> companyTranslationRepository)
+        public CompanyService(IUnitOfWork unitOfWork, IGenericRepository<Company> companyRepository, IGenericRepository<CompanyTranslation> companyTranslationRepository) : base(unitOfWork)
         {
             _companyRepository = companyRepository;
             _companyTranslationRepository = companyTranslationRepository;

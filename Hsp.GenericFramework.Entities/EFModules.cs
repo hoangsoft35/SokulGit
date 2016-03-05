@@ -20,8 +20,7 @@ namespace Hsp.GenericFramework.Entities
                 builder.RegisterType(typeof(HspDbContext)).As(typeof(DbContext)).InstancePerLifetimeScope();
             }
             else
-            {
-                builder.RegisterType(typeof(HspDbContext)).As(typeof(DbContext)).SingleInstance();
+            {builder.RegisterType(typeof(HspDbContext)).As(typeof(DbContext)).SingleInstance();
             }
             base.Load(builder);
         }

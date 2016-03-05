@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using Hsp.GenericFramework.Entities.Base;
 
 namespace Hsp.GenericFramework.Entities.Models
 {
-    public class Role:BaseEntity
+    public class Role:BaseEntityWithUserInformation
     {
         [Key]
         public Guid Id { get; set; }

@@ -19,7 +19,7 @@ namespace Hsp.GenericFramework.Services.Services
         readonly IGenericRepository<Area> _areaRepository;
         readonly IGenericRepository<AreaTranslation> _areaTranslationRepository;
         public UserProfileLogin _currentUser;
-        public AreaService(IUnitOfWork unitOfWork, IGenericRepository<Area> areaRepository, IGenericRepository<AreaTranslation> areaTranslationRepository)
+        public AreaService(IUnitOfWork unitOfWork, IGenericRepository<Area> areaRepository, IGenericRepository<AreaTranslation> areaTranslationRepository):base(unitOfWork)
         {
             _areaRepository = areaRepository;
             _areaTranslationRepository = areaTranslationRepository;
