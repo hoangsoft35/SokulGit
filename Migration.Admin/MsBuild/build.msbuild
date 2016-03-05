@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Migrate">
+  <Import Project="$(MSBuildExtensionsPath)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets"/>
+  <UsingTask TaskName="FluentMigrator.MSBuild.Migrate" AssemblyFile="..\..\packages\FluentMigrator.1.6.0\tools\FluentMigrator.MSBuild.dll"/>
+  <PropertyGroup>
+    <DatabaseType>sqlserver2008</DatabaseType>
+    <Connection>HsbDefaultConnection</Connection>
+    <RollbackToVersion>201410301149</RollbackToVersion>
+    
+    <!--<BuildOutputDir>E:\tmp\builds\altitude_ux_migration</BuildOutputDir>
+    <PackageDir>E:\tmp\packages\altitude_ux_migration</PackageDir>
+    <CarBookingDir>E:\tmp\packages\altitude_ux_booking</CarBookingDir>-->
+    <!--    
+    <BuildOutputDir>C:\tmp\builds\altitude_ux_migration</BuildOutputDir>
+    <PackageDir>C:\tmp\packages\altitude_ux_migration</PackageDir>
+    <CarBookingDir>..\..\CarBooking\</CarBookingDir>
+-->
+
+  </PropertyGroup>
+
+  <Target Name="Build">
+      <Message Text="Clearing Directory" />
+
+      <RemoveDir Directories="$(BuildOutputDir)" />
+      <RemoveDir Directories="$(PackageDir)" />
+
+      <Message Text="Building Migrations..." />
+      <MSBuild Projects="..\Migration.Admin.csproj" Properties="Configuration=$(BuildConfiguration);AutoParameterizationWebConfigConnectionStrings=false;OutputPath=$(BuildOutputDir);_PackageTempDir=$(PackageDir)" Targets="Build" />
+  </Target>
+
+  <Target Name="Migrate" DependsOnTargets="Build">
+    <Message Text="Starting FluentMigrator Migration"/>
+    <Migrate Database="$(DatabaseType)"
+             ConnectionStringConfigPath="$(CarBookingDir)\Web.config"
+             Connection="$(Connection)"
+             Target="$(BuildOutputDir)\Migrations.dll" 
+             Task="migrate:up">
+    </Migrate>
+  </Target>
+
+  <Target Name="MigrateDown" DependsOnTargets="Build">
+    <Message Text="Rollback to: $(RollbackToVersion)"/>
+    <Migrate Database="$(DatabaseType)"
+             ConnectionStringConfigPath="$(CarBookingDir)Web.config"
+             Connection="$(Connection)"
+             Target="$(BuildOutputDir)\Migrations.dll"
+             Task="rollback:toversion"
+             Version="$(RollbackToVersion)"
+             >
+    </Migrate>
+  </Target>
+</Project>

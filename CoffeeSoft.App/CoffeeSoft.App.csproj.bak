@@ -1,0 +1,458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD4FB9CA-DEBF-4CD6-A32D-A1CA5456D6B0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CoffeeSoft.App</RootNamespace>
+    <AssemblyName>CoffeeSoft.App</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.4.0\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Data.v13.1, Version=13.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v13.1, Version=13.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v13.1, Version=13.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v13.1, Version=13.1.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="common\Autofac.cs" />
+    <Compile Include="FrmAcviteCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAcviteCustomer.Designer.cs">
+      <DependentUpon>FrmAcviteCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBackup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBackup.designer.cs">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBillSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBillSetting.designer.cs">
+      <DependentUpon>frmBillSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChangePassword.designer.cs">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmControl.designer.cs">
+      <DependentUpon>frmControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCustomer.designer.cs">
+      <DependentUpon>FrmCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmDepartment.designer.cs">
+      <DependentUpon>FrmDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmEmployer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmployer.designer.cs">
+      <DependentUpon>FrmEmployer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmExportKulExchange.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmExportKulExchange.Designer.cs">
+      <DependentUpon>FrmExportKulExchange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGroupUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGroupUser.designer.cs">
+      <DependentUpon>FrmGroupUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImport.Designer.cs">
+      <DependentUpon>FrmImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmImportManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImportManage.Designer.cs">
+      <DependentUpon>FrmImportManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInfomation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInfomation.designer.cs">
+      <DependentUpon>frmInfomation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmItem.designer.cs">
+      <DependentUpon>FrmItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmItemPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmItemPrice.designer.cs">
+      <DependentUpon>FrmItemPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmItemType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmItemType.designer.cs">
+      <DependentUpon>FrmItemType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmJoinTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmJoinTable.designer.cs">
+      <DependentUpon>frmJoinTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMaterial.Designer.cs">
+      <DependentUpon>frmMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMemberType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMemberType.Designer.cs">
+      <DependentUpon>FrmMemberType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrintAgain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrintAgain.designer.cs">
+      <DependentUpon>frmPrintAgain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrintSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrintSetting.designer.cs">
+      <DependentUpon>frmPrintSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReport.Designer.cs">
+      <DependentUpon>FrmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmServerConfig.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServerConfig.designer.cs">
+      <DependentUpon>frmServerConfig.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmShortcutSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmShortcutSetting.designer.cs">
+      <DependentUpon>frmShortcutSetting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSplitTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplitTable.designer.cs">
+      <DependentUpon>frmSplitTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmState.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmState.Designer.cs">
+      <DependentUpon>FrmState.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTable.Designer.cs">
+      <DependentUpon>FrmTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUnit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUnit.designer.cs">
+      <DependentUpon>FrmUnit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUpdateKulValue.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUpdateKulValue.Designer.cs">
+      <DependentUpon>FrmUpdateKulValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUserAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUserAccount.designer.cs">
+      <DependentUpon>FrmUserAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="General\BillSetting.cs" />
+    <Compile Include="General\Encrypt.cs" />
+    <Compile Include="General\General.cs" />
+    <Compile Include="General\LoginInfo.cs" />
+    <Compile Include="General\MessageShow.cs" />
+    <Compile Include="General\PrinterSetting.cs" />
+    <Compile Include="General\ReportConfig.cs" />
+    <Compile Include="General\Role.cs" />
+    <Compile Include="General\ShortcutSetting.cs" />
+    <Compile Include="General\Validator.cs" />
+    <Compile Include="FrmMemberCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMemberCard.Designer.cs">
+      <DependentUpon>FrmMemberCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FrmPermit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPermit.designer.cs">
+      <DependentUpon>FrmPermit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Service\IServiceInstance.cs" />
+    <Compile Include="Service\ServiceInstance.cs" />
+    <Compile Include="XtraUserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="XtraUserControl1.Designer.cs">
+      <DependentUpon>XtraUserControl1.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FrmAcviteCustomer.resx">
+      <DependentUpon>FrmAcviteCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBackup.resx">
+      <DependentUpon>frmBackup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBillSetting.resx">
+      <DependentUpon>frmBillSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChangePassword.resx">
+      <DependentUpon>FrmChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmControl.resx">
+      <DependentUpon>frmControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCustomer.resx">
+      <DependentUpon>FrmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmDepartment.resx">
+      <DependentUpon>FrmDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmEmployer.resx">
+      <DependentUpon>FrmEmployer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmExportKulExchange.resx">
+      <DependentUpon>FrmExportKulExchange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmGroupUser.resx">
+      <DependentUpon>FrmGroupUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImport.resx">
+      <DependentUpon>FrmImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmImportManage.resx">
+      <DependentUpon>FrmImportManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInfomation.resx">
+      <DependentUpon>frmInfomation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmItem.resx">
+      <DependentUpon>FrmItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmItemPrice.resx">
+      <DependentUpon>FrmItemPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmItemType.resx">
+      <DependentUpon>FrmItemType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmJoinTable.resx">
+      <DependentUpon>frmJoinTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMaterial.resx">
+      <DependentUpon>frmMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMemberType.resx">
+      <DependentUpon>FrmMemberType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrintAgain.resx">
+      <DependentUpon>frmPrintAgain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrintSetting.resx">
+      <DependentUpon>frmPrintSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReport.resx">
+      <DependentUpon>FrmReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServerConfig.resx">
+      <DependentUpon>frmServerConfig.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmShortcutSetting.resx">
+      <DependentUpon>frmShortcutSetting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSplitTable.resx">
+      <DependentUpon>frmSplitTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmState.resx">
+      <DependentUpon>FrmState.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTable.resx">
+      <DependentUpon>FrmTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUnit.resx">
+      <DependentUpon>FrmUnit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUpdateKulValue.resx">
+      <DependentUpon>FrmUpdateKulValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUserAccount.resx">
+      <DependentUpon>FrmUserAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMemberCard.resx">
+      <DependentUpon>FrmMemberCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="FrmPermit.resx">
+      <DependentUpon>FrmPermit.cs</DependentUpon>
+    </EmbeddedResource>
+    <Fakes Include="Fakes\CrystalDecisions.CrystalReports.Engine.fakes" />
+    <Fakes Include="Fakes\CrystalDecisions.ReportSource.fakes" />
+    <Fakes Include="Fakes\CrystalDecisions.Shared.fakes" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="icon.ico" />
+    <Content Include="img\logo.png" />
+    <Content Include="Resources\bg.png" />
+    <Content Include="Resources\icon.ico" />
+    <Content Include="Resources\login-full.png" />
+    <Content Include="Resources\logo.png" />
+    <Content Include="Resources\sokul.jpg" />
+    <None Include="Resources\sokul1.jpg" />
+    <Content Include="Resources\Untitled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Form\" />
+    <Folder Include="Report\" />
+    <Folder Include="UserControl\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hsp.GenericFramework.Commons\Hsp.GenericFramework.Commons.csproj">
+      <Project>{47387447-96B7-42FA-A69B-D97D75702B54}</Project>
+      <Name>Hsp.GenericFramework.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hsp.GenericFramework.IServices\Hsp.GenericFramework.IServices.csproj">
+      <Project>{c386717b-ae8c-4844-b73d-306864f47163}</Project>
+      <Name>Hsp.GenericFramework.IServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hsp.GenericFramework.Services\Hsp.GenericFramework.Services.csproj">
+      <Project>{8494f506-f2d0-4224-a5dc-4e3631492943}</Project>
+      <Name>Hsp.GenericFramework.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

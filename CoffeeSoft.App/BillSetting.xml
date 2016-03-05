@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<BillSetting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <titlePrint>Trà Sữa Trân Châu</titlePrint>
+  <isTitlePrint>true</isTitlePrint>
+  <logoTextPrint>SOKUL</logoTextPrint>
+  <isLogoTextPrint>false</isLogoTextPrint>
+  <isLogoImagePrint>true</isLogoImagePrint>
+  <isDatePrint>true</isDatePrint>
+  <isTimeInPrint>true</isTimeInPrint>
+  <isTimeOutPrint>true</isTimeOutPrint>
+  <isTablePrint>true</isTablePrint>
+  <isExportIdPrint>true</isExportIdPrint>
+  <isCustomerPrint>true</isCustomerPrint>
+  <isTotalPrint>true</isTotalPrint>
+  <isTotalDiscount>true</isTotalDiscount>
+  <isTotalPayPrint>true</isTotalPayPrint>
+  <isSayGoodByePrint>true</isSayGoodByePrint>
+  <isSayGoodByeText1>Cảm ơn quý khách !</isSayGoodByeText1>
+  <isSayGoodByeText2>Hẹn gặp lại !</isSayGoodByeText2>
+  <isWebsitePrint>true</isWebsitePrint>
+  <isDiscountInfomationPrint>false</isDiscountInfomationPrint>
+  <WebsitePrintTest />
+  <DiscountInfomationPrintTest />
+</BillSetting>
