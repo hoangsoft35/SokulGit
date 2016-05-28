@@ -6,7 +6,7 @@ using Hsp.GenericFramework.Entities.Base;
 
 namespace Hsp.GenericFramework.Entities.Models
 {
-    public class MenuItem : BaseEntityWithUserInformation
+    public class MenuItem : BaseEntityWithoutUserInformation
     {
         public MenuItem()
         {

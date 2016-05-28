@@ -26,7 +26,7 @@ namespace Hsp.GenericFramework.Web.Admin
 
             bundles.Add(new ScriptBundle("~/bundles/common").Include(
                 "~/Scripts/Commons/menu.js",
-                "~/Scripts/Libs/notify.js",
+                "~/Scripts/Libs/alertify.js",
                 "~/Scripts/Commons/_layout.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -34,6 +34,7 @@ namespace Hsp.GenericFramework.Web.Admin
                       "~/Content/default/css/site.css",
                       "~/Content/default/css/topmenu.css",
                       "~/Content/default/css/customize.css",
+                      "~/Content/Libs/alertify.css",
                       "~/Content/default/css/hspmain.css"));
 
             //Load scripts and styles for MenuItemController
@@ -44,8 +45,10 @@ namespace Hsp.GenericFramework.Web.Admin
                 "~/Scripts/Libs/jquery.validate.min.js",
                 "~/Scripts/Controllers/MenuItem.js"));
             bundles.Add(new StyleBundle("~/bundles/css/menuItemController").Include(
-                      "~/Content/Libs/bootstrap-treeview.min.css",
-                      "~/Content/Libs/bootstrap-switch.min.css"));
+                "~/Content/Libs/bootstrap-combined.min.css",
+                "~/Content/Libs/tree.css",
+                "~/Content/Libs/bootstrap-treeview.min.css",
+                "~/Content/Libs/bootstrap-switch.min.css"));
 
 
         }

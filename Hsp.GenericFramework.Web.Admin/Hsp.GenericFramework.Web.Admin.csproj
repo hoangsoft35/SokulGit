@@ -26,7 +26,7 @@
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <UseGlobalApplicationHostFile />
-    <TypeScriptToolsVersion>1.7</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.8</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -161,8 +161,11 @@
     <Content Include="Content\default\css\customize.css" />
     <Content Include="Content\default\css\hspmain.css" />
     <Content Include="Content\default\css\topmenu.css" />
+    <Content Include="Content\img\glyphicons-halflings.png" />
+    <Content Include="Content\Libs\bootstrap-combined.min.css" />
     <Content Include="Content\Libs\bootstrap-switch.min.css" />
     <Content Include="Content\Libs\bootstrap-treeview.min.css" />
+    <Content Include="Content\Libs\tree.css" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\default\fonts\glyphicons-halflings-regular.svg" />
@@ -185,6 +188,10 @@
     <Content Include="Scripts\Commons\menu.js" />
     <Content Include="Scripts\Commons\_layout.js" />
     <Content Include="Scripts\Controllers\MenuItem.js" />
+    <Content Include="Content\Libs\alertify.css" />
+    <Content Include="Scripts\Libs\alertify.js" />
+    <Content Include="Content\Libs\alertify.min.css" />
+    <Content Include="Scripts\Libs\alertify.min.js" />
     <Content Include="Scripts\Libs\bootstrap-switch.min.js" />
     <Content Include="Scripts\Libs\bootstrap-treeview.min.js" />
     <Content Include="Scripts\Libs\bootstrap.js" />
@@ -200,11 +207,11 @@
     <Content Include="Scripts\Libs\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\Libs\lodash.js" />
     <Content Include="Scripts\Libs\modernizr-2.6.2.js" />
-    <Content Include="Scripts\Libs\notify.js" />
     <Content Include="Scripts\Libs\respond.js" />
     <Content Include="Scripts\Libs\respond.min.js" />
-    <Content Include="Scripts\Libs\notify.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -288,16 +295,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>13171</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:13171/domain/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

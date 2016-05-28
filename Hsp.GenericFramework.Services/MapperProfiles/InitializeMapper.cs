@@ -5,6 +5,7 @@ using Hsp.GenericFramework.Commons.Security;
 using Hsp.GenericFramework.Entities.Models;
 using System.Web;
 using Hsp.GenericFramework.Services.Base;
+using Hsp.GenericFramework.Commons.Dtos.ViewModels;
 
 namespace Hsp.GenericFramework.Services.MapperProfiles
 {
@@ -121,6 +122,8 @@ namespace Hsp.GenericFramework.Services.MapperProfiles
                 .ForMember(to => to.ParentId, src => src.MapFrom(r => r.MenuItem.ParentId))
                 .ForMember(to => to.SectionParameter, src => src.MapFrom(r => r.MenuItem.SectionParameter))
                 ;
+            Mapper.CreateMap<MenuItemCreateViewModel, MenuItem>();
+            Mapper.CreateMap<MenuItemTranslationCreateViewModel, MenuItemTranslation>();
         }
     }
 }
