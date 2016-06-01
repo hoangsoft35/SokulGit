@@ -156,46 +156,202 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\default\css\bootstrap.css" />
-    <Content Include="Content\default\css\bootstrap.min.css" />
-    <Content Include="Content\default\css\customize.css" />
-    <Content Include="Content\default\css\hspmain.css" />
-    <Content Include="Content\default\css\topmenu.css" />
-    <Content Include="Content\img\glyphicons-halflings.png" />
-    <Content Include="Content\Libs\bootstrap-combined.min.css" />
-    <Content Include="Content\Libs\bootstrap-switch.min.css" />
-    <Content Include="Content\Libs\bootstrap-treeview.min.css" />
-    <Content Include="Content\Libs\tree.css" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\default\css\animate.min.css" />
+    <Content Include="Content\default\css\login.css" />
+    <Content Include="Content\default\css\style.css" />
+    <Content Include="Content\default\fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\default\images\apple-touch-icon-114-precomposed.png" />
+    <Content Include="Content\default\images\apple-touch-icon-144-precomposed.png" />
+    <Content Include="Content\default\images\apple-touch-icon-57-precomposed.png" />
+    <Content Include="Content\default\images\apple-touch-icon-72-precomposed.png" />
+    <Content Include="Content\default\images\favicon.png" />
+    <Content Include="Content\default\images\logo.png" />
+    <Content Include="Content\default\js\blo-dashboard.js" />
+    <Content Include="Content\default\js\chart-chartjs.js" />
+    <Content Include="Content\default\js\chart-easypie.js" />
+    <Content Include="Content\default\js\chart-flot.js" />
+    <Content Include="Content\default\js\chart-knobs.js" />
+    <Content Include="Content\default\js\chart-morris.js" />
+    <Content Include="Content\default\js\chart-rickshaw.js" />
+    <Content Include="Content\default\js\chart-sparkline.js" />
+    <Content Include="Content\default\js\crm-dashboard.js" />
+    <Content Include="Content\default\js\dashboard.js" />
+    <Content Include="Content\default\js\eco-dashboard.js" />
+    <Content Include="Content\default\js\form-validation.js" />
+    <Content Include="Content\default\js\frl-dashboard.js" />
+    <Content Include="Content\default\js\hos-dashboard.js" />
+    <Content Include="Content\default\js\jquery-1.11.2.js" />
+    <Content Include="Content\default\js\jquery.easing.min.js" />
+    <Content Include="Content\default\js\messenger.js" />
+    <Content Include="Content\default\js\scripts.js" />
+    <Content Include="Content\default\js\soc-dashboard.js" />
+    <Content Include="Content\default\js\uni-dashboard.js" />
+    <Content Include="Content\default\plugins\autonumeric\autoNumeric-min.js" />
+    <Content Include="Content\default\plugins\autosize\autosize.min.js" />
+    <Content Include="Content\default\plugins\bootstrap-wizard\jquery.bootstrap.wizard.min.js" />
+    <Content Include="Content\default\plugins\bootstrap3-wysihtml5\css\bootstrap3-wysihtml5.min.css" />
+    <Content Include="Content\default\plugins\bootstrap3-wysihtml5\js\bootstrap3-wysihtml5.all.min.js" />
+    <Content Include="Content\default\plugins\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Content\default\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\default\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\default\plugins\bootstrap\js\respond.min.js" />
+    <Content Include="Content\default\plugins\calendar\fullcalendar.css" />
+    <Content Include="Content\default\plugins\calendar\fullcalendar.min.js" />
+    <Content Include="Content\default\plugins\calendar\moment.min.js" />
+    <Content Include="Content\default\plugins\chartjs-chart\Chart.min.js" />
+    <Content Include="Content\default\plugins\ckeditor\ckeditor.js" />
+    <Content Include="Content\default\plugins\colorpicker\css\bootstrap-colorpicker.min.css" />
+    <Content Include="Content\default\plugins\colorpicker\js\bootstrap-colorpicker.min.js" />
+    <Content Include="Content\default\plugins\count-to\countto.js" />
+    <Content Include="Content\default\plugins\datatables\css\jquery.dataTables.css" />
+    <Content Include="Content\default\plugins\datatables\extensions\Responsive\bootstrap\3\dataTables.bootstrap.css" />
+    <Content Include="Content\default\plugins\datatables\extensions\Responsive\bootstrap\3\dataTables.bootstrap.js" />
+    <Content Include="Content\default\plugins\datatables\extensions\Responsive\css\dataTables.responsive.css" />
+    <Content Include="Content\default\plugins\datatables\extensions\Responsive\js\dataTables.responsive.min.js" />
+    <Content Include="Content\default\plugins\datatables\extensions\TableTools\css\dataTables.tableTools.min.css" />
+    <Content Include="Content\default\plugins\datatables\extensions\TableTools\js\dataTables.tableTools.min.js" />
+    <Content Include="Content\default\plugins\datatables\js\jquery.dataTables.min.js" />
+    <Content Include="Content\default\plugins\datepicker\css\datepicker.css" />
+    <Content Include="Content\default\plugins\datepicker\js\datepicker.js" />
+    <Content Include="Content\default\plugins\daterangepicker\css\daterangepicker-bs3.css" />
+    <Content Include="Content\default\plugins\daterangepicker\js\daterangepicker.js" />
+    <Content Include="Content\default\plugins\daterangepicker\js\moment.min.js" />
+    <Content Include="Content\default\plugins\datetimepicker\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\default\plugins\datetimepicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\default\plugins\datetimepicker\js\locales\bootstrap-datetimepicker.fr.js" />
+    <Content Include="Content\default\plugins\dropzone\css\dropzone.css" />
+    <Content Include="Content\default\plugins\dropzone\dropzone.min.js" />
+    <Content Include="Content\default\plugins\easypiechart\jquery.easypiechart.min.js" />
+    <Content Include="Content\default\plugins\flot-chart\jquery.flot.crosshair.js" />
+    <Content Include="Content\default\plugins\flot-chart\jquery.flot.fillbetween.js" />
+    <Content Include="Content\default\plugins\flot-chart\jquery.flot.js" />
+    <Content Include="Content\default\plugins\flot-chart\jquery.flot.navigate.js" />
+    <Content Include="Content\default\plugins\flot-chart\jquery.flot.pie.js" />
+    <Content Include="Content\default\plugins\flot-chart\jquery.flot.selection.js" />
+    <Content Include="Content\default\plugins\flot-chart\jquery.flot.stack.js" />
+    <Content Include="Content\default\plugins\flot-chart\jquery.flot.time.js" />
+    <Content Include="Content\default\plugins\gauge\gauge.min.js" />
+    <Content Include="Content\default\plugins\icheck\icheck.min.js" />
+    <Content Include="Content\default\plugins\icheck\skins\all.css" />
+    <Content Include="Content\default\plugins\icheck\skins\minimal\minimal.css" />
+    <Content Include="Content\default\plugins\icheck\skins\minimal\white.css" />
+    <Content Include="Content\default\plugins\icheck\skins\square\orange.css" />
+    <Content Include="Content\default\plugins\image-cropper\css\cropper.css" />
+    <Content Include="Content\default\plugins\image-cropper\css\main.css" />
+    <Content Include="Content\default\plugins\image-cropper\js\cropper.js" />
+    <Content Include="Content\default\plugins\image-cropper\js\main.js" />
+    <Content Include="Content\default\plugins\inputmask\min\jquery.inputmask.bundle.min.js" />
+    <Content Include="Content\default\plugins\ios-switch\css\switch.css" />
+    <Content Include="Content\default\plugins\isotope\jquery.isotope.min.js" />
+    <Content Include="Content\default\plugins\isotope\jquery.isotope.sloppy-masonry.min.js" />
+    <Content Include="Content\default\plugins\jquery-knob\jquery.knob.min.js" />
+    <Content Include="Content\default\plugins\jquery-ui\smoothness\jquery-ui.min.css" />
+    <Content Include="Content\default\plugins\jquery-ui\smoothness\jquery-ui.min.js" />
+    <Content Include="Content\default\plugins\jquery-validation\js\additional-methods.min.js" />
+    <Content Include="Content\default\plugins\jquery-validation\js\jquery.validate.min.js" />
+    <Content Include="Content\default\plugins\jstree\jstree.min.js" />
+    <Content Include="Content\default\plugins\jstree\themes\default\style.css" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-2.0.1.css" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-2.0.1.min.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-ar-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-at-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-au-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-be-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-ca-lcc-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-ch-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-cn-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-co-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-de-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-dk-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-es-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-europe-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-fr-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-fr_regions-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-in-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-it-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-nl-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-no-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-nz-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-pl-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-pt-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-se-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-th-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-us-aea-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-us-il-chicago-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-us-ny-newyork-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-ve-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-world-mill-en.js" />
+    <Content Include="Content\default\plugins\jvectormap\jquery-jvectormap-za-mill-en.js" />
+    <Content Include="Content\default\plugins\messenger\css\messenger-theme-flat.css" />
+    <Content Include="Content\default\plugins\messenger\css\messenger-theme-future.css" />
+    <Content Include="Content\default\plugins\messenger\css\messenger.css" />
+    <Content Include="Content\default\plugins\messenger\js\messenger-theme-flat.js" />
+    <Content Include="Content\default\plugins\messenger\js\messenger-theme-future.js" />
+    <Content Include="Content\default\plugins\messenger\js\messenger.min.js" />
+    <Content Include="Content\default\plugins\modernizr\modernizr-2.6.2.js" />
+    <Content Include="Content\default\plugins\morris-chart\css\morris.css" />
+    <Content Include="Content\default\plugins\morris-chart\js\morris.min.js" />
+    <Content Include="Content\default\plugins\morris-chart\js\raphael-min.js" />
+    <Content Include="Content\default\plugins\multi-select\css\multi-select.css" />
+    <Content Include="Content\default\plugins\multi-select\js\jquery.multi-select.js" />
+    <Content Include="Content\default\plugins\multi-select\js\jquery.quicksearch.js" />
+    <Content Include="Content\default\plugins\pace\pace-theme-flash.css" />
+    <Content Include="Content\default\plugins\pace\pace.min.js" />
+    <Content Include="Content\default\plugins\perfect-scrollbar\perfect-scrollbar.css" />
+    <Content Include="Content\default\plugins\perfect-scrollbar\perfect-scrollbar.min.js" />
+    <Content Include="Content\default\plugins\prettyphoto\jquery.prettyPhoto.js" />
+    <Content Include="Content\default\plugins\prettyphoto\prettyPhoto.css" />
+    <Content Include="Content\default\plugins\responsive-tables\css\rwd-table.min.css" />
+    <Content Include="Content\default\plugins\responsive-tables\js\rwd-table.min.js" />
+    <Content Include="Content\default\plugins\rickshaw-chart\css\detail.css" />
+    <Content Include="Content\default\plugins\rickshaw-chart\css\extensions.css" />
+    <Content Include="Content\default\plugins\rickshaw-chart\css\graph.css" />
+    <Content Include="Content\default\plugins\rickshaw-chart\css\legend.css" />
+    <Content Include="Content\default\plugins\rickshaw-chart\css\lines.css" />
+    <Content Include="Content\default\plugins\rickshaw-chart\css\rickshaw.min.css" />
+    <Content Include="Content\default\plugins\rickshaw-chart\js\Rickshaw.All.js" />
+    <Content Include="Content\default\plugins\rickshaw-chart\vendor\d3.v3.js" />
+    <Content Include="Content\default\plugins\select2\select2.css" />
+    <Content Include="Content\default\plugins\select2\select2.min.js" />
+    <Content Include="Content\default\plugins\sparkline-chart\jquery.sparkline.min.js" />
+    <Content Include="Content\default\plugins\tagsinput\css\bootstrap-tagsinput.css" />
+    <Content Include="Content\default\plugins\tagsinput\js\bootstrap-tagsinput.min.js" />
+    <Content Include="Content\default\plugins\timepicker\css\bootstrap-timepicker.css" />
+    <Content Include="Content\default\plugins\timepicker\js\bootstrap-timepicker.min.js" />
+    <Content Include="Content\default\plugins\tocify\css\jquery.tocify.css" />
+    <Content Include="Content\default\plugins\tocify\js\jquery.tocify.js" />
+    <Content Include="Content\default\plugins\typeahead\css\typeahead.css" />
+    <Content Include="Content\default\plugins\typeahead\handlebars.min.js" />
+    <Content Include="Content\default\plugins\typeahead\typeahead.bundle.js" />
+    <Content Include="Content\default\plugins\uikit\css\components\htmleditor.css" />
+    <Content Include="Content\default\plugins\uikit\css\components\nestable.min.css" />
+    <Content Include="Content\default\plugins\uikit\css\uikit.min.css" />
+    <Content Include="Content\default\plugins\uikit\js\components\htmleditor.js" />
+    <Content Include="Content\default\plugins\uikit\js\components\nestable.min.js" />
+    <Content Include="Content\default\plugins\uikit\js\uikit.min.js" />
+    <Content Include="Content\default\plugins\uikit\vendor\codemirror\addon\mode\overlay.js" />
+    <Content Include="Content\default\plugins\uikit\vendor\codemirror\codemirror.css" />
+    <Content Include="Content\default\plugins\uikit\vendor\codemirror\codemirror.js" />
+    <Content Include="Content\default\plugins\uikit\vendor\codemirror\mode\gfm\gfm.js" />
+    <Content Include="Content\default\plugins\uikit\vendor\codemirror\mode\markdown\markdown.js" />
+    <Content Include="Content\default\plugins\uikit\vendor\codemirror\mode\xml\xml.js" />
+    <Content Include="Content\default\plugins\uikit\vendor\marked\marked.min.js" />
+    <Content Include="Content\default\plugins\viewport\viewportchecker.js" />
     <Content Include="favicon.ico" />
-    <Content Include="Content\default\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\default\css\Site.css" />
-    <Content Include="Content\default\lib\bootstrap.js" />
-    <Content Include="Content\default\lib\bootstrap.min.js" />
-    <None Include="Content\default\lib\jquery-1.10.2.intellisense.js" />
-    <Content Include="Content\default\lib\jquery-1.10.2.js" />
-    <Content Include="Content\default\lib\jquery-1.10.2.min.js" />
-    <None Include="Content\default\lib\jquery.validate-vsdoc.js" />
-    <Content Include="Content\default\lib\jquery.validate.js" />
-    <Content Include="Content\default\lib\jquery.validate.min.js" />
-    <Content Include="Content\default\lib\jquery.validate.unobtrusive.js" />
-    <Content Include="Content\default\lib\jquery.validate.unobtrusive.min.js" />
-    <Content Include="Content\default\lib\modernizr-2.6.2.js" />
-    <Content Include="Content\default\lib\respond.js" />
-    <Content Include="Content\default\lib\respond.min.js" />
     <Content Include="Scripts\Commons\dropdownlist.js" />
     <Content Include="Scripts\Commons\menu.js" />
     <Content Include="Scripts\Commons\_layout.js" />
     <Content Include="Scripts\Controllers\MenuItem.js" />
-    <Content Include="Content\Libs\alertify.css" />
     <Content Include="Scripts\Libs\alertify.js" />
-    <Content Include="Content\Libs\alertify.min.css" />
     <Content Include="Scripts\Libs\alertify.min.js" />
     <Content Include="Scripts\Libs\bootstrap-switch.min.js" />
     <Content Include="Scripts\Libs\bootstrap-treeview.min.js" />
     <Content Include="Scripts\Libs\bootstrap.js" />
     <Content Include="Scripts\Libs\bootstrap.min.js" />
+    <Content Include="Content\default\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\default\fonts\font-awesome\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\default\fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
     <None Include="Scripts\Libs\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Libs\jquery-1.10.2.js" />
     <Content Include="Scripts\Libs\jquery-1.10.2.min.js" />
@@ -225,7 +381,6 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Content\default\lib\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -250,16 +405,15 @@
     <Content Include="Views\Error\CustomError.cshtml" />
     <Content Include="Views\MenuItem\Index.cshtml" />
     <Content Include="Scripts\Libs\jquery-1.10.2.min.map" />
+    <Content Include="Views\Shared\_Layout_v1.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout_v1.cshtml" />
+    <Content Include="Views\Account\Login_v1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\default\images\" />
     <Folder Include="Views\PasswordRule\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\default\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\default\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\default\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
@@ -295,7 +449,16 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>13171</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:13171/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

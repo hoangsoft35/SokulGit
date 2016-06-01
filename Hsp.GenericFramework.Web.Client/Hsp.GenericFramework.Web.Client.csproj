@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8EA26B15-3A20-406B-8820-FB5DE85C8F12}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hsp.GenericFramework.Web.Client</RootNamespace>
+    <AssemblyName>Hsp.GenericFramework.Web.Client</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\default\css\animate.min.css" />
+    <Content Include="Content\default\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="Content\default\css\bootstrap-select.css" />
+    <Content Include="Content\default\css\bootstrap.css" />
+    <Content Include="Content\default\css\component.css" />
+    <Content Include="Content\default\css\cs-select.css" />
+    <Content Include="Content\default\css\cs-skin-boxes.css" />
+    <Content Include="Content\default\css\dataTables.tableTools.css" />
+    <Content Include="Content\default\css\dialogs\dialog-alex.css" />
+    <Content Include="Content\default\css\dialogs\dialog-annie.css" />
+    <Content Include="Content\default\css\dialogs\dialog-cathy.css" />
+    <Content Include="Content\default\css\dialogs\dialog-dean.css" />
+    <Content Include="Content\default\css\dialogs\dialog-don.css" />
+    <Content Include="Content\default\css\dialogs\dialog-donna.css" />
+    <Content Include="Content\default\css\dialogs\dialog-ken.css" />
+    <Content Include="Content\default\css\dialogs\dialog-ricky.css" />
+    <Content Include="Content\default\css\dialogs\dialog-sally.css" />
+    <Content Include="Content\default\css\dialogs\dialog-sandra.css" />
+    <Content Include="Content\default\css\dialogs\dialog-susan.css" />
+    <Content Include="Content\default\css\dialogs\dialog-val.css" />
+    <Content Include="Content\default\css\font-awesome.min.css" />
+    <Content Include="Content\default\css\jquery.dataTables.min.css" />
+    <Content Include="Content\default\css\main.css" />
+    <Content Include="Content\default\css\normalize.css" />
+    <Content Include="Content\default\css\product-filter.css" />
+    <Content Include="Content\default\css\register.css" />
+    <Content Include="Content\default\css\rwd-table.min.css" />
+    <Content Include="Content\default\css\skins\dark.css" />
+    <Content Include="Content\default\css\skins\dim.css" />
+    <Content Include="Content\default\css\skins\light.css" />
+    <Content Include="Content\default\css\vendors\calendar-mini.css" />
+    <Content Include="Content\default\css\vendors\calendar.css" />
+    <Content Include="Content\default\css\vendors\chat.css" />
+    <Content Include="Content\default\css\vendors\checkboxes.css" />
+    <Content Include="Content\default\css\vendors\crop.css" />
+    <Content Include="Content\default\css\vendors\filter.css" />
+    <Content Include="Content\default\css\vendors\input.css" />
+    <Content Include="Content\default\css\vendors\loading.css" />
+    <Content Include="Content\default\css\vendors\player.css" />
+    <Content Include="Content\default\css\vendors\slider.css" />
+    <Content Include="Content\default\css\vendors\sweetalert.css" />
+    <Content Include="Content\default\css\vendors\timeline.css" />
+    <Content Include="Content\default\dialog-notification\error.html" />
+    <Content Include="Content\default\dialog-notification\overload.html" />
+    <Content Include="Content\default\dialog-notification\restart.html" />
+    <Content Include="Content\default\dialog-notification\space.html" />
+    <Content Include="Content\default\dialog-notification\timeout.html" />
+    <Content Include="Content\default\dialogs\alex.html" />
+    <Content Include="Content\default\dialogs\annie.html" />
+    <Content Include="Content\default\dialogs\cathy.html" />
+    <Content Include="Content\default\dialogs\dean.html" />
+    <Content Include="Content\default\dialogs\don.html" />
+    <Content Include="Content\default\dialogs\donna.html" />
+    <Content Include="Content\default\dialogs\ken.html" />
+    <Content Include="Content\default\dialogs\ricky.html" />
+    <Content Include="Content\default\dialogs\sally.html" />
+    <Content Include="Content\default\dialogs\susan.html" />
+    <Content Include="Content\default\dialogs\val.html" />
+    <Content Include="Content\default\fonts\bootstrap\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\default\img\crop-btn.svg" />
+    <Content Include="Content\default\img\crop-img.jpg" />
+    <Content Include="Content\default\img\error.png" />
+    <Content Include="Content\default\img\favicon.ico" />
+    <Content Include="Content\default\img\header.png" />
+    <Content Include="Content\default\img\icon-51.png" />
+    <Content Include="Content\default\img\icon-52.png" />
+    <Content Include="Content\default\img\icon-85.png" />
+    <Content Include="Content\default\img\icon-86.png" />
+    <Content Include="Content\default\img\icon-87.png" />
+    <Content Include="Content\default\img\icon-88.png" />
+    <Content Include="Content\default\img\icon-89.png" />
+    <Content Include="Content\default\img\icon-90.png" />
+    <Content Include="Content\default\img\icon-91.png" />
+    <Content Include="Content\default\img\icon-92.png" />
+    <Content Include="Content\default\img\icon-93.png" />
+    <Content Include="Content\default\img\icon-94.png" />
+    <Content Include="Content\default\img\icon-account.svg" />
+    <Content Include="Content\default\img\icon-album.svg" />
+    <Content Include="Content\default\img\icon-android.svg" />
+    <Content Include="Content\default\img\icon-box.png" />
+    <Content Include="Content\default\img\icon-email.svg" />
+    <Content Include="Content\default\img\icon-label-1.png" />
+    <Content Include="Content\default\img\icon-message.svg" />
+    <Content Include="Content\default\img\icon-science.png" />
+    <Content Include="Content\default\img\icon-search.svg" />
+    <Content Include="Content\default\img\images\cart\cart1.jpg" />
+    <Content Include="Content\default\img\images\cart\cart2.jpg" />
+    <Content Include="Content\default\img\images\cart\cart3.jpg" />
+    <Content Include="Content\default\img\images\cart\cart4.jpg" />
+    <Content Include="Content\default\img\images\chat\40-2.png" />
+    <Content Include="Content\default\img\images\chat\40-3.png" />
+    <Content Include="Content\default\img\images\chat\40-4.png" />
+    <Content Include="Content\default\img\images\chat\40-5.png" />
+    <Content Include="Content\default\img\images\chat\40-6.png" />
+    <Content Include="Content\default\img\images\chat\40-7.png" />
+    <Content Include="Content\default\img\images\chat\40.png" />
+    <Content Include="Content\default\img\images\followers\40-2.png" />
+    <Content Include="Content\default\img\images\followers\40-3.png" />
+    <Content Include="Content\default\img\images\followers\40-4.png" />
+    <Content Include="Content\default\img\images\followers\40.png" />
+    <Content Include="Content\default\img\images\gallery\1200-1.png" />
+    <Content Include="Content\default\img\images\gallery\1200-10.png" />
+    <Content Include="Content\default\img\images\gallery\1200-11.png" />
+    <Content Include="Content\default\img\images\gallery\1200-12.png" />
+    <Content Include="Content\default\img\images\gallery\1200-2.png" />
+    <Content Include="Content\default\img\images\gallery\1200-3.png" />
+    <Content Include="Content\default\img\images\gallery\1200-4.png" />
+    <Content Include="Content\default\img\images\gallery\1200-5.png" />
+    <Content Include="Content\default\img\images\gallery\1200-6.png" />
+    <Content Include="Content\default\img\images\gallery\1200-7.png" />
+    <Content Include="Content\default\img\images\gallery\1200-8.png" />
+    <Content Include="Content\default\img\images\gallery\1200-9.png" />
+    <Content Include="Content\default\img\images\mail-inbox\183-2.png" />
+    <Content Include="Content\default\img\images\mail-inbox\183.png" />
+    <Content Include="Content\default\img\images\mail-widget\60-2.png" />
+    <Content Include="Content\default\img\images\mail-widget\60-3.png" />
+    <Content Include="Content\default\img\images\mail-widget\60-4.png" />
+    <Content Include="Content\default\img\images\mail-widget\60.png" />
+    <Content Include="Content\default\img\images\news\1000x250-2.png" />
+    <Content Include="Content\default\img\images\news\1000x250-3.png" />
+    <Content Include="Content\default\img\images\news\1000x250-4.png" />
+    <Content Include="Content\default\img\images\news\1000x250.png" />
+    <Content Include="Content\default\img\images\news\1000x500-2.png" />
+    <Content Include="Content\default\img\images\news\1000x500-3.png" />
+    <Content Include="Content\default\img\images\news\1000x500-4.png" />
+    <Content Include="Content\default\img\images\news\1000x500.png" />
+    <Content Include="Content\default\img\images\news\250-2.png" />
+    <Content Include="Content\default\img\images\news\250-3.png" />
+    <Content Include="Content\default\img\images\news\250-4.png" />
+    <Content Include="Content\default\img\images\news\250.png" />
+    <Content Include="Content\default\img\images\profile\130.png" />
+    <Content Include="Content\default\img\images\profile\280-2.png" />
+    <Content Include="Content\default\img\images\profile\280-3.png" />
+    <Content Include="Content\default\img\images\profile\280.png" />
+    <Content Include="Content\default\img\images\profile\40-2.png" />
+    <Content Include="Content\default\img\images\profile\40.png" />
+    <Content Include="Content\default\img\images\profile\64-2.png" />
+    <Content Include="Content\default\img\images\profile\64.png" />
+    <Content Include="Content\default\img\images\search\50-2.png" />
+    <Content Include="Content\default\img\images\search\50-3.png" />
+    <Content Include="Content\default\img\images\search\50.png" />
+    <Content Include="Content\default\img\images\slider\100.png" />
+    <Content Include="Content\default\img\images\slider\104.png" />
+    <Content Include="Content\default\img\images\slider\120.png" />
+    <Content Include="Content\default\img\images\slider\135.png" />
+    <Content Include="Content\default\img\images\slider\145.png" />
+    <Content Include="Content\default\img\images\slider\200.png" />
+    <Content Include="Content\default\img\images\slider\2560x900-1.png" />
+    <Content Include="Content\default\img\images\slider\2560x900-2.png" />
+    <Content Include="Content\default\img\images\slider\2560x900-3.png" />
+    <Content Include="Content\default\img\images\slider\2560x900-4.png" />
+    <Content Include="Content\default\img\images\slider\2560x900-5.png" />
+    <Content Include="Content\default\img\images\slider\2560x900.png" />
+    <Content Include="Content\default\img\images\slider\32.png" />
+    <Content Include="Content\default\img\images\slider\48.png" />
+    <Content Include="Content\default\img\images\slider\64.png" />
+    <Content Include="Content\default\img\images\slider\70.png" />
+    <Content Include="Content\default\img\images\team\64-2.png" />
+    <Content Include="Content\default\img\images\team\64-3.png" />
+    <Content Include="Content\default\img\images\team\64.png" />
+    <Content Include="Content\default\img\images\team\female\64-5.png" />
+    <Content Include="Content\default\img\images\team\female\64-6.png" />
+    <Content Include="Content\default\img\images\team\female\64-7.png" />
+    <Content Include="Content\default\img\images\team\female\64-8.png" />
+    <Content Include="Content\default\img\images\team\male\64-3.png" />
+    <Content Include="Content\default\img\images\team\male\64-4.png" />
+    <Content Include="Content\default\img\images\team\male\64.png" />
+    <Content Include="Content\default\img\images\widget-album\2560-2.png" />
+    <Content Include="Content\default\img\images\widget-album\2560-3.png" />
+    <Content Include="Content\default\img\images\widget-album\2560-4.png" />
+    <Content Include="Content\default\img\images\widget-album\2560-5.png" />
+    <Content Include="Content\default\img\images\widget-album\2560-6.png" />
+    <Content Include="Content\default\img\images\widget-album\2560-7.png" />
+    <Content Include="Content\default\img\images\widget-album\2560-8.png" />
+    <Content Include="Content\default\img\images\widget-album\2560.png" />
+    <Content Include="Content\default\img\img-contact.jpg" />
+    <Content Include="Content\default\img\img-cover-2.jpg" />
+    <Content Include="Content\default\img\img-cover.jpg" />
+    <Content Include="Content\default\img\iphone.png" />
+    <Content Include="Content\default\img\lumia.png" />
+    <Content Include="Content\default\img\macbook.png" />
+    <Content Include="Content\default\img\samsung.png" />
+    <Content Include="Content\default\img\thumb-1.jpg" />
+    <Content Include="Content\default\img\thumb-2.jpg" />
+    <Content Include="Content\default\img\thumb-3.jpg" />
+    <Content Include="Content\default\img\thumbs\400.png" />
+    <Content Include="Content\default\img\thumbs\400x300.png" />
+    <Content Include="Content\default\img\thumbs\90.png" />
+    <Content Include="Content\default\js\autosize.min.js" />
+    <Content Include="Content\default\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\default\js\bootstrap-select.min.js" />
+    <Content Include="Content\default\js\bootstrap-tagsinput.min.js" />
+    <Content Include="Content\default\js\bootstrap-wysiwyg.js" />
+    <Content Include="Content\default\js\bootstrap.min.js" />
+    <Content Include="Content\default\js\calendar.js" />
+    <Content Include="Content\default\js\chart.js" />
+    <Content Include="Content\default\js\chat.js" />
+    <Content Include="Content\default\js\checkboxes.js" />
+    <Content Include="Content\default\js\classie.js" />
+    <Content Include="Content\default\js\crop.js" />
+    <Content Include="Content\default\js\dataTables.responsive.min.js" />
+    <Content Include="Content\default\js\dataTables.tableTools.js" />
+    <Content Include="Content\default\js\dialogFx.js" />
+    <Content Include="Content\default\js\dist\summernote.css" />
+    <Content Include="Content\default\js\dist\summernote.min.js" />
+    <Content Include="Content\default\js\ekko-lightbox.min.js" />
+    <Content Include="Content\default\js\farbtastic\farbtastic.css" />
+    <Content Include="Content\default\js\farbtastic\farbtastic.min.js" />
+    <Content Include="Content\default\js\filter.js" />
+    <Content Include="Content\default\js\fullcalendar.min.js" />
+    <Content Include="Content\default\js\fullscreenForm.js" />
+    <Content Include="Content\default\js\google-code-prettify\prettify.css" />
+    <Content Include="Content\default\js\google-code-prettify\prettify.js" />
+    <Content Include="Content\default\js\input-mask.min.js" />
+    <Content Include="Content\default\js\jquery-ui.min.js" />
+    <Content Include="Content\default\js\jquery.bootstrap.wizard.min.js" />
+    <Content Include="Content\default\js\jquery.countdown.min.js" />
+    <Content Include="Content\default\js\jquery.dataTables.min.js" />
+    <Content Include="Content\default\js\jquery.easypiechart.min.js" />
+    <Content Include="Content\default\js\jquery.hotkeys.js" />
+    <Content Include="Content\default\js\jquery.js" />
+    <Content Include="Content\default\js\jquery.mixitup.min.js" />
+    <Content Include="Content\default\js\jquery.nicescroll.min.js" />
+    <Content Include="Content\default\js\jquery.plugin.min.js" />
+    <Content Include="Content\default\js\jquery.sparkline.min.js" />
+    <Content Include="Content\default\js\modernizr.custom.js" />
+    <Content Include="Content\default\js\modernizr.js" />
+    <Content Include="Content\default\js\moment.min.js" />
+    <Content Include="Content\default\js\peppermint.min.js" />
+    <Content Include="Content\default\js\player.js" />
+    <Content Include="Content\default\js\polyfill.object-fit.min.js" />
+    <Content Include="Content\default\js\product-filter.js" />
+    <Content Include="Content\default\js\rwd-table.min.js" />
+    <Content Include="Content\default\js\search.js" />
+    <Content Include="Content\default\js\selectFxRegister.js" />
+    <Content Include="Content\default\js\skycons.js" />
+    <Content Include="Content\default\js\sweetalert.min.js" />
+    <Content Include="Content\default\js\timeline.js" />
+    <Content Include="Content\default\js\tinymce\tinymce.min.js" />
+    <Content Include="Content\default\js\TweenMax.min.js" />
+    <Content Include="Content\default\js\ui.js" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Scripts\ai.0.15.0-build58334.js" />
+    <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\default\fonts\bootstrap\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\default\fonts\bootstrap\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\default\fonts\bootstrap\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\default\fonts\bootstrap\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\default\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\default\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Views\Account\ConfirmEmail.cshtml" />
+    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Views\Account\ForgotPassword.cshtml" />
+    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Account\Register.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Views\Account\SendCode.cshtml" />
+    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Manage\Index.cshtml" />
+    <Content Include="Views\Manage\ManageLogins.cshtml" />
+    <Content Include="Views\Manage\SetPassword.cshtml" />
+    <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
+    <Content Include="Views\Shared\Lockout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51978</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51978/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
