@@ -9,20 +9,30 @@ namespace Hsp.GenericFramework.Web.Admin
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/Libs/jquery-{version}.js"));
-
-            bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
-                        "~/Scripts/Libs/jquery.validate*"));
+                                  "~/Content/default/js/jquery-{version}.js"));
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Scripts/Libs/modernizr-*"));
+                        "~/Content/default/js/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/Libs/bootstrap.min.js",
-                      "~/Scripts/Libs/lodash.js",
-                      "~/Scripts/Libs/respond.js"));
+                      "~/Content/default/js/bootstrap.js",
+                      "~/Content/default/js/respond.js"));
+
+            bundles.Add(new StyleBundle("~/Content/default/css").Include(
+                      "~/Content/default/css/bootstrap.css",
+                      "~/Content/default/css/font-awesome.min.css",
+                      "~/Content/default/css/animate.min.css",
+                      "~/Content/default/css/css/vendors/sweetalert.css",
+                      "~/Content/default/css/vendors/loading.css",
+                      "~/Content/default/css/vendors/chat.css",
+                      "~/Content/default/css/bootstrap-select.css",
+                      "~/Content/default/css/vendors/calendar-mini.css",
+                      "~/Content/default/css/main.css"
+                      ));
+
+
 
             bundles.Add(new ScriptBundle("~/bundles/common").Include(
                 "~/Scripts/Commons/menu.js",
