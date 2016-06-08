@@ -192,6 +192,7 @@
     <Content Include="Content\default\plugins\bootstrap\css\bootstrap-theme.min.css" />
     <Content Include="Content\default\plugins\bootstrap\css\bootstrap.min.css" />
     <Content Include="Content\default\plugins\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\default\plugins\bootstrap\js\respond.min.js" />
     <Content Include="Content\default\plugins\calendar\fullcalendar.css" />
     <Content Include="Content\default\plugins\calendar\fullcalendar.min.js" />
     <Content Include="Content\default\plugins\calendar\moment.min.js" />
@@ -285,6 +286,7 @@
     <Content Include="Content\default\plugins\messenger\js\messenger-theme-flat.js" />
     <Content Include="Content\default\plugins\messenger\js\messenger-theme-future.js" />
     <Content Include="Content\default\plugins\messenger\js\messenger.min.js" />
+    <Content Include="Content\default\plugins\modernizr\modernizr-2.6.2.js" />
     <Content Include="Content\default\plugins\morris-chart\css\morris.css" />
     <Content Include="Content\default\plugins\morris-chart\js\morris.min.js" />
     <Content Include="Content\default\plugins\morris-chart\js\raphael-min.js" />
@@ -400,6 +402,7 @@
     <Content Include="Views\MenuItem\Index.cshtml" />
     <Content Include="Scripts\Libs\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_Layout_v1.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout_v1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

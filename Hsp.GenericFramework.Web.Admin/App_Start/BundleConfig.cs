@@ -14,11 +14,11 @@ namespace Hsp.GenericFramework.Web.Admin
             // Use the development version of Modernizr to develop with and learn from. Then, when you're
             // ready for production, use the build tool at http://modernizr.com to pick only the tests you need.
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
-                        "~/Content/default/js/modernizr-*"));
+                        "~/Content/default/plugins/modernizr/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Content/default/js/bootstrap.js",
-                      "~/Content/default/js/respond.js"));
+                      "~/Content/default/plugins/bootstrap/js/bootstrap.min.js",
+                      "~/Content/default/plugins/bootstrap/js/respond.min.js"));
 
             bundles.Add(new StyleBundle("~/Content/default/css").Include(
                       "~/Content/default/css/bootstrap.css",
