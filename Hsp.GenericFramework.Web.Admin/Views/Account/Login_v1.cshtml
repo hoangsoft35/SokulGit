@@ -1,0 +1,108 @@
+﻿@using CaptchaMvc.HtmlHelpers
+@using Hsp.GenericFramework.Web.Admin.Models
+@using CaptchaMvc.HtmlHelpers
+@using CaptchaMvc;
+
+@model Hsp.GenericFramework.Commons.Dtos.Models.LoginModel
+@{
+    ViewBag.Title = "Log in system";
+    Layout = "~/Views/Shared/_LoginLayout_v1.cshtml";
+} 
+
+
+<!-- page wrapper -->
+<div class="dev-page dev-page-login dev-page-login-v2">
+
+    <div class="dev-page-login-block">
+        <a class="dev-page-login-block__logo">Intuitive</a>
+        <div class="dev-page-login-block__form">
+            <div class="title"><strong>Welcome</strong>, please login</div>
+            <form action="index.html" method="post">
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <input type="text" class="form-control" placeholder="Login">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input type="password" class="form-control" placeholder="Password">
+                    </div>
+                </div>
+                <div class="form-group no-border margin-top-20">
+                    <button class="btn btn-success btn-block">Login</button>
+                </div>
+                <p><a href="#">Forgot Password?</a></p>
+            </form>
+        </div>
+        <div class="dev-page-login-block__footer">
+            © 2015 <strong>Aqvatarius</strong>. All rights reserved.
+        </div>
+    </div>
+
+</div>
+<!-- ./page wrapper -->
+
+
+@using CaptchaMvc.HtmlHelpers
+@using Hsp.GenericFramework.Web.Admin.Models
+@using CaptchaMvc.HtmlHelpers
+@using CaptchaMvc;
+
+@model Hsp.GenericFramework.Commons.Dtos.Models.LoginModel
+@{
+    ViewBag.Title = "Log in system";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-6">
+        <h2>@ViewBag.Title</h2>
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <section id="loginForm">
+            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "User name" })
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
+                    <div class="col-md-8">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-4">
+                    </div>
+                    <div class="col-md-8">
+                        @Html.Captcha("Try another", "", 5, "The Captcha field is required", true)
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-8">
+                        <input type="submit" value="Log in" class="btn btn-lg btn-primary btn-block" />
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

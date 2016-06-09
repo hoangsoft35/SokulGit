@@ -1,45 +1,230 @@
-﻿<!DOCTYPE html>
-<html>
+﻿
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Scripts.Render("~/bundles/jquery")
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <!-- meta section -->
+    <title>Intuitive - Admin Dashboard Template</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- /meta section -->
+    <!-- css styles -->
+    <!-- ./css styles -->
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" type="text/css" href="css/dev-other/dev-ie-fix.css">
+    <![endif]-->
+    <!-- javascripts -->
+
+    <!-- ./javascripts -->
+
+<style>
+    .dev-page {
+        visibility: hidden;
+    }
+    /* features */
+    .dev-page.dev-page-login {
+        background: #364760;
+        height: auto;
+        min-height: 100%;
+    }
+    .dev-page.dev-page-login .dev-page-login-block {
+        margin: 100px auto 50px;
+        -webkit-animation: appear 1s;
+        animation: appear 1s;
+        width: 300px;
+        color: #eeeeee;
+    }
+    .dev-page.dev-page-login .dev-page-login-block:before,
+    .dev-page.dev-page-login .dev-page-login-block:after {
+        content: " ";
+        display: table;
+    }
+    .dev-page.dev-page-login .dev-page-login-block:after {
+        clear: both;
+    }
+    .dev-page.dev-page-login .dev-page-login-block:before,
+    .dev-page.dev-page-login .dev-page-login-block:after {
+        content: " ";
+        display: table;
+    }
+    .dev-page.dev-page-login .dev-page-login-block:after {
+        clear: both;
+    }
+    .dev-page.dev-page-login .dev-page-login-block a {
+        color: #eeeeee;
+        text-decoration: none;
+    }
+    .dev-page.dev-page-login .dev-page-login-block a:hover {
+        color: #ffffff;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__logo {
+        float: left;
+        width: 100%;
+        display: block;
+        height: 55px;
+        background: url('../img/logo.png') top center no-repeat transparent;
+        text-indent: -99999px;
+        overflow: hidden;
+        margin-bottom: 25px;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form {
+        float: left;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form p {
+        line-height: 20px;
+        margin: 10px 0px;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form .title {
+        font-size: 16px;
+        font-weight: 400;
+        color: #eeeeee;
+        margin-bottom: 20px;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form .help-block {
+        line-height: 25px;
+        margin: 0px;
+        font-size: 11px;
+        color: #667d8d;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form .form-group {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        -webkit-transition: all 200ms ease;
+        -moz-transition: all 200ms ease;
+        -ms-transition: all 200ms ease;
+        -o-transition: all 200ms ease;
+        transition: all 200ms ease;
+        margin-bottom: 10px;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form .form-group .form-control::-webkit-input-placeholder {
+        color: #667d8d;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form .form-group .form-control::-moz-placeholder {
+        color: #667d8d;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form .form-group .form-control:-moz-placeholder {
+        color: #667d8d;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form .form-group .form-control:-ms-input-placeholder {
+        color: #667d8d;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form .form-group .form-control {
+        background: transparent;
+        border: 0px;
+        -webkit-border-top-right-radius: 0px;
+        -webkit-border-bottom-right-radius: 0;
+        -webkit-border-bottom-left-radius: 0;
+        -webkit-border-top-left-radius: 0;
+        -moz-border-radius-topright: 0px;
+        -moz-border-radius-bottomright: 0;
+        -moz-border-radius-bottomleft: 0;
+        -moz-border-radius-topleft: 0;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        -moz-background-clip: padding-box;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        -moz-border-radius: 0px;
+        -webkit-border-radius: 0px;
+        border-radius: 0px;
+        color: #eeeeee;
+        padding: 12px 5px 12px 15px;
+        height: 47px;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form .form-group .input-group-addon {
+        padding: 6px 5px 6px 15px;
+        color: #889aa4;
+        border: 0px;
+        background: none;
+        -webkit-border-top-right-radius: 0px;
+        -webkit-border-bottom-right-radius: 0;
+        -webkit-border-bottom-left-radius: 0;
+        -webkit-border-top-left-radius: 0;
+        -moz-border-radius-topright: 0px;
+        -moz-border-radius-bottomright: 0;
+        -moz-border-radius-bottomleft: 0;
+        -moz-border-radius-topleft: 0;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        -moz-background-clip: padding-box;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        -moz-border-radius: 0px;
+        -webkit-border-radius: 0px;
+        border-radius: 0px;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form .form-group .btn {
+        padding: 10px 15px;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form .form-group.focus {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form .form-group.no-border {
+        border-bottom: 0px;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__form .form-group.no-margin {
+        margin-bottom: 0px;
+    }
+    .dev-page.dev-page-login .dev-page-login-block__footer {
+        float: left;
+        width: 100%;
+        color: #667d8d;
+        font-size: 11px;
+        text-align: center;
+    }
+    .dev-page.dev-page-login.dev-page-login-v2 {
+        background: #2d3a4b;
+    }
+    .dev-page.dev-page-login.dev-page-login-v2 .dev-page-login-block__form .form-group {
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        background: rgba(0, 0, 0, 0.1);
+        -webkit-border-top-right-radius: 5px;
+        -webkit-border-bottom-right-radius: 0;
+        -webkit-border-bottom-left-radius: 0;
+        -webkit-border-top-left-radius: 0;
+        -moz-border-radius-topright: 5px;
+        -moz-border-radius-bottomright: 0;
+        -moz-border-radius-bottomleft: 0;
+        -moz-border-radius-topleft: 0;
+        border-top-right-radius: 5px;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        -moz-background-clip: padding-box;
+        -webkit-background-clip: padding-box;
+        background-clip: padding-box;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+    }
+    .dev-page.dev-page-login.dev-page-login-v2 .dev-page-login-block__form .form-group.no-border {
+        border: 0px;
+        background: transparent;
+    }
+    .dev-page.dev-page-login.dev-page-login-v2 .dev-page-login-block__form .form-group.focus {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+
+
+</style>
 
 </head>
 <body>
-    @*<div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>*@
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
-
-
+    @RenderBody()
+<!-- javascript -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/modernizr");
+    @Scripts.Render("~/bundles/bootstrap")
+    <!-- ./javascript -->
 </body>
 </html>

@@ -403,6 +403,7 @@
     <Content Include="Scripts\Libs\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_Layout_v1.cshtml" />
     <Content Include="Views\Shared\_LoginLayout_v1.cshtml" />
+    <Content Include="Views\Account\Login_v1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
