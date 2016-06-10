@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using System;
+using System.Web;
 using System.Web.Optimization;
 
 namespace Hsp.GenericFramework.Web.Admin
@@ -8,6 +9,9 @@ namespace Hsp.GenericFramework.Web.Admin
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.IgnoreList.Clear();
+            AddDefaultIgnorePatterns(bundles.IgnoreList);
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                                   "~/Content/default/js/jquery-{version}.js"));
 
@@ -61,6 +65,17 @@ namespace Hsp.GenericFramework.Web.Admin
                 "~/Content/Libs/bootstrap-switch.min.css"));
 
 
+        }
+
+        public static void AddDefaultIgnorePatterns(IgnoreList ignoreList)
+        {
+            if (ignoreList == null)
+                throw new ArgumentNullException("ignoreList");
+            ignoreList.Ignore("*.intellisense.js");
+            ignoreList.Ignore("*-vsdoc.js");
+            ignoreList.Ignore("*.debug.js", OptimizationMode.WhenEnabled);
+            //ignoreList.Ignore("*.min.js", OptimizationMode.WhenDisabled);
+            ignoreList.Ignore("*.min.css", OptimizationMode.WhenDisabled);
         }
     }
 }

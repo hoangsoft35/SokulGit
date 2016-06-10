@@ -4207,11 +4207,10 @@ a.cke_button_off:hover, .cke_hc a.cke_button_off:focus, .cke_hc a.cke_button_off
     font-weight: 500;
 }
 .loginpage form .input, .loginpage input[type=text] {
-    font-size: 19px;
+    color: #454545;
     width: 100%;
     padding: 9px;
     line-height: 25px;
-    margin: 5px 0 15px 0;
     border: 1px solid transparent !important;
 }
 .loginpage form .input, .loginpage form input[type=checkbox], .loginpage input[type=text] {
@@ -4272,11 +4271,9 @@ a.cke_button_off:hover, .cke_hc a.cke_button_off:focus, .cke_hc a.cke_button_off
     margin: 5px 5px 5px 5px;
 }
 body.login_page {
-    background-color: rgba(116, 77, 144, 1.0)
+    background-color: #2d3a4b;
     /*#744d90*/
     
-    ;
-    background-image: url('../images/login-bg.png');
     background-attachment: fixed;
     height: 100%;
     max-height: 100%;

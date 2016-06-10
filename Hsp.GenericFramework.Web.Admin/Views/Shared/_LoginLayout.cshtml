@@ -1,230 +1,77 @@
 ﻿
 <!DOCTYPE html>
-<html lang="en">
+<html class=" ">
 <head>
-    <!-- meta section -->
-    <title>Intuitive - Admin Dashboard Template</title>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <meta charset="utf-8" />
+    <title>Ultra Admin : Login Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
 
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <!-- /meta section -->
-    <!-- css styles -->
-    <!-- ./css styles -->
-    <!--[if lte IE 9]>
-    <link rel="stylesheet" type="text/css" href="css/dev-other/dev-ie-fix.css">
-    <![endif]-->
-    <!-- javascripts -->
-
-    <!-- ./javascripts -->
-
-<style>
-    .dev-page {
-        visibility: hidden;
-    }
-    /* features */
-    .dev-page.dev-page-login {
-        background: #364760;
-        height: auto;
-        min-height: 100%;
-    }
-    .dev-page.dev-page-login .dev-page-login-block {
-        margin: 100px auto 50px;
-        -webkit-animation: appear 1s;
-        animation: appear 1s;
-        width: 300px;
-        color: #eeeeee;
-    }
-    .dev-page.dev-page-login .dev-page-login-block:before,
-    .dev-page.dev-page-login .dev-page-login-block:after {
-        content: " ";
-        display: table;
-    }
-    .dev-page.dev-page-login .dev-page-login-block:after {
-        clear: both;
-    }
-    .dev-page.dev-page-login .dev-page-login-block:before,
-    .dev-page.dev-page-login .dev-page-login-block:after {
-        content: " ";
-        display: table;
-    }
-    .dev-page.dev-page-login .dev-page-login-block:after {
-        clear: both;
-    }
-    .dev-page.dev-page-login .dev-page-login-block a {
-        color: #eeeeee;
-        text-decoration: none;
-    }
-    .dev-page.dev-page-login .dev-page-login-block a:hover {
-        color: #ffffff;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__logo {
-        float: left;
-        width: 100%;
-        display: block;
-        height: 55px;
-        background: url('../img/logo.png') top center no-repeat transparent;
-        text-indent: -99999px;
-        overflow: hidden;
-        margin-bottom: 25px;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form {
-        float: left;
-        width: 100%;
-        margin-bottom: 20px;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form p {
-        line-height: 20px;
-        margin: 10px 0px;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form .title {
-        font-size: 16px;
-        font-weight: 400;
-        color: #eeeeee;
-        margin-bottom: 20px;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form .help-block {
-        line-height: 25px;
-        margin: 0px;
-        font-size: 11px;
-        color: #667d8d;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form .form-group {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        -webkit-transition: all 200ms ease;
-        -moz-transition: all 200ms ease;
-        -ms-transition: all 200ms ease;
-        -o-transition: all 200ms ease;
-        transition: all 200ms ease;
-        margin-bottom: 10px;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form .form-group .form-control::-webkit-input-placeholder {
-        color: #667d8d;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form .form-group .form-control::-moz-placeholder {
-        color: #667d8d;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form .form-group .form-control:-moz-placeholder {
-        color: #667d8d;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form .form-group .form-control:-ms-input-placeholder {
-        color: #667d8d;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form .form-group .form-control {
-        background: transparent;
-        border: 0px;
-        -webkit-border-top-right-radius: 0px;
-        -webkit-border-bottom-right-radius: 0;
-        -webkit-border-bottom-left-radius: 0;
-        -webkit-border-top-left-radius: 0;
-        -moz-border-radius-topright: 0px;
-        -moz-border-radius-bottomright: 0;
-        -moz-border-radius-bottomleft: 0;
-        -moz-border-radius-topleft: 0;
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-        -moz-background-clip: padding-box;
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-        -moz-border-radius: 0px;
-        -webkit-border-radius: 0px;
-        border-radius: 0px;
-        color: #eeeeee;
-        padding: 12px 5px 12px 15px;
-        height: 47px;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form .form-group .input-group-addon {
-        padding: 6px 5px 6px 15px;
-        color: #889aa4;
-        border: 0px;
-        background: none;
-        -webkit-border-top-right-radius: 0px;
-        -webkit-border-bottom-right-radius: 0;
-        -webkit-border-bottom-left-radius: 0;
-        -webkit-border-top-left-radius: 0;
-        -moz-border-radius-topright: 0px;
-        -moz-border-radius-bottomright: 0;
-        -moz-border-radius-bottomleft: 0;
-        -moz-border-radius-topleft: 0;
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-        -moz-background-clip: padding-box;
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-        -moz-border-radius: 0px;
-        -webkit-border-radius: 0px;
-        border-radius: 0px;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form .form-group .btn {
-        padding: 10px 15px;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form .form-group.focus {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form .form-group.no-border {
-        border-bottom: 0px;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__form .form-group.no-margin {
-        margin-bottom: 0px;
-    }
-    .dev-page.dev-page-login .dev-page-login-block__footer {
-        float: left;
-        width: 100%;
-        color: #667d8d;
-        font-size: 11px;
-        text-align: center;
-    }
-    .dev-page.dev-page-login.dev-page-login-v2 {
-        background: #2d3a4b;
-    }
-    .dev-page.dev-page-login.dev-page-login-v2 .dev-page-login-block__form .form-group {
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        background: rgba(0, 0, 0, 0.1);
-        -webkit-border-top-right-radius: 5px;
-        -webkit-border-bottom-right-radius: 0;
-        -webkit-border-bottom-left-radius: 0;
-        -webkit-border-top-left-radius: 0;
-        -moz-border-radius-topright: 5px;
-        -moz-border-radius-bottomright: 0;
-        -moz-border-radius-bottomleft: 0;
-        -moz-border-radius-topleft: 0;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-        border-top-left-radius: 0;
-        -moz-background-clip: padding-box;
-        -webkit-background-clip: padding-box;
-        background-clip: padding-box;
-        -moz-border-radius: 5px;
-        -webkit-border-radius: 5px;
-        border-radius: 5px;
-    }
-    .dev-page.dev-page-login.dev-page-login-v2 .dev-page-login-block__form .form-group.no-border {
-        border: 0px;
-        background: transparent;
-    }
-    .dev-page.dev-page-login.dev-page-login-v2 .dev-page-login-block__form .form-group.focus {
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        background: rgba(0, 0, 0, 0.2);
-    }
-
-
-
-</style>
+    <link rel="shortcut icon" href="/Content/default/images/favicon.png" type="image/x-icon" />    <!-- Favicon -->
+    <link rel="apple-touch-icon-precomposed" href="/Content/default/images/apple-touch-icon-57-precomposed.png">	<!-- For iPhone -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/Content/default/images/apple-touch-icon-114-precomposed.png">    <!-- For iPhone 4 Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/Content/default/images/apple-touch-icon-72-precomposed.png">    <!-- For iPad -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/Content/default/images/apple-touch-icon-144-precomposed.png">    <!-- For iPad Retina display -->
+    <!-- CORE CSS FRAMEWORK - START -->
+    <link href="/Content/default/plugins/pace/pace-theme-flash.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="/Content/default/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/default/plugins/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/default/fonts/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/default/css/animate.min.css" rel="stylesheet" type="text/css" />
+    <link href="/Content/default/plugins/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" type="text/css" />
+    <!-- CORE CSS FRAMEWORK - END -->
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+    <link href="/Content/default/plugins/icheck/skins/square/orange.css" rel="stylesheet" type="text/css" media="screen" />        <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+    <!-- CORE CSS TEMPLATE - START -->
+    <link href="/Content/default/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="http://jaybabani.com/ultra-admin-html/preview/assets/css/responsive.css" rel="stylesheet" type="text/css" />
+    <!-- CORE CSS TEMPLATE - END -->
 
 </head>
-<body>
-    @RenderBody()
-<!-- javascript -->
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="login_page">
+
+
+@RenderBody()
+
+
+
+<!-- LOAD FILES AT PAGE END FOR FASTER LOADING -->
+
+<!-- modal end -->
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/modernizr");
     @Scripts.Render("~/bundles/bootstrap")
-    <!-- ./javascript -->
+
+
+
+    <!-- CORE JS FRAMEWORK - START -->
+
+  
+    <script src="/Content/default/plugins/pace/pace.min.js" type="text/javascript"></script>
+    <script src="/Content/default/plugins/perfect-scrollbar/perfect-scrollbar.min.js" type="text/javascript"></script>
+    <script src="/Content/default/plugins/viewport/viewportchecker.js" type="text/javascript"></script>
+    <!-- CORE JS FRAMEWORK - END -->
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+    <script src="/Content/default/plugins/icheck/icheck.min.js" type="text/javascript"></script><!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+    <!-- CORE TEMPLATE JS - START -->
+    <script src="/Content/default/js/scripts.js" type="text/javascript"></script>
+    <!-- END CORE TEMPLATE JS - END -->
+    <!-- Sidebar Graph - START -->
+    <script src="/Content/default/plugins/sparkline-chart/jquery.sparkline.min.js" type="text/javascript"></script>
+    <script src="/Content/default/js/chart-sparkline.js" type="text/javascript"></script>
+    <!-- Sidebar Graph - END --> 
+
+
 </body>
 </html>
+
+
+
+
+

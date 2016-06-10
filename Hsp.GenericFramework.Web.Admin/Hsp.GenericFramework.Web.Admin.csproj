@@ -157,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\default\css\animate.min.css" />
+    <Content Include="Content\default\css\login.css" />
     <Content Include="Content\default\css\style.css" />
     <Content Include="Content\default\fonts\font-awesome\css\font-awesome.css" />
     <Content Include="Content\default\images\apple-touch-icon-114-precomposed.png" />
@@ -178,7 +179,7 @@
     <Content Include="Content\default\js\form-validation.js" />
     <Content Include="Content\default\js\frl-dashboard.js" />
     <Content Include="Content\default\js\hos-dashboard.js" />
-    <Content Include="Content\default\js\jquery-1.11.2.min.js" />
+    <Content Include="Content\default\js\jquery-1.11.2.js" />
     <Content Include="Content\default\js\jquery.easing.min.js" />
     <Content Include="Content\default\js\messenger.js" />
     <Content Include="Content\default\js\scripts.js" />
@@ -347,7 +348,7 @@
     <Content Include="Scripts\Libs\bootstrap-treeview.min.js" />
     <Content Include="Scripts\Libs\bootstrap.js" />
     <Content Include="Scripts\Libs\bootstrap.min.js" />
-    <Content Include="Content\default\fonts\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\default\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
     <None Include="Scripts\Libs\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Libs\jquery-1.10.2.js" />
     <Content Include="Scripts\Libs\jquery-1.10.2.min.js" />

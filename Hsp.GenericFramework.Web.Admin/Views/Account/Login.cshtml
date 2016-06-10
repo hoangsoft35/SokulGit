@@ -8,38 +8,42 @@
     ViewBag.Title = "Log in system";
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
 }
+<link href="~/Content/default/css/login.css" rel="stylesheet" />
+
+<div class="login-wrapper">
+    <div id="login" class="login loginpage col-lg-offset-4 col-lg-4 col-md-offset-3 col-md-6 col-sm-offset-3 col-sm-6 col-xs-offset-0 col-xs-12">
+        <h1><a href="ui-login.html#" title="Login Page" tabindex="-1">Ultra Admin</a></h1>
+
+        <form action="index.html" method="post">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <input type="text" class="form-control" placeholder="Login">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                    <input type="password" class="form-control" placeholder="Password">
+                </div>
+            </div>
+            <p class="forgetmenot">
+                <label class="icheck-label form-label" for="rememberme">
+                    <input name="rememberme" type="checkbox" id="rememberme" value="forever" class="skin-square-orange" checked> Remember me
+                </label>
+            </p>
 
 
-<!-- page wrapper -->
-<div class="dev-page dev-page-login dev-page-login-v2">
 
-    <div class="dev-page-login-block">
-        <a class="dev-page-login-block__logo">Intuitive</a>
-        <div class="dev-page-login-block__form">
-            <div class="title"><strong>Welcome</strong>, please login</div>
-            <form action="index.html" method="post">
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                        <input type="text" class="form-control" placeholder="Login">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                        <input type="password" class="form-control" placeholder="Password">
-                    </div>
-                </div>
-                <div class="form-group no-border margin-top-20">
-                    <button class="btn btn-success btn-block">Login</button>
-                </div>
-                <p><a href="#">Forgot Password?</a></p>
-            </form>
-        </div>
-        <div class="dev-page-login-block__footer">
-            © 2015 <strong>Aqvatarius</strong>. All rights reserved.
-        </div>
+            <div class="form-group no-border margin-top-20">
+                <button class="btn btn-success btn-block">Login</button>
+            </div>
+
+        </form>
+
+        <p id="nav">
+            <a class="pull-left" href="ui-login.html#" title="Password Lost and Found">Forgot password?</a>
+            <a class="pull-right" href="ui-register.html" title="Sign Up">Sign Up</a>
+        </p>
     </div>
-
 </div>
-<!-- ./page wrapper -->
