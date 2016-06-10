@@ -165,6 +165,7 @@
     <Content Include="Content\default\images\apple-touch-icon-57-precomposed.png" />
     <Content Include="Content\default\images\apple-touch-icon-72-precomposed.png" />
     <Content Include="Content\default\images\favicon.png" />
+    <Content Include="Content\default\images\logo.png" />
     <Content Include="Content\default\js\blo-dashboard.js" />
     <Content Include="Content\default\js\chart-chartjs.js" />
     <Content Include="Content\default\js\chart-easypie.js" />
@@ -349,6 +350,8 @@
     <Content Include="Scripts\Libs\bootstrap.js" />
     <Content Include="Scripts\Libs\bootstrap.min.js" />
     <Content Include="Content\default\fonts\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\default\fonts\font-awesome\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\default\fonts\font-awesome\fonts\fontawesome-webfont.woff2" />
     <None Include="Scripts\Libs\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Libs\jquery-1.10.2.js" />
     <Content Include="Scripts\Libs\jquery-1.10.2.min.js" />

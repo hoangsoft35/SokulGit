@@ -4221,18 +4221,11 @@ a.cke_button_off:hover, .cke_hc a.cke_button_off:focus, .cke_hc a.cke_button_off
     background: #fbfbfb;
 }
 .loginpage #nav a, .loginpage a {
-    color: rgba(255, 255, 255, 1)
-    /*#ffffff*/
-    
-    ;
     font-size: 15px;
     color: #dddddd;
 }
 .loginpage #nav a:hover, .loginpage a:hover, .loginpage #nav a:active, .loginpage a:active {
-    color: rgba(255, 255, 255, 1)
-    /*#ffffff*/
-    
-    ;
+
 }
 .loginpage, .loginpage form label, .loginpage form, .loginpage .message {
     color: rgba(255, 255, 255, 1)
