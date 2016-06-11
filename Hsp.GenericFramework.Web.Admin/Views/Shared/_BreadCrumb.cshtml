@@ -1,0 +1,49 @@
+﻿@using Hsp.GenericFramework.Commons.Dtos.Models
+@using Hsp.GenericFramework.Web.Admin.Base;
+@{
+    var BaseViewModel = (BaseViewModel)TempData["BaseViewModel"];
+}
+
+
+<div class="page-title">
+
+    <div class="pull-left">
+        <h1 class="title">Ecommerce</h1>
+    </div>
+
+    <div class="pull-right hidden-xs">
+        <ol class="breadcrumb">
+
+           @foreach (var item in BaseViewModel.Breadcrumbs)
+           {
+               
+               if (item.IsLink)
+               {
+                   if (item.ControllerName == "Home" && item.ActionName == "Index")
+                   {
+                    <li><a href="/@item.ControllerName/@item.ActionName"><i class="fa fa-home"></i>@item.Label</a></li>
+                   }
+                   else
+                   {
+                       if (item.IsCurrentSelected)
+                       {
+                            <li class="active"><strong> @item.Label</strong></li>
+                       }
+                       else
+                       {
+                        <li>@Html.ActionLink(@item.Label, @item.ActionName, @item.ControllerName)</li>
+                       }
+
+                   }
+
+               }
+               else
+               {
+                <li>@item.Label</li>
+               }
+           }
+
+        </ol>
+    </div>
+
+</div>

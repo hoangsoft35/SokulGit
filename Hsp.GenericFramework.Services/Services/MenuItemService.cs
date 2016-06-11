@@ -32,7 +32,7 @@ namespace Hsp.GenericFramework.Services.Services
         public List<MenuItemModel> GetMenuByRole(string[] roleIds, int languageId)
         {
             var listMenuItem =
-                _menuItemAuthorisationRepository.Get(x => roleIds.Contains(x.RoleId.ToString())).Select(c => c.MenuItem).OrderBy(x => x.Order)
+                _menuItemAuthorisationRepository.Get(x => roleIds.Contains(x.RoleId.ToString())).Select(c => c.MenuItem)
                 .Where(z => z.MenuItemTranslations.FirstOrDefault(x => x.LanguageId == languageId) != null).ToList();
 
             foreach (var menuItem in listMenuItem)
@@ -40,7 +40,7 @@ namespace Hsp.GenericFramework.Services.Services
                 menuItem.MenuItemTranslations = menuItem.MenuItemTranslations.Where(x => x.LanguageId == languageId).ToList();
             }
 
-            var itemModels =  listMenuItem.Select(Mapper.Map<MenuItemModel>).ToList();
+            var itemModels =  listMenuItem.Select(Mapper.Map<MenuItemModel>).OrderBy(x=>x.Label).ToList();
             return itemModels;
         }
 
@@ -51,7 +51,7 @@ namespace Hsp.GenericFramework.Services.Services
             //    .Where(z => z.MenuItemTranslations.FirstOrDefault(x => x.LanguageId == languageId) != null).ToList();
 
             var listMenuItem = _menuItemTranslationRepository.Get(r => r.MenuItem.MenuItemTypeId == new Guid(menuItemTypeId)
-            && r.LanguageId == languageId).ToList();
+            && r.LanguageId == languageId).OrderByDescending(x=>x.Label).ToList();
             //foreach (var menuItem in listMenuItem)
             //{
             //    var menuItemTranslations = menuItem.MenuItemTranslations.Where(x => x.LanguageId == languageId).ToList();

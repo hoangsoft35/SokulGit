@@ -118,6 +118,7 @@ namespace Hsp.GenericFramework.Services.MapperProfiles
                 .ForMember(to => to.Order, src => src.MapFrom(r => r.MenuItem.Order))
                 .ForMember(to => to.ParentId, src => src.MapFrom(r => r.MenuItem.ParentId))
                 .ForMember(to => to.SectionParameter, src => src.MapFrom(r => r.MenuItem.SectionParameter))
+                .ForMember(to => to.CssClassIcon, src => src.MapFrom(r => r.MenuItem.CssClassIcon))
                 ;
             Mapper.CreateMap<MenuItemCreateViewModel, MenuItem>();
             Mapper.CreateMap<MenuItemTranslationCreateViewModel, MenuItemTranslation>();

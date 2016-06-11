@@ -26,6 +26,7 @@ namespace Hsp.GenericFramework.Entities.Models
         public string ActionName { get; set; }
         public int SectionParameter { get; set; }
         public int Order { get; set; }
+        public string CssClassIcon { get; set; }
         public virtual ICollection<MenuItemTranslation> MenuItemTranslations { get; set; }
         public virtual MenuItemType MenuItemType { get; set; }
         public virtual ICollection<MenuItemAuthorisation> MenuItemAuthorisations { get; set; } 

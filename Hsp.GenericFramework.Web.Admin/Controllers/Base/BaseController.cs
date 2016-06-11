@@ -105,10 +105,11 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers.Base
             {
                 var leafNode =
                 BaseViewModel.MenuItems.FirstOrDefault(x => x.ActionName == actionName && x.ControllerName == controllerName);
-
+              
                 // check level 2 left menu
                 if (leafNode != null)
                 {
+                    leafNode.IsCurrentSelected = true;
                     var leftMenu = BaseViewModel.MenuItems.FirstOrDefault(x => x.Id == leafNode.ParentId && !x.IsRoot);
                     // check top menu
                     if (leftMenu != null)

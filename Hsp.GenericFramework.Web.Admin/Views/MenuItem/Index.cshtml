@@ -5,15 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@section scripts{
-    @Scripts.Render("~/bundles/scripts/menuItemController")    
-    <script>
-        @{
-            var baseViewModel = (BaseViewModel)TempData["BaseViewModel"];
-        }
-        var menus = function() { return @Html.Raw(Json.Encode(baseViewModel)); }();
-    </script>
-}
+
 @section styles{
     @Styles.Render("~/bundles/css/menuItemController")
 }
@@ -55,8 +47,8 @@
                 </div>
                 <div class="modal-body">
                     <div class="hide">
-                        <input type="text" name="MenuItemTypeId" value="" />
-                        <input type="text" name="ParentId" value="" />
+                        <input type="text" name="MenuItemTypeId" value=""/>
+                        <input type="text" name="ParentId" value=""/>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3" for="IsRoot">Is root:</label>
@@ -79,25 +71,25 @@
                     <div class="form-group">
                         <label class="control-label col-sm-3" for="ControllerName">Controller name:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="ControllerName" />
+                            <input type="text" class="form-control" name="ControllerName"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3" for="ActionName">Action name:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="ActionName" />
+                            <input type="text" class="form-control" name="ActionName"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3" for="Order">Order:</label>
                         <div class="col-sm-9">
-                            <input type="number" class="form-control" name="Order" min="1" max="100" value="1" />
+                            <input type="number" class="form-control" name="Order" min="1" max="100" value="1"/>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="control-label col-sm-3" for="Name">Name:</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="Name" />
+                            <input type="text" class="form-control" name="Name"/>
                         </div>
                     </div>
                 </div>
@@ -109,3 +101,13 @@
         </div>
     </form>
 </div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/scripts/menuItemController")
+    <script>
+        @{
+            var baseViewModel = (BaseViewModel)TempData["BaseViewModel"];
+        }
+        var menus = function() { return @Html.Raw(Json.Encode(baseViewModel)); }();
+    </script>
+}

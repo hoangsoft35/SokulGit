@@ -15,6 +15,8 @@ namespace Hsp.GenericFramework.Commons.Dtos.Models
         public string ActionName { get; set; }
         public int SectionParameter { get; set; }
         public int Order { get; set; }  
+        public string CssClassIcon { get; set; }  
+        public bool IsCurrentSelected { get; set; }  
 
     }
 }

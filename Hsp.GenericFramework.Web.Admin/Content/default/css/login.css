@@ -9219,22 +9219,29 @@ body {
 
 
 /*Wtart capcha style*/
+#capcha-security {
+    margin-top: -15px;
+    margin-left: -15px;
+}
 #capcha-security, #capcha-security a{
     color: #667d8d!important;
 
+}
+#capcha-security, #capcha-security a{
+    color: #667d8d!important;
 }
 
 
 
 
 #CaptchaImage {
-    width: 50% !important;
+    width: 40% !important;
 }
 #capcha-security #CaptchaInputText {
     background: transparent;
         background: rgba(0, 0, 0, 0.1);
   display: block;
-  width: 50%;
+  width: 40%;
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;

@@ -41,7 +41,7 @@
                     <span class="help-block">@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })</span>
 
                     <div id="capcha-security">
-                        @Html.Captcha("Refresh", "", 5, "Input security code", true)
+                        @Html.Captcha("Try another", "", 5, "Input security code", true)
                     </div>
 
                     <div class="form-group no-border margin-top-20">

@@ -124,7 +124,7 @@ function mapMenuItemsDataLevel3(menuItems) {
 function menuItemTypeChange() {
     var selected = $("#menu-item-type").val();
     $.ajax({
-        url: "/domain/MenuItem/GetMenuByMenuType?menuItemTypeId=" + selected,
+        url: "/MenuItem/GetMenuByMenuType?menuItemTypeId=" + selected,
         type: 'GET',
         success: function (data) {
             _menuItems = data;
@@ -164,7 +164,7 @@ function save() {
         }
     };
     $.ajax({
-        url: "/domain/MenuItem/CreateMenuItem",
+        url: "/MenuItem/CreateMenuItem",
         type: 'POST',
         data: menuItemCreateViewModels,
         success: function (data) {
