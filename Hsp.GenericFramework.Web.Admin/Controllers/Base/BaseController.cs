@@ -117,6 +117,8 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers.Base
                         var leftChildMenu = BaseViewModel.MenuItems.FirstOrDefault(x => x.Id == leftMenu.ParentId && x.IsRoot);
                         if (leftChildMenu != null)
                         {
+                            // add home menu
+                            BaseViewModel.Breadcrumbs.Add(BaseViewModel.MenuItems.FirstOrDefault(x => x.ActionName == "Index" && x.ControllerName=="Home" && x.IsRoot));
                             BaseViewModel.Breadcrumbs.Add(leftChildMenu);
                         }
                         BaseViewModel.Breadcrumbs.Add(leftMenu);
