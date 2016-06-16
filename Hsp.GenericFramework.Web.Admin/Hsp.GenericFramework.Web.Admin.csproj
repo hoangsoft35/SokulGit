@@ -157,7 +157,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\default\css\animate.min.css" />
+    <Content Include="Content\default\css\flag.css" />
     <Content Include="Content\default\css\login.css" />
+    <Content Include="Content\default\css\phoca-flags.css" />
     <Content Include="Content\default\css\style.css" />
     <Content Include="Content\default\data\albums\album-1.jpg" />
     <Content Include="Content\default\data\albums\album-2.jpg" />

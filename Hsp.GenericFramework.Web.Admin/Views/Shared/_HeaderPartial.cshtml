@@ -1,9 +1,15 @@
-﻿
+﻿@using Hsp.GenericFramework.Web.Admin.Base
+@using Hsp.GenericFramework.Commons.Dtos.Models
+@{
+    var BaseViewModel = (BaseViewModel)TempData["BaseViewModel"];
+
+}
+
 <div class='logo-area'>
 
 </div>
 <div class='quick-area'>
-    <div class='pull-left'>
+    @*<div class='pull-left'>
         <ul class="info-menu left-links list-inline list-unstyled">
             <li class="sidebar-toggle-wrap">
                 <a href="#" data-toggle="sidebar" class="sidebar_toggle">
@@ -306,48 +312,43 @@
                 </div>
             </li>
         </ul>
-    </div>
-    <div class='pull-right'>
-        <ul class="info-menu right-links list-inline list-unstyled">
-            <li class="profile">
-                <a href="#" data-toggle="dropdown" class="toggle">
-                    <img src="~/Content/default/data/profile/profile-ecommerce.jpg" alt="user-image" class="img-circle img-inline">
-                    <span>Mark Willy <i class="fa fa-angle-down"></i></span>
-                </a>
-                <ul class="dropdown-menu profile animated fadeIn">
-                    <li>
-                        <a href="#settings">
-                            <i class="fa fa-wrench"></i>
-                            Settings
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#profile">
-                            <i class="fa fa-user"></i>
-                            Profile
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#help">
-                            <i class="fa fa-info"></i>
-                            Help
-                        </a>
-                    </li>
-                    <li class="last">
-                        <a href="ui-login.html">
-                            <i class="fa fa-lock"></i>
-                            Logout
-                        </a>
-                    </li>
-                </ul>
-            </li>
-            <li class="chat-toggle-wrapper">
-                <a href="#" data-toggle="chatbar" class="toggle_chat">
+    </div>*@
+<div class='pull-right'>
+
+
+
+    <ul class="info-menu right-links list-inline list-unstyled">
+
+        <li class="profile">
+            
+            <a href="#" data-toggle="dropdown" class="toggle">
+                <img  alt="user-image" class="vn img-rounded	">
+                <span>Mark Willy <i class="fa fa-angle-down"></i></span>
+            </a>
+            <ul class="dropdown-menu profile animated fadeIn">
+                @{
+                    foreach (var item in BaseViewModel.LanguageModels)
+                    {
+                        <li>
+                            <a href="javascript:void(0)" value="@item.Value" selected="@item.Selected" onclick="ChangeLanguage(this.value)">
+                                <i class="fa fa-language"></i>
+                                @item.Text
+                            </a>
+                        </li>
+
+                    }
+                }
+
+
+            </ul>
+        </li>
+        <li class="chat-toggle-wrapper">
+                @*<a href="#" data-toggle="chatbar" class="toggle_chat">
                     <i class="fa fa-comments"></i>
                     <span class="badge badge-warning">9</span>
                     <i class="fa fa-times"></i>
-                </a>
+                </a>*@
             </li>
-        </ul>
-    </div>
+    </ul>
+</div>
 </div>

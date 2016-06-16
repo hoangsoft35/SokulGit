@@ -65,7 +65,8 @@ namespace Hsp.GenericFramework.Web.Admin
                 "~/Content/default/css/animate.min.css",
                 "~/Content/default/plugins/perfect-scrollbar/perfect-scrollbar.css",
                 "~/Content/default/plugins/jquery-ui/smoothness/jquery-ui.min.css",
-                "~/Content/default/css/style.css"
+                "~/Content/default/css/style.css",
+                "~/Content/default/css/flag.css"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(

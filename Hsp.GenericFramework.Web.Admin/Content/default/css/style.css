@@ -4839,10 +4839,12 @@ code {
 /*collapsed menu and chat open states*/
 
 .page-topbar.sidebar_shift .logo-area {
-    background-color: #1fb5ac;
+    /*coment by hoang*/
+    /*background-color: #1fb5ac;*/
 }
 .page-topbar.chat_shift .logo-area {
-    background-color: #1fb5ac;
+      /*coment by hoang*/
+    /*background-color: #1fb5ac;*/
 }
 .chatapi-windows.hideit {
     bottom: -300px;
