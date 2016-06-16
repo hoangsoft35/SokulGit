@@ -19,6 +19,9 @@
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="~/Content/default/images/apple-touch-icon-144-precomposed.png">    <!-- For iPad Retina display -->
     @Styles.Render("~/Content/default/css")
     @RenderSection("styles", required: false)
+    <script type="text/javascript">
+        var rootPath = "@string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"))";
+    </script>
 </head>
 <!-- END HEAD -->
 <!-- BEGIN BODY -->

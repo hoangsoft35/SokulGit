@@ -414,12 +414,11 @@ a:hover, a:focus {
     text-decoration: none;
 }
 .page-topbar .quick-area .info-menu li.profile img {
-    height: 30px;
+    height: 20px;
     width: 30px;
     top: 0px;
-    right: 10px;
     position: relative;
-    background-color: #999999;
+    background-color: transparent;
 }
 .page-topbar i {
     font-size: 14px;
@@ -4840,11 +4839,11 @@ code {
 
 .page-topbar.sidebar_shift .logo-area {
     /*coment by hoang*/
-    /*background-color: #1fb5ac;*/
+    background-color: #1fb5ac;
 }
 .page-topbar.chat_shift .logo-area {
       /*coment by hoang*/
-    /*background-color: #1fb5ac;*/
+    background-color: #1fb5ac;
 }
 .chatapi-windows.hideit {
     bottom: -300px;
@@ -7930,3 +7929,12 @@ border-left: 3px solid transparent;
 .cobranding-area .uploadmsg span.or{
     font-size: 12px;
 }
+
+
+
+/*Hoang start*/
+#langage-arrow-icon {
+    padding-left: 5px;
+}
+
+/*Hoang End*/

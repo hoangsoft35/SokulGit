@@ -12,7 +12,7 @@ namespace Migration.Admin.Migrations
         {
             #region Update MenuItems LogOff
 
-            Execute.Sql("UPDATE MenuItems SET IsLink=1, ControllerName='Account', ActionName='LogOff' WHERE Id=(select top 1 MenuItemId from MenuItemTranslations Where Label = 'Log Out')");
+            Execute.Sql("UPDATE MenuItems SET IsLink=1, ControllerName='Account', ActionName='LogOff' WHERE Id=(select top 1 MenuItemId from MenuItemTranslations Where Label = 'Sign Out')");
             Execute.Sql("UPDATE MenuItems SET IsLink=1, ControllerName='Home', ActionName='Index' WHERE Id=(select top 1 MenuItemId from MenuItemTranslations Where Label = 'Home')");
 
 
@@ -21,7 +21,7 @@ namespace Migration.Admin.Migrations
 
         public override void Down()
         {
-            Execute.Sql("UPDATE MenuItems SET IsLink=0, ControllerName='NULL', ActionName='NULL' WHERE Id=(select top 1 MenuItemId from MenuItemTranslations Where Label = 'Log Out')");
+            Execute.Sql("UPDATE MenuItems SET IsLink=0, ControllerName='NULL', ActionName='NULL' WHERE Id=(select top 1 MenuItemId from MenuItemTranslations Where Label = 'Sign Out')");
             Execute.Sql("UPDATE MenuItems SET IsLink=0, ControllerName='NULL', ActionName='NULL' WHERE Id=(select top 1 MenuItemId from MenuItemTranslations Where Label = 'Home')");
 
         }

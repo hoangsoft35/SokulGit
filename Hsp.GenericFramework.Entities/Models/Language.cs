@@ -16,5 +16,6 @@ namespace Hsp.GenericFramework.Entities.Models
         public string SymbolCurrency { get; set; }
         public bool IsDefault { get; set; }
         public bool IsActive { get; set; }
+        public string Icon { get; set; }
     }
 }

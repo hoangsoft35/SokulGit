@@ -9214,7 +9214,7 @@ body {
     color: #555555;
 }
 body {
-  background: #eef1f7;
+  background: #2d3a4b;
 }
 
 
@@ -9295,3 +9295,11 @@ body {
 }
 
 /*End capcha style*/
+
+#login-language {
+    background: transparent !important;
+    border: none!important;
+}
+ul.dropdown-menu li a span{
+    padding-left: 10px!important;
+}

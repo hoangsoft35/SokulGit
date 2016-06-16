@@ -449,6 +449,8 @@
     <Content Include="Content\default\data\uni-staffs\staff-8.jpg" />
     <Content Include="Content\default\data\uni-staffs\staff-9.jpg" />
     <Content Include="Content\default\fonts\font-awesome\css\font-awesome.css" />
+    <Content Include="Content\default\fonts\font-awesome\css\font-awesome.min.css" />
+    <Content Include="Content\default\fonts\font-awesome\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\default\images\apple-touch-icon-114-precomposed.png" />
     <Content Include="Content\default\images\apple-touch-icon-144-precomposed.png" />
     <Content Include="Content\default\images\apple-touch-icon-57-precomposed.png" />
@@ -646,6 +648,9 @@
     <Content Include="Content\default\plugins\bootstrap\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\default\plugins\bootstrap\fonts\fontawesome-webfont.woff2" />
     <Content Include="Content\default\plugins\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\default\fonts\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\default\fonts\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\default\fonts\font-awesome\fonts\FontAwesome.otf" />
     <None Include="Scripts\Libs\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Libs\jquery-1.10.2.js" />
     <Content Include="Scripts\Libs\jquery-1.10.2.min.js" />

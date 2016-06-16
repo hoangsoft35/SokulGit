@@ -201,6 +201,7 @@ namespace Migration.Admin.Migrations
                 .WithColumn("SymbolCurrency").AsAnsiString(5).Nullable()
                 .WithColumn("IsDefault").AsBoolean().NotNullable()
                 .WithColumn("IsActive").AsBoolean().NotNullable()
+                .WithColumn("Icon").AsString().NotNullable().WithDefaultValue("")
                 .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefaultValue(DateTime.Now)
                 .WithColumn("CreatedBy").AsGuid().NotNullable()
                 .WithColumn("Updated").AsGuid().Nullable()
@@ -217,10 +218,11 @@ namespace Migration.Admin.Migrations
                         "SymbolCurrency, " +
                         "IsDefault," +
                         "IsActive," +
+                        "Icon," +
                         "Created," +
                         "CreatedBy)" +
                         "values" +
-                        "('en-US','English - United States',N'English', '0x0409','ENU','$',1,1,getdate(),'" + userId +
+                        "('en-US','English - United States',N'English', '0x0409','ENU','$',1,1,'.england',getdate(),'" + userId +
                         "')");
 
             Execute.Sql("insert into Languages" +
@@ -233,10 +235,11 @@ namespace Migration.Admin.Migrations
                         "SymbolCurrency, " +
                         "IsDefault," +
                         "IsActive," +
+                        "Icon," +
                         "Created," +
                         "CreatedBy)" +
                         "values" +
-                        "('vi-VN','Vietnamese - Vietnam',N'Tiếng việt', '0x042A','VIT','Vnd',1,1,getdate(),'" + userId +
+                        "('vi-VN','Vietnamese - Vietnam',N'Tiếng việt', '0x042A','VIT','Vnd',1,1,'.vn',getdate(),'" + userId +
                         "')");
 
             #endregion
@@ -372,7 +375,7 @@ namespace Migration.Admin.Migrations
             var sysAdminMenuItemId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter, MenuItemTypeId, ParentId,[Order], CssClassIcon)" +
-                "values('" + sysAdminMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + homeMenuItemId + "',3,'fa fa-gear')"
+                "values('" + sysAdminMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + homeMenuItemId + "',3,'fa fa-user-secret')"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
                         sysAdminMenuItemId + "',N'System Admin',1,getDate(),'" + userId + "')");
@@ -384,7 +387,7 @@ namespace Migration.Admin.Migrations
                 "values('" + logoutMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + homeMenuItemId + "','" + int.MaxValue + "','fa fa-sign-out')"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
-                        logoutMenuItemId + "',N'Log Out',1,getDate(),'" + userId + "')");
+                        logoutMenuItemId + "',N'Sign Out',1,getDate(),'" + userId + "')");
 
 
             // insert child menu for administration 
@@ -412,7 +415,7 @@ namespace Migration.Admin.Migrations
             var authorisationTitleId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter,ParentId, MenuItemTypeId, [Order], CssClassIcon)" +
-                "values('" + authorisationTitleId + "',0,1,1,0,'NULL','NULL',1,'" + sysAdminMenuItemId + "','" + adminMenuItemTypeId + "',5,'fa fa-check')"
+                "values('" + authorisationTitleId + "',0,1,1,0,'NULL','NULL',1,'" + sysAdminMenuItemId + "','" + adminMenuItemTypeId + "',5,'fa fa-user-secret')"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
                         authorisationTitleId + "',N'Authorisations',1,getDate(),'" + userId + "')");
@@ -437,14 +440,28 @@ namespace Migration.Admin.Migrations
                         manageUserTitleId + "',N'Users',1,getDate(),'" + userId + "')");
 
 
-            // link 
+        
+
+
+            // title setting
+            var settingTitleId = Guid.NewGuid();
+            Execute.Sql(
+                "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter,ParentId, MenuItemTypeId, [Order], CssClassIcon)" +
+                "values('" + settingTitleId + "',0,1,1,0,'NULL','NULL',1,'" + sysAdminMenuItemId + "','" + adminMenuItemTypeId + "',5,'fa fa-cogs')"
+                );
+            Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
+                        settingTitleId + "',N'Settings',1,getDate(),'" + userId + "')");
+
+            // password rule 
             var passwordRuleLinkId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter,ParentId, MenuItemTypeId, [Order])" +
-                "values('" + passwordRuleLinkId + "',0,1,0,1,'User','PasswordRule',1,'" + manageUserTitleId + "','"+adminMenuItemTypeId+"',8)"
+                "values('" + passwordRuleLinkId + "',0,1,0,1,'User','PasswordRule',1,'" + settingTitleId + "','" + adminMenuItemTypeId + "',8)"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
                         passwordRuleLinkId + "',N'Password Rule',1,getDate(),'" + userId + "')");
+
+
 
 
             Create.Table("MenuItemAuthorisations")
@@ -490,6 +507,9 @@ namespace Migration.Admin.Migrations
                         roleId + "')");
             Execute.Sql("insert into MenuItemAuthorisations(MenuItemId, RoleId) values('" + passwordRuleLinkId + "','" +
                         roleId + "')");
+
+            Execute.Sql("insert into MenuItemAuthorisations(MenuItemId, RoleId) values('" + settingTitleId + "','" +
+            roleId + "')");
 
             #endregion
         }

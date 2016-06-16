@@ -13,8 +13,12 @@
     <!-- css styles -->
     <!-- javascript -->
     <link href="~/Content/default/css/login.css" rel="stylesheet" />
+    <link href="~/Content/default/css/flag.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
 
+    <script type="text/javascript">
+        var rootPath = "@string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~"))";
+    </script>
     <!-- ./javascript -->
   
 </head>
@@ -25,6 +29,8 @@
 @RenderBody()
 
 @Scripts.Render("~/bundles/bootstrap")
+
+    <script src="~/Scripts/Commons/_layout.js"></script>
 
 </body>
 </html>

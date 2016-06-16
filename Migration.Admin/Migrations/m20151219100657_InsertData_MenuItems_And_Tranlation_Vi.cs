@@ -22,7 +22,7 @@ namespace Migration.Admin.Migrations
                         "values ((select top 1 MenuItemId from MenuItemTranslations where Label = 'System Admin'),N'Quản trị hệ thống',2,getDate(),(select id from Users where username ='hsproot'))");
 
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) " +
-                        "values ((select top 1 MenuItemId from MenuItemTranslations where Label = 'Log Out'),N'Đăng xuất',2,getDate(),(select id from Users where username ='hsproot'))");
+                        "values ((select top 1 MenuItemId from MenuItemTranslations where Label = 'Sign Out'),N'Đăng xuất',2,getDate(),(select id from Users where username ='hsproot'))");
 
             #endregion
         }

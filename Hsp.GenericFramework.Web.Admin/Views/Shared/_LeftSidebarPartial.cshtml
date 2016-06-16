@@ -4,6 +4,7 @@
     var BaseViewModel = (BaseViewModel)TempData["BaseViewModel"];
     var menus = BaseViewModel.MenuItems.OrderBy(x=>x.Label);
     var topMenus = menus.Where(x => x.IsRoot);
+    var signout = topMenus.FirstOrDefault(x => x.ActionName == "LogOff" && x.ControllerName == "Account");
     var leftMenus = menus.Where(x => !x.IsRoot);
     var leftMenuTitles = leftMenus.Where(x => x.IsTitle).ToList();
     var activeClass = "";
@@ -91,13 +92,27 @@
                     }
 
 
-        <li class="">
-            <a href="/Account/LogOff/">
-                <i class="fa fa-sign-out"></i>
-                <span class="title">Sign Out</span>
-            </a>
-        </li>
+        @if (signout != null)
+        {
+            <li class="">
+                <a href="/@signout.ControllerName/@signout.ActionName/">
+                    <i class="fa fa-sign-out"></i>
+                    <span class="title">@signout.Label</span>
+                </a>
+            </li>
+        }
+        else
+        {
+            <li class="">
+                <a href="/Account/LogOff/">
+                    <i class="fa fa-sign-out"></i>
+                    <span class="title">Sign Out</span>
+                </a>
+            </li>
 
+        }
+
+   
 
 
     @*<li class="">

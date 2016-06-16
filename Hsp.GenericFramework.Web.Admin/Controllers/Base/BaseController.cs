@@ -78,6 +78,29 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers.Base
                 }
                
             }
+            else
+            {
+                BaseViewModel = new BaseViewModel
+                {
+                   
+                    LanguageModels = _languageService.GetAllLanguage().Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.DisplayName, Selected = x.IsDefault }).ToList(),
+                    Breadcrumbs = new List<MenuItemModel>()
+                };
+
+                foreach (var item in BaseViewModel.LanguageModels)
+                {
+                    if (item.Value.Equals(this.LanguageId.ToString()))
+                    {
+                        item.Selected = true;
+                    }
+                    else
+                    {
+                        item.Selected = false;
+                    }
+                }
+
+            }
+        
 
             
 
