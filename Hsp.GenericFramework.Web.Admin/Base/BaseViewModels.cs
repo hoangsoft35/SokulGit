@@ -13,12 +13,13 @@ namespace Hsp.GenericFramework.Web.Admin.Base
         public BaseViewModel()
         {
             LanguageModel=new LanguageModel();
-            LanguageModels = new List<SelectListItem>();
+            LanguageModels = new List<LanguageModel>();
             MenuItems =new List<MenuItemModel>();
             
         }
         public LanguageModel LanguageModel { get; set; }
-        public List<SelectListItem> LanguageModels { get; set; }
+        public int CurrentLanguageId { get; set; }
+        public List<LanguageModel> LanguageModels { get; set; }
         public List<MenuItemModel> MenuItems { get ; set; }
         public List<MenuItemModel> Breadcrumbs { get; set; }
         public List<ResourceModel> Resources { get; set; }

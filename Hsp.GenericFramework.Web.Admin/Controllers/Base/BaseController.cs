@@ -25,6 +25,7 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers.Base
             _loopkupService = loopkupService;
             _resourceService = resourceService;
             LanguageId = GetDefaultLanguage();
+            BaseViewModel = new BaseViewModel();
             
         }
 
@@ -32,7 +33,7 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers.Base
         {
             get
             {
-                return CurrentUser?.CurrentLanguageId ?? GetDefaultLanguage();
+                return Session["LanguageId"]?.GetHashCode() ?? GetDefaultLanguage();
             }
             set
             {
@@ -48,61 +49,42 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers.Base
         
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            
+            if (filterContext.ActionParameters.ContainsKey("languageId"))
+            {
+                if (Session["LanguageId"] != null)
+                {
+                    var lang = int.Parse(filterContext.ActionParameters["languageId"].ToString());
+                    var sesLang = int.Parse(Session["LanguageId"].ToString());
+                    if (lang != sesLang)
+                    {
+                        Session["LanguageId"] = lang;
+                        BaseViewModel.CurrentLanguageId = lang;
+                    }
+                }
+
+            }
+            if (Session["LanguageId"] == null)
+            {
+                BaseViewModel.CurrentLanguageId = GetDefaultLanguage();
+                Session["LanguageId"] = BaseViewModel.CurrentLanguageId;
+            }
+
             CurrentUser = (UserProfileLogin) Session?["HspUser"];
             if (CurrentUser != null)
             {
                 // only load menu 1 time when login until logout
-                if (BaseViewModel == null)
-                {
-                    BaseViewModel = new BaseViewModel
-                    {
-                        MenuItems = _menuItemService.GetMenuByRole(
-                            CurrentUser.UserRoles.Select(x => x.RoleId.ToString()).ToArray(), LanguageId),
-                        LanguageModels = _languageService.GetAllLanguage().Select(x=>new SelectListItem {Value = x.Id.ToString(),Text = x.DisplayName, Selected = x.IsDefault }).ToList(),
-                        Breadcrumbs = new List<MenuItemModel>()
-                    };
 
-                    foreach(var item in BaseViewModel.LanguageModels)
-                    {
-                        if (item.Value.Equals(this.LanguageId.ToString()))
-                        {
-                            item.Selected = true;
-                        }
-                        else
-                        {
-                            item.Selected = false;
-                        }
-                    }
+                BaseViewModel.MenuItems = _menuItemService.GetMenuByRole(
+                    CurrentUser.UserRoles.Select(x => x.RoleId.ToString()).ToArray(), LanguageId);
+                BaseViewModel.LanguageModels = _languageService.GetAllLanguage().ToList();
+                BaseViewModel.Breadcrumbs = new List<MenuItemModel>();
 
-                }
-               
             }
             else
             {
-                BaseViewModel = new BaseViewModel
-                {
-                   
-                    LanguageModels = _languageService.GetAllLanguage().Select(x => new SelectListItem { Value = x.Id.ToString(), Text = x.DisplayName, Selected = x.IsDefault }).ToList(),
-                    Breadcrumbs = new List<MenuItemModel>()
-                };
-
-                foreach (var item in BaseViewModel.LanguageModels)
-                {
-                    if (item.Value.Equals(this.LanguageId.ToString()))
-                    {
-                        item.Selected = true;
-                    }
-                    else
-                    {
-                        item.Selected = false;
-                    }
-                }
-
+                BaseViewModel.LanguageModels = _languageService.GetAllLanguage().ToList();
+                BaseViewModel.Breadcrumbs = new List<MenuItemModel>();
             }
-        
-
-            
 
             //load loopkups value
             var loopkups = _loopkupService.LoadLoppkups();
@@ -151,6 +133,8 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers.Base
                 }
 
             }
+
+           
             base.OnActionExecuting(filterContext);
         }
 

@@ -328,10 +328,10 @@ jQuery(function($) {
 
             var content = $(this).parent().parent().parent().find(".content-body");
             if (content.hasClass("collapsed")) {
-                content.removeClass("collapsed").slideDown(500);
+                content.removeClass("collapsed").fadeIn(200);
                 $(this).removeClass("fa-chevron-up").addClass("fa-chevron-down");
             } else {
-                content.addClass("collapsed").slideUp(500);
+                content.addClass("collapsed").fadeOut(200);
                 $(this).removeClass("fa-chevron-down").addClass("fa-chevron-up");
             }
 

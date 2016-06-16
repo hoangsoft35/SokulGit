@@ -60,7 +60,6 @@ namespace Hsp.GenericFramework.Services.Services
             UserProfileLogin userProfileLogin = new UserProfileLogin();
             userProfileLogin.UserKey = userValid.Id;
             userProfileLogin.UserName = userValid.UserName;
-            userProfileLogin.CurrentLanguageId = Consts.LangCultures.en_US;
             userProfileLogin.GroupUserId = userValid.GroupUserId;
             // load role 
             userProfileLogin.UserRoles = userValid.GroupUser != null

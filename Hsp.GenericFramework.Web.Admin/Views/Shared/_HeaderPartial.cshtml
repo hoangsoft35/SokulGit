@@ -2,7 +2,13 @@
 @using Hsp.GenericFramework.Commons.Dtos.Models
 @{
     var BaseViewModel = (BaseViewModel)TempData["BaseViewModel"];
-
+    {
+        BaseViewModel.CurrentLanguageId = int.Parse(Session["LanguageId"].ToString());
+    }
+    if (Session["LanguageId"] != null)
+    {
+        BaseViewModel.CurrentLanguageId = int.Parse(Session["LanguageId"].ToString());
+    }
 }
 
 <div class='logo-area'>
@@ -324,8 +330,8 @@
             <a href="#" data-toggle="dropdown" class="toggle">
                 
                 @{
-                    var currentLanguge = BaseViewModel.LanguageModels.FirstOrDefault(x => x.Selected);
-                    var languageName = currentLanguge != null ? currentLanguge.Text : "";
+                    var currentLanguge = BaseViewModel.LanguageModels.FirstOrDefault(x => x.Id == BaseViewModel.CurrentLanguageId);
+                    var languageName = currentLanguge != null ? currentLanguge.DisplayName : "";
                 }
 
                 <img class="@currentLanguge.Icon">
@@ -336,9 +342,9 @@
                     foreach (var item in BaseViewModel.LanguageModels)
                     {
                         <li>
-                            <a href="javascript:void(0)" value="@item.Value" selected="@item.Selected" onclick="ChangeLanguage(@item.Value)">
+                            <a href="javascript:void(0)" value="@item.Id" selected="@item.IsDefault" onclick="ChangeLanguage(@item.Id)">
                                 <i class="fa fa-language"></i>
-                                @item.Text
+                                @item.DisplayName
                             </a>
                         </li>
 

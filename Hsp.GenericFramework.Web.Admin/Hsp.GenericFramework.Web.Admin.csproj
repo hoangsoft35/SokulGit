@@ -711,6 +711,12 @@
     <Content Include="Views\Shared\_LeftSidebarPartial.cshtml" />
     <Content Include="Views\Shared\_RightSidebarChatPartial.cshtml" />
     <Content Include="Views\Shared\_BreadCrumb.cshtml" />
+    <Content Include="Views\Shared\CommonPartial\_BoxHeaderPartial.cshtml" />
+    <Content Include="Views\Shared\CommonPartial\_ButtonSaveCancelPartial.cshtml" />
+    <Content Include="Views\Shared\CommonPartial\_BoxContentStartPartial.cshtml" />
+    <Content Include="Views\Shared\CommonPartial\_BoxFooterPartial.cshtml" />
+    <Content Include="Views\Shared\CommonPartial\CommonBoxPartial.cshtml" />
+    <Content Include="Views\Shared\CommonPartial\_BoxContentEndPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

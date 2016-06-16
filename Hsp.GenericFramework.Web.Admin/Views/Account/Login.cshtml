@@ -9,21 +9,25 @@
     ViewBag.Title = "Log in system";
     Layout = "~/Views/Shared/_LoginLayout.cshtml";
     var BaseViewModel = (BaseViewModel)TempData["BaseViewModel"];
+    if (Session["LanguageId"] != null)
+    {
+        BaseViewModel.CurrentLanguageId = int.Parse(Session["LanguageId"].ToString());
+    }
 
 }
 
 
 <div class="dev-page-header">
     @{
-        var currentLanguge = BaseViewModel.LanguageModels.FirstOrDefault(x => x.Selected);
-        var languageName = currentLanguge != null ? currentLanguge.Text : "";
+        var currentLanguge = BaseViewModel.LanguageModels.FirstOrDefault(x => x.Id == BaseViewModel.CurrentLanguageId);
+        var languageName = currentLanguge != null ? currentLanguge.DisplayName : "";
     }
         <div class="dph-buttons pull-right">
 
             <div class="dropdown">
 
                 <button class="btn btn-primary dropdown-toggle" type="button" id="login-language" data-toggle="dropdown" aria-expanded="false">
-                    <img class="vn" style="width: 30px; height: 20px"> @languageName
+                    <img class="@currentLanguge.Icon" style="width: 30px; height: 20px"> @languageName
                      <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu" role="menu">
@@ -32,9 +36,9 @@
                     foreach (var item in BaseViewModel.LanguageModels)
                     {
                     <li>
-                        <a href="javascript:void(0)" value="@item.Value" selected="@item.Selected" onclick="ChangeLanguage(@item.Value)">
+                        <a href="javascript:void(0)" value="@item.Id" selected="@item.IsDefault" onclick="ChangeLanguage(@item.Id)">
                             <i class="fa fa-language"></i>
-                            @item.Text
+                            @item.DisplayName
                         </a>
                     </li>
 

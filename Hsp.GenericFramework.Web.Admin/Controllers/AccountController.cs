@@ -108,7 +108,6 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers
             }
 
             Session["HspUser"] = errorModel.ObjectData;
-            Session["LanguageId"] = errorModel.ObjectData.CurrentLanguageId;
 
             if (!string.IsNullOrEmpty(returnUrl))
             {
@@ -423,7 +422,6 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers
         public ActionResult LogOff()
         {
             Session.Remove("HspUser");
-            Session.Remove("LanguageId");
             return RedirectToAction("Index", "Home");
         }
 

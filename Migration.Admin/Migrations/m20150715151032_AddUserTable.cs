@@ -222,7 +222,7 @@ namespace Migration.Admin.Migrations
                         "Created," +
                         "CreatedBy)" +
                         "values" +
-                        "('en-US','English - United States',N'English', '0x0409','ENU','$',1,1,'.england',getdate(),'" + userId +
+                        "('en-US','English - United States',N'English', '0x0409','ENU','$',1,1,'england',getdate(),'" + userId +
                         "')");
 
             Execute.Sql("insert into Languages" +
@@ -239,7 +239,7 @@ namespace Migration.Admin.Migrations
                         "Created," +
                         "CreatedBy)" +
                         "values" +
-                        "('vi-VN','Vietnamese - Vietnam',N'Tiếng việt', '0x042A','VIT','Vnd',1,1,'.vn',getdate(),'" + userId +
+                        "('vi-VN','Vietnamese - Vietnam',N'Tiếng việt', '0x042A','VIT','Vnd',1,1,'vn',getdate(),'" + userId +
                         "')");
 
             #endregion
