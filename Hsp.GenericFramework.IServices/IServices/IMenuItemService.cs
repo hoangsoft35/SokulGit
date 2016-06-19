@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Hsp.GenericFramework.Commons.Dtos.Models;
 using Hsp.GenericFramework.Commons.Dtos;
-using Hsp.GenericFramework.Commons.Dtos.ViewModels;
 
 namespace Hsp.GenericFramework.IServices.IServices
 {
@@ -13,6 +8,6 @@ namespace Hsp.GenericFramework.IServices.IServices
     {
         List<MenuItemModel> GetMenuByRole(string[] roles, int languageId);
         List<MenuItemModel> GetMenuByMenuType(int languageId, string menuItemTypeId);
-        ErrorModel SaveMenuItem(MenuItemCreateViewModels menuItemCreateViewModels);
+        ErrorModel SaveMenuItem(MenuItemModel menuItemModel, List<MenuItemTranslationModel> menuItemTranslationModels);
     }
 }

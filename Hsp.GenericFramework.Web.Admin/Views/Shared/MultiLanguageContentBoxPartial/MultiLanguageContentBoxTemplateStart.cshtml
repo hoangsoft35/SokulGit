@@ -1,0 +1,46 @@
+﻿
+@using Hsp.GenericFramework.Web.Admin.Base
+@using Hsp.GenericFramework.Commons.Dtos.Models
+@using Hsp.GenericFramework.Web.Admin.Controllers
+@{
+    var BaseViewModel = (BaseViewModel)TempData["BaseViewModel"];
+    {
+        BaseViewModel.CurrentLanguageId = int.Parse(Session["LanguageId"].ToString());
+    }
+    if (Session["LanguageId"] != null)
+    {
+        BaseViewModel.CurrentLanguageId = int.Parse(Session["LanguageId"].ToString());
+    }
+}
+
+
+<div class="">
+
+    <h4>Content details</h4>
+
+    <ul class="nav nav-tabs" >
+        @foreach (var lang in BaseViewModel.LanguageModels)
+        {
+
+            if (lang.IsDefault)
+            {
+                <li class="active">
+                    <a href="#lang-id-@lang.Id" data-toggle="tab" aria-expanded="false">
+                        <img class="@lang.Icon"> @lang.DisplayName
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li class="">
+                    <a href="#lang-id-@lang.Id" data-toggle="tab" aria-expanded="false">
+                        <img class="@lang.Icon"> @lang.DisplayName
+                    </a>
+                </li>
+            }
+
+        }
+
+    </ul>
+
+    <div class="tab-content" id ="tab-content-multi-language">

@@ -4,110 +4,149 @@
     ViewBag.Title = "Menu items";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-
 @section styles{
+    <link href="~/Content/default/plugins/jstree/themes/default/style.css" rel="stylesheet" />
+
     @Styles.Render("~/bundles/css/menuItemController")
 }
-<div class="panel panel-default">
-    <div class="panel-heading">
-        <a id="btnAdd" class="btn btn-default" data-toggle="modal" data-target="#addNewModal">Add</a>
-    </div>
-    <div class="panel-body">
-        <div class="form-group">
-            <label class="control-label col-sm-3" for="menu-type">Menu type:</label>
-            <div class="col-sm-9">
-                <select class="form-control" id="menu-item-type" onchange="menuItemTypeChange()">
-                    @{
-                        if (Model.MenuItemTypes != null)
-                        {
-                            foreach (var menuItemType in Model.MenuItemTypes)
-                            {
-                                <option value="@menuItemType.Id">@menuItemType.MenuItemTypeName</option>
-                            }
-                        }   
-                    }                    
-                </select>
-            </div>
-        </div>
-        <br /><br />
-        
-        <div id="tree"></div>
-    </div>
-</div>
 
-<!-- Modal -->
-<div class="modal fade" id="addNewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <form id="frmAddNewMenuItem" class="form-horizontal" role="form">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">New menu item</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="hide">
-                        <input type="text" name="MenuItemTypeId" value=""/>
-                        <input type="text" name="ParentId" value=""/>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3" for="IsRoot">Is root:</label>
-                        <div class="col-sm-9">
-                            <input type="checkbox" name="IsRoot">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3" for="IsTitle">Is title:</label>
-                        <div class="col-sm-9">
-                            <input type="checkbox" name="IsTitle" checked>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3" for="IsLink">Is link:</label>
-                        <div class="col-sm-9">
-                            <input type="checkbox" name="IsLink">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3" for="ControllerName">Controller name:</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" name="ControllerName"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3" for="ActionName">Action name:</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" name="ActionName"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3" for="Order">Order:</label>
-                        <div class="col-sm-9">
-                            <input type="number" class="form-control" name="Order" min="1" max="100" value="1"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-sm-3" for="Name">Name:</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" name="Name"/>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
+@{
+
+    Html.RenderPartial("CommonPartial/_BoxHeaderPartial");
+    Html.RenderPartial("CommonPartial/_BoxContentStartPartial");
+    // button start
+
+    <div class="row">
+        <div class="">
+            <button type="button" class="btn btn-success" disabled id="btnAdd" data-toggle="modal" data-target="#addNewModal"><i class="fa fa-asterisk"></i> New</button>
+            <button type="button" class="btn btn-warning" onclick="treedata_rename();"><i class="fa fa-pencil"></i> Edit</button>
+            <button type="button" class="btn btn-danger" onclick="treedata_delete();"><i class="fa fa-remove"></i> Del</button>
         </div>
-    </form>
-</div>
+
+    </div>
+    <div class="clearfix"></div>
+    <br />
+
+    // button end
+
+    // Main content start
+
+
+    <div class="form-group">
+        <label class="form-label" for="field-5">Menu type</label>
+        <span class="desc"></span>
+        <select class="form-control" id="menu-item-type" onchange="menuItemTypeChange()">
+            @{
+                if (Model.MenuItemTypes != null)
+                {
+                    foreach (var menuItemType in Model.MenuItemTypes)
+                    {
+                        <option value="@menuItemType.Id">@menuItemType.MenuItemTypeName</option>
+                    }
+                }
+            }
+        </select>
+
+    </div>
+            <br />
+            <label class="form-label" for="field-5">Details</label>
+            <div id="tree" class="treeview"></div>
+
+                //Main content end
+                Html.RenderPartial("CommonPartial/_BoxContentEndPartial");
+                Html.RenderPartial("CommonPartial/_BoxFooterPartial");
+
+                 <!-- Modal -->
+                <div class="modal fade" id="addNewModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <form id="frmAddNewMenuItem" class="form-horizontal" role="form">
+                        <div class="modal-dialog animated zoomInDown " role="document" style="width: 100%; height: 100%">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel">New menu item</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="hide">
+                                        <input type="text" name="MenuItemTypeId" value="" />
+                                        <input type="text" name="ParentId" value="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="IsRoot">Is root:</label>
+                                        <div class="col-sm-10">
+                                            <input type="checkbox" name="IsRoot">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="IsTitle">Is title:</label>
+                                        <div class="col-sm-10">
+                                            <input type="checkbox" name="IsTitle" checked>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="IsLink">Is link:</label>
+                                        <div class="col-sm-10">
+                                            <input type="checkbox" name="IsLink">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="ControllerName">Controller:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="ControllerName" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="ActionName">Action:</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" name="ActionName" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-2" for="Order">Order:</label>
+                                        <div class="col-sm-10">
+                                            <input type="number" class="form-control" name="Order" min="1" max="100" value="1" />
+                                        </div>
+                                    </div>
+                                    @*<div class="form-group">
+                                            <label class="control-label col-sm-4" for="Name">Name:</label>
+                                            <div class="col-sm-8">
+                                                <input type="text" class="form-control" name="Name"/>
+                                            </div>
+                                        </div>*@
+
+
+                                    @*Start render control for Multi language content purpuse*@
+                                    @{
+                                        Html.RenderPartial("MultiLanguageContentBoxPartial/MultiLanguageContentBoxTemplateStart");
+                                        Html.RenderPartial("RenderHtmlControlFollowLanguage");
+                                        Html.RenderPartial("MultiLanguageContentBoxPartial/MultiLanguageContentBoxTemplateEnd");
+                                    }
+                                    @*Start render control for Multi language content purpuse*@
+
+
+
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+}
+
 
 @section scripts{
     @Scripts.Render("~/bundles/scripts/menuItemController")
     <script>
         @{
-            var baseViewModel = (BaseViewModel)TempData["BaseViewModel"];
+            var baseViewModel = (BaseViewModel) TempData["BaseViewModel"];
         }
-        var menus = function() { return @Html.Raw(Json.Encode(baseViewModel)); }();
+        var menus = function () { return @Html.Raw(Json.Encode(baseViewModel)); }();
+
     </script>
+
 }

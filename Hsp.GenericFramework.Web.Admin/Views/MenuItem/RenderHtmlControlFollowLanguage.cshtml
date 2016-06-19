@@ -1,0 +1,56 @@
+﻿
+@using Hsp.GenericFramework.Web.Admin.Base
+@using Hsp.GenericFramework.Commons.Dtos.Models
+@using Hsp.GenericFramework.Web.Admin.Controllers
+@{
+    var BaseViewModel = (BaseViewModel)TempData["BaseViewModel"];
+    {
+        BaseViewModel.CurrentLanguageId = int.Parse(Session["LanguageId"].ToString());
+    }
+    if (Session["LanguageId"] != null)
+    {
+        BaseViewModel.CurrentLanguageId = int.Parse(Session["LanguageId"].ToString());
+    }
+}
+
+@foreach (var lang in BaseViewModel.LanguageModels)
+{
+    if (lang.IsDefault)
+    {
+        <div class="tab-pane fade active in" id="lang-id-@lang.Id">
+
+
+            @*Put content of html inside here START*@
+
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="Name">Display name:</label>
+                <div class="col-sm-9">
+                    <input type="text" data-lang="@lang.Id"  class="form-control" name="label-lang-@lang.Id" />
+                </div>
+            </div>
+
+            @*Put content of html inside here END*@
+
+
+        </div>
+    }
+    else
+    {
+        <div class="tab-pane fade in" id="lang-id-@lang.Id">
+
+            @*Put content of html inside here START*@
+
+            <div class="form-group">
+                <label class="control-label col-sm-3" for="Name">Display name:</label>
+                <div class="col-sm-9">
+                    <input type="text" data-lang="@lang.Id"  class="form-control" name="label-lang-@lang.Id" />
+                </div>
+            </div>
+
+            @*Put content of html inside here END*@
+        </div>
+
+    }
+
+}
+

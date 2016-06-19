@@ -222,7 +222,7 @@ namespace Migration.Admin.Migrations
                         "Created," +
                         "CreatedBy)" +
                         "values" +
-                        "('en-US','English - United States',N'English', '0x0409','ENU','$',1,1,'england',getdate(),'" + userId +
+                        "('en-US','English - United States',N'English', '0x0409','ENU','$',0,1,'england',getdate(),'" + userId +
                         "')");
 
             Execute.Sql("insert into Languages" +
@@ -355,7 +355,7 @@ namespace Migration.Admin.Migrations
             var dashboardMenuItemId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter, MenuItemTypeId, ParentId,[Order], CssClassIcon)" +
-                "values('" + dashboardMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + homeMenuItemId + "',1,'fa fa-dashboard')"
+                "values('" + dashboardMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + dashboardMenuItemId + "',1,'fa fa-dashboard')"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
                         dashboardMenuItemId + "',N'Dashboard',1,getDate(),'" + userId + "')");
@@ -366,7 +366,7 @@ namespace Migration.Admin.Migrations
             var adminMenuItemId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter, MenuItemTypeId, ParentId,[Order], CssClassIcon)" +
-                "values('" + adminMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + homeMenuItemId + "',2,'fa fa-users')"
+                "values('" + adminMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + adminMenuItemId + "',2,'fa fa-users')"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
                         adminMenuItemId + "',N'Administration',1,getDate(),'" + userId + "')");
@@ -375,7 +375,7 @@ namespace Migration.Admin.Migrations
             var sysAdminMenuItemId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter, MenuItemTypeId, ParentId,[Order], CssClassIcon)" +
-                "values('" + sysAdminMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + homeMenuItemId + "',3,'fa fa-user-secret')"
+                "values('" + sysAdminMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + sysAdminMenuItemId + "',3,'fa fa-user-secret')"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
                         sysAdminMenuItemId + "',N'System Admin',1,getDate(),'" + userId + "')");
@@ -384,7 +384,7 @@ namespace Migration.Admin.Migrations
             var logoutMenuItemId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter, MenuItemTypeId, ParentId,[Order], CssClassIcon)" +
-                "values('" + logoutMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + homeMenuItemId + "','" + int.MaxValue + "','fa fa-sign-out')"
+                "values('" + logoutMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + logoutMenuItemId + "','" + int.MaxValue + "','fa fa-sign-out')"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
                         logoutMenuItemId + "',N'Sign Out',1,getDate(),'" + userId + "')");

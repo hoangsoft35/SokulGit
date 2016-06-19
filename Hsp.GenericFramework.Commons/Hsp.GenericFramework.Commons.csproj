@@ -80,7 +80,6 @@
     <Compile Include="Dtos\Models\UserModel.cs" />
     <Compile Include="Dtos\Models\PasswordRuleModel.cs" />
     <Compile Include="Dtos\Models\LanguageModel.cs" />
-    <Compile Include="Dtos\ViewModels\MenuItemCreateViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\HspAuthorizeAttribute.cs" />
     <Compile Include="Security\HspSecurity.cs" />

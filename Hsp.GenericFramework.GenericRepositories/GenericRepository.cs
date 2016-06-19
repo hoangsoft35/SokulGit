@@ -37,19 +37,16 @@ namespace Hsp.GenericFramework.GenericRepositories
 
         public TEntity Add(TEntity entity)
         {
-            MarkGraphAsUnchanged(entity);
             return _dbSet.Add(entity);
         }
 
         public void AddRange(List<TEntity> entities)
         {
-            MarkGraphAsUnchanged(entities);
             _dbSet.AddRange(entities);
         }
 
         public TEntity Update(TEntity entity)
         {
-            MarkGraphAsUnchanged(entity);
             _context.Entry(entity).State = EntityState.Modified;
             return entity;
         }
@@ -60,7 +57,6 @@ namespace Hsp.GenericFramework.GenericRepositories
             {
                 _dbSet.Attach(entity);
             }
-            MarkGraphAsUnchanged(entity);
             return _dbSet.Remove(entity);
         }
 
@@ -72,7 +68,6 @@ namespace Hsp.GenericFramework.GenericRepositories
 
         public void DeleteRange(List<TEntity> entities)
         {
-            MarkGraphAsUnchanged(entities);
             _dbSet.RemoveRange(entities);
         }
 
@@ -121,18 +116,6 @@ namespace Hsp.GenericFramework.GenericRepositories
             return query;
         }
 
-        private void MarkGraphAsUnchanged<TEntity>(TEntity entity) where TEntity : class
-        {
-            DbEntityEntry entryForThis = _context.Entry<TEntity>(entity);
-            var entriesItWantsToChange = _context.ChangeTracker.Entries().Distinct();
-
-            foreach (var entry in entriesItWantsToChange)
-            {
-                if (!entryForThis.Equals(entry))
-                {
-                    entry.State = EntityState.Unchanged;
-                }
-            }
-        }
+       
     }
 }

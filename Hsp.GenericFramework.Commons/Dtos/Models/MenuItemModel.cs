@@ -17,6 +17,7 @@ namespace Hsp.GenericFramework.Commons.Dtos.Models
         public int Order { get; set; }  
         public string CssClassIcon { get; set; }  
         public bool IsCurrentSelected { get; set; }  
+        public Guid MenuItemTypeId { get; set; }  
 
     }
 }

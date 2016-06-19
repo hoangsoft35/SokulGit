@@ -28,14 +28,13 @@ namespace Hsp.GenericFramework.Web.Admin
                 "~/Content/default/plugins/bootstrap/js/respond.min.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/layout").Include(
-                "~/Content/default/plugins/perfect-scrollbar/perfect-scrollbar.min.js",
+                "~/Content/default/plugins/perfect-scrollbar/perfectscrollbar.min.js",
                 "~/Content/default/plugins/viewport/viewportchecker.js",
                 "~/Content/default/js/scripts.js"
                 ));
 
             bundles.Add(new ScriptBundle("~/bundles/common").Include(
-                "~/Scripts/Commons/menu.js",
-                "~/Scripts/Libs/alertify.js",
+                "~/Content/default/plugins/alertifyjs/alertify.min.js",
                 "~/Scripts/Commons/_layout.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/dashboard").Include(
@@ -63,10 +62,12 @@ namespace Hsp.GenericFramework.Web.Admin
                 "~/Content/default/plugins/bootstrap/css/bootstrap-theme.min.css",
                 "~/Content/default/fonts/font-awesome/css/font-awesome.css",
                 "~/Content/default/css/animate.min.css",
-                "~/Content/default/plugins/perfect-scrollbar/perfect-scrollbar.css",
+                "~/Content/default/plugins/perfect-scrollbar/perfectscrollbar.css",
                 "~/Content/default/plugins/jquery-ui/smoothness/jquery-ui.min.css",
                 "~/Content/default/css/style.css",
-                "~/Content/default/css/flag.css"
+                "~/Content/default/css/flag.css",
+                "~/Content/default/plugins/alertifyjs/css/alertify.core.css",
+                "~/Content/default/plugins/alertifyjs/css/alertify.default.css"
                 ));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
@@ -81,7 +82,7 @@ namespace Hsp.GenericFramework.Web.Admin
                 "~/Content/Libs/bootstrap-combined.min.css",
                 "~/Content/Libs/tree.css",
                 "~/Content/Libs/bootstrap-treeview.min.css",
-                "~/Content/Libs/bootstrap-switch.min.css"));
+                "~/Content/default/plugins/bootstrap-switch/css/bootstrap3/bootstrap-switch.min.css"));
 
 
             #endregion

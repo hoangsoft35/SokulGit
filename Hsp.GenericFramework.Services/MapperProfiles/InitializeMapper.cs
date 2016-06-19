@@ -2,7 +2,6 @@
 using AutoMapper;
 using Hsp.GenericFramework.Commons.Dtos.Models;
 using Hsp.GenericFramework.Entities.Models;
-using Hsp.GenericFramework.Commons.Dtos.ViewModels;
 
 namespace Hsp.GenericFramework.Services.MapperProfiles
 {
@@ -27,6 +26,22 @@ namespace Hsp.GenericFramework.Services.MapperProfiles
 
             Mapper.CreateMap<MenuItemTranslationModel, MenuItemTranslation>();
             Mapper.CreateMap<MenuItemTranslation, MenuItemTranslationModel>();
+
+            Mapper.CreateMap<MenuItemTranslation, MenuItemModel>()
+                .ForMember(src=>src.Id, des=>des.MapFrom(x=>x.MenuItemId))
+                .ForMember(src=>src.Label, des=>des.MapFrom(x=>x.Label))
+                .ForMember(src=>src.ActionName, des=>des.MapFrom(x=>x.MenuItem.ActionName))
+                .ForMember(src=>src.ControllerName, des=>des.MapFrom(x=>x.MenuItem.ControllerName))
+                .ForMember(src=>src.IsRoot, des=>des.MapFrom(x=>x.MenuItem.IsRoot))
+                .ForMember(src=>src.IsActive, des=>des.MapFrom(x=>x.MenuItem.IsActive))
+                .ForMember(src=>src.IsLink, des=>des.MapFrom(x=>x.MenuItem.IsLink))
+                .ForMember(src=>src.CssClassIcon, des=>des.MapFrom(x=>x.MenuItem.CssClassIcon))
+                .ForMember(src=>src.IsTitle, des=>des.MapFrom(x=>x.MenuItem.IsTitle))
+                .ForMember(src=>src.ParentId, des=>des.MapFrom(x=>x.MenuItem.ParentId))
+                .ForMember(src=>src.Order, des=>des.MapFrom(x=>x.MenuItem.Order))
+                .ForMember(src=>src.SectionParameter, des=>des.MapFrom(x=>x.MenuItem.SectionParameter))
+                ;
+
 
             Mapper.CreateMap<UserModel, User>();
             Mapper.CreateMap<User, UserModel>();
@@ -120,8 +135,8 @@ namespace Hsp.GenericFramework.Services.MapperProfiles
                 .ForMember(to => to.SectionParameter, src => src.MapFrom(r => r.MenuItem.SectionParameter))
                 .ForMember(to => to.CssClassIcon, src => src.MapFrom(r => r.MenuItem.CssClassIcon))
                 ;
-            Mapper.CreateMap<MenuItemCreateViewModel, MenuItem>();
-            Mapper.CreateMap<MenuItemTranslationCreateViewModel, MenuItemTranslation>();
+            //Mapper.CreateMap<MenuItemCreateViewModel, MenuItem>();
+            //Mapper.CreateMap<MenuItemTranslationCreateViewModel, MenuItemTranslation>();
         }
     }
 }

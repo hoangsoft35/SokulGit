@@ -103,6 +103,9 @@ function mapMenuItemsDataLevel2(menuItems) {
             t.nodes = childs;
             mapMenuItemsDataLevel3(childs);
         }
+         else {
+            delete t.nodes;
+        }
     });
     return menuItems;
 }
@@ -114,8 +117,18 @@ function mapMenuItemsDataLevel3(menuItems) {
         t.Level = 2;
         t.text = t.Label;
         if (childs.length > 0) {
-            childs = _.map(childs, function (t3) { t3.Level = 3; t3.text = t3.Label; state: { disabled: true; checked : true }; return t3; });
+            childs = _.map(childs, function(t3) {
+                t3.Level = 3;
+                t3.text = t3.Label;
+                state: {
+                    disabled: true;
+                    checked : true;
+                };
+                return t3;
+            });
             t.nodes = childs;
+        } else {
+            delete t.nodes;
         }
     });
     return menuItems;
@@ -128,14 +141,16 @@ function menuItemTypeChange() {
         type: 'GET',
         success: function (data) {
             _menuItems = data;
-            $('#tree').treeview({ data: mapMenuItemsData() });            
+            $('#tree').treeview({ data: mapMenuItemsData(), showIcon: false });
             $('#tree').on('nodeSelected', function (event, data) {
                 console.log(data);
                 if (data.Level == 3) {
                     $('#btnAdd').addClass('disabled');
+                    $('#btnAdd').prop('disabled',true);
                 }
                 else {
                     $('#btnAdd').removeClass('disabled');
+                    $('#btnAdd').prop('disabled', false);
                 }
             });
         },
@@ -148,7 +163,7 @@ function menuItemTypeChange() {
 function save() {
     var formData = $('form').serializeJSON();
     var menuItemCreateViewModels = {
-        MenuItemCreate: {        
+        MenuItemModel: {        
             MenuItemTypeId:formData.MenuItemTypeId,
             IsRoot:formData.IsRoot,
             IsTitle:formData.IsTitle,
@@ -159,9 +174,7 @@ function save() {
             SectionParameter:formData.SectionParameter,
             Order:formData.Order
         },
-        MenuItemTranslationCreate: {
-            Label: formData.Name
-        }
+        MenuItemTranslationModels: getContentMultiLanguage()
     };
     $.ajax({
         url: "/MenuItem/CreateMenuItem",
@@ -183,7 +196,20 @@ function save() {
     });
 }
 
+function getContentMultiLanguage() {
 
+    var data = $('#tab-content-multi-language').find('input[name^="label-lang"]');
+    var result = [];
+    if (data != undefined && data.length > 0) {
+        $.each(data, function (index, t) {
+            var transtation = { LanguageId: $(t).data('lang'), Label: $(t).val() }
+            result.push(transtation);
+        });
+
+    }
+
+    return result;
+}
 
 function addNode() {
     var tree = $('#tree').treeview('getTreeData');
