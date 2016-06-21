@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -80,6 +84,14 @@
     <Compile Include="Dtos\Models\UserModel.cs" />
     <Compile Include="Dtos\Models\PasswordRuleModel.cs" />
     <Compile Include="Dtos\Models\LanguageModel.cs" />
+    <Compile Include="Exception\BaseEx\BaseException.cs" />
+    <Compile Include="Exception\BusinessException.cs" />
+    <Compile Include="Exception\ExceptionHelper.cs" />
+    <Compile Include="Exception\ExceptionMessage.cs" />
+    <Compile Include="Exception\IExceptionHelper.cs" />
+    <Compile Include="Exception\InternalException.cs" />
+    <Compile Include="Logging\ILogManager.cs" />
+    <Compile Include="Logging\LogManagerAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\HspAuthorizeAttribute.cs" />
     <Compile Include="Security\HspSecurity.cs" />
@@ -100,6 +112,9 @@
       <LastGenOutput>Translator.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
