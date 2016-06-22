@@ -11,6 +11,7 @@ using System;
 using System.Web.UI.WebControls;
 using Hsp.GenericFramework.Commons;
 using Hsp.GenericFramework.Commons.Dtos;
+using Hsp.GenericFramework.Commons.Logging;
 using MenuItem = Hsp.GenericFramework.Entities.Models.MenuItem;
 
 namespace Hsp.GenericFramework.Services.Services
@@ -21,7 +22,7 @@ namespace Hsp.GenericFramework.Services.Services
         private readonly IGenericRepository<MenuItem> _menuItemRepository;
         private readonly IGenericRepository<MenuItemTranslation> _menuItemTranslationRepository;
         private readonly IGenericRepository<MenuItemAuthorisation> _menuItemAuthorisationRepository;
-        public MenuItemService(IUnitOfWork unitOfWork, IGenericRepository<MenuItem> menuItemRepository, IGenericRepository<MenuItemAuthorisation> menuItemAuthorisationRepository, IGenericRepository<MenuItemTranslation> menuItemTranslationRepository) : base(unitOfWork)
+        public MenuItemService(IUnitOfWork unitOfWork, IGenericRepository<MenuItem> menuItemRepository, IGenericRepository<MenuItemAuthorisation> menuItemAuthorisationRepository, IGenericRepository<MenuItemTranslation> menuItemTranslationRepository, ILogManager<MenuItemService> logManager) : base(unitOfWork, logManager.GetLog())
         {
             _unitOfWork = unitOfWork;
             _menuItemRepository = menuItemRepository;

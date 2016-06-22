@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AutoMapper;
 using Hsp.GenericFramework.Commons;
 using Hsp.GenericFramework.Commons.Dtos.Models;
+using Hsp.GenericFramework.Commons.Logging;
 using Hsp.GenericFramework.Commons.Security;
 using Hsp.GenericFramework.Entities.Models;
 using Hsp.GenericFramework.IGenericRepositories;
@@ -19,7 +21,8 @@ namespace Hsp.GenericFramework.Services.Services
         readonly IGenericRepository<TableTranslation> _tableTranslationRepository;
         public UserProfileLogin _currentUser;
         readonly IGenericRepository<Export> _exportRepository;
-        public TableService(IUnitOfWork unitOfWork, IGenericRepository<Table> tableRepository, IGenericRepository<TableTranslation> tableTranslationRepository, IGenericRepository<Export> exportRepository) : base(unitOfWork){
+        public TableService(IUnitOfWork unitOfWork, IGenericRepository<Table> tableRepository, IGenericRepository<TableTranslation> tableTranslationRepository, IGenericRepository<Export> exportRepository, ILogManager<TableService> logManager) : base(unitOfWork, logManager.GetLog())
+        {
             _tableRepository = tableRepository;
             _tableTranslationRepository = tableTranslationRepository;
             _unitOfWork = unitOfWork;
@@ -29,8 +32,17 @@ namespace Hsp.GenericFramework.Services.Services
 
         public List<TableTranslationModel> GetAllTableByCompany(int languageId, int companyId)
         {
-            var listCompany = _tableTranslationRepository.Get(x => x.Table.StatusId != (int)Consts.Status.Deleted && x.LanguageId == languageId && x.Table.Area.CompanyId == companyId).ToList();
+            try
+            {
+                            var listCompany = _tableTranslationRepository.Get(x => x.Table.StatusId != (int)Consts.Status.Deleted && x.LanguageId == languageId && x.Table.Area.CompanyId == companyId).ToList();
             return listCompany.Select(Mapper.Map<TableTranslationModel>).ToList();
+            }
+            catch (Exception)
+            {
+                
+                throw;
+            }
+
         }
         public List<TableModel> ListTableNotHaveGuestByAreaId(int areaId, int languageId)
         {

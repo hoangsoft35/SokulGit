@@ -26,5 +26,7 @@ namespace Hsp.GenericFramework.IGenericRepositories
             int? page = null,
             int? pageSize = null);
 
+        
+
     }
 }

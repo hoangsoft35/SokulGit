@@ -4,6 +4,7 @@ using System.Web;
 using AutoMapper;
 using Hsp.GenericFramework.Commons;
 using Hsp.GenericFramework.Commons.Dtos.Models;
+using Hsp.GenericFramework.Commons.Logging;
 using Hsp.GenericFramework.Commons.Security;
 using Hsp.GenericFramework.Entities.Models;
 using Hsp.GenericFramework.IGenericRepositories;
@@ -19,7 +20,7 @@ namespace Hsp.GenericFramework.Services.Services
         readonly IGenericRepository<Customer> _customerRepository;
         readonly IGenericRepository<CustomerTranslation> _customerTranslationRepository;
         public UserProfileLogin _currentUser;
-        public CustomerService(IUnitOfWork unitOfWork, IGenericRepository<Customer> customerRepository, IGenericRepository<CustomerTranslation> customerTranslationRepository) : base(unitOfWork)
+        public CustomerService(IUnitOfWork unitOfWork, IGenericRepository<Customer> customerRepository, IGenericRepository<CustomerTranslation> customerTranslationRepository, ILogManager<CustomerService> logManager) : base(unitOfWork, logManager.GetLog())
         {
             _customerRepository = customerRepository;
             _customerTranslationRepository = customerTranslationRepository;

@@ -3,8 +3,8 @@ using log4net;
 
 namespace Hsp.GenericFramework.Commons.Logging
 {
-    public interface ILogManager
+    public interface ILogManager<TObjectLog>  where TObjectLog : class 
     {
-        ILog GetLog(Type typeAssociatedWithRequestedLog);
+        ILog GetLog();
     }
 }

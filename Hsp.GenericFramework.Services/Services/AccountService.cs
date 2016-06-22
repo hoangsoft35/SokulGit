@@ -11,6 +11,7 @@ using Hsp.GenericFramework.Services.Base;
 using Hsp.GenericFramework.Commons;
 using Hsp.GenericFramework.Commons.Dtos;
 using System;
+using Hsp.GenericFramework.Commons.Logging;
 
 namespace Hsp.GenericFramework.Services.Services
 {
@@ -20,7 +21,7 @@ namespace Hsp.GenericFramework.Services.Services
         private readonly IGenericRepository<User> _userRepository;
         private readonly IGenericRepository<GroupUser> _groupUserRepository;
 
-        public AccountService(IUnitOfWork unitOfWork, IGenericRepository<User> userRepository, IGenericRepository<GroupUser> groupUserRepository) : base(unitOfWork)
+        public AccountService(IUnitOfWork unitOfWork, IGenericRepository<User> userRepository, IGenericRepository<GroupUser> groupUserRepository, ILogManager<AccountService> logManager) : base(unitOfWork, logManager.GetLog())
         {
             _userRepository = userRepository;
             _groupUserRepository = groupUserRepository;

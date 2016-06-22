@@ -34,29 +34,29 @@ namespace Hsp.GenericFramework.UnitTests.Services
         [TestInitialize]
         public void Initialize()
         {
-            _listLanguage = new List<Language>
-            {
-                new Language { CultureCode= "vi-vn", CultureName = "VN", DisplayName = "Tiếng Việt"},
-                new Language {CultureCode= "en-us", CultureName = "EN", DisplayName = "The United States"},
-                new Language {CultureCode= "china", CultureName = "CN", DisplayName = "China"}
-            }.AsQueryable();
+            //_listLanguage = new List<Language>
+            //{
+            //    new Language { CultureCode= "vi-vn", CultureName = "VN", DisplayName = "Tiếng Việt"},
+            //    new Language {CultureCode= "en-us", CultureName = "EN", DisplayName = "The United States"},
+            //    new Language {CultureCode= "china", CultureName = "CN", DisplayName = "China"}
+            //}.AsQueryable();
 
-            _mockDbSet = new Mock<DbSet<Language>>();
-            _mockDbSet.As<IQueryable<Language>>().Setup(x => x.Provider).Returns(_listLanguage.Provider);
-            _mockDbSet.As<IQueryable<Language>>().Setup(x => x.Expression).Returns(_listLanguage.Expression);
-            _mockDbSet.As<IQueryable<Language>>().Setup(x => x.ElementType).Returns(_listLanguage.ElementType);
-            _mockDbSet.As<IQueryable<Language>>().Setup(x => x.GetEnumerator()).Returns(_listLanguage.GetEnumerator);
+            //_mockDbSet = new Mock<DbSet<Language>>();
+            //_mockDbSet.As<IQueryable<Language>>().Setup(x => x.Provider).Returns(_listLanguage.Provider);
+            //_mockDbSet.As<IQueryable<Language>>().Setup(x => x.Expression).Returns(_listLanguage.Expression);
+            //_mockDbSet.As<IQueryable<Language>>().Setup(x => x.ElementType).Returns(_listLanguage.ElementType);
+            //_mockDbSet.As<IQueryable<Language>>().Setup(x => x.GetEnumerator()).Returns(_listLanguage.GetEnumerator);
 
-            _mockHspContext = new Mock<HspDbContext>();
-            _mockHspContext.Setup(x => x.Set<Language>()).Returns(_mockDbSet.Object);
+            //_mockHspContext = new Mock<HspDbContext>();
+            //_mockHspContext.Setup(x => x.Set<Language>()).Returns(_mockDbSet.Object);
 
 
-            _mockUnitOfWork = new Mock<IUnitOfWork>();
-            _mockLanguageRepository = new Mock<IGenericRepository<Language>>();
+            //_mockUnitOfWork = new Mock<IUnitOfWork>();
+            //_mockLanguageRepository = new Mock<IGenericRepository<Language>>();
 
-            _languageService = new LanguageService(_mockUnitOfWork.Object, _mockLanguageRepository.Object);
-            mapper = new Mock<IMappingEngine>();
-            serviceModule =new ServiceModules("web");
+            //_languageService = new LanguageService(_mockUnitOfWork.Object, _mockLanguageRepository.Object);
+            //mapper = new Mock<IMappingEngine>();
+            //serviceModule =new ServiceModules("web");
 
         }
         [TestMethod]

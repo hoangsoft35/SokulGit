@@ -5,6 +5,7 @@ using System.Web;
 using AutoMapper;
 using Hsp.GenericFramework.Commons;
 using Hsp.GenericFramework.Commons.Dtos.Models;
+using Hsp.GenericFramework.Commons.Logging;
 using Hsp.GenericFramework.Commons.Security;
 using Hsp.GenericFramework.Entities.Models;
 using Hsp.GenericFramework.IGenericRepositories;
@@ -21,7 +22,7 @@ namespace Hsp.GenericFramework.Services.Services
         readonly IGenericRepository<ItemTranslation> _itemTranslationRepository;
         public UserProfileLogin _currentUser;
         readonly IGenericRepository<Export> _exportRepository;
-        public ItemService(IUnitOfWork unitOfWork, IGenericRepository<Item> itemRepository, IGenericRepository<ItemTranslation> itemTranslationRepository) : base(unitOfWork)
+        public ItemService(IUnitOfWork unitOfWork, IGenericRepository<Item> itemRepository, IGenericRepository<ItemTranslation> itemTranslationRepository, ILogManager<ItemService> logManager) : base(unitOfWork, logManager.GetLog())
         {
             _itemRepository = itemRepository;
             _itemTranslationRepository = itemTranslationRepository;

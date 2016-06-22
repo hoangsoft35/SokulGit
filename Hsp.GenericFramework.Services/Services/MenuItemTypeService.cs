@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web;
 using AutoMapper;
 using Hsp.GenericFramework.Commons.Dtos.Models;
+using Hsp.GenericFramework.Commons.Logging;
 using Hsp.GenericFramework.Commons.Security;
 using Hsp.GenericFramework.Entities.Models;
 using Hsp.GenericFramework.IGenericRepositories;
@@ -17,7 +18,7 @@ namespace Hsp.GenericFramework.Services.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IGenericRepository<MenuItemType> _menuItemTypeRepository;
         private readonly IGenericRepository<MenuItemAuthorisation> _menuItemAuthorisationRepository;
-        public MenuItemTypeService(IUnitOfWork unitOfWork, IGenericRepository<MenuItemType> menuItemTypeRepository, IGenericRepository<MenuItemAuthorisation> menuItemAuthorisationRepository) : base(unitOfWork)
+        public MenuItemTypeService(IUnitOfWork unitOfWork, IGenericRepository<MenuItemType> menuItemTypeRepository, IGenericRepository<MenuItemAuthorisation> menuItemAuthorisationRepository, ILogManager<MenuItemTypeService> logManager) : base(unitOfWork, logManager.GetLog())
         {
             _unitOfWork = unitOfWork;
             _menuItemTypeRepository = menuItemTypeRepository;

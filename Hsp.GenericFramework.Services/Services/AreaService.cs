@@ -4,6 +4,7 @@ using System.Web;
 using AutoMapper;
 using Hsp.GenericFramework.Commons;
 using Hsp.GenericFramework.Commons.Dtos.Models;
+using Hsp.GenericFramework.Commons.Logging;
 using Hsp.GenericFramework.Commons.Security;
 using Hsp.GenericFramework.Entities.Models;
 using Hsp.GenericFramework.IGenericRepositories;
@@ -19,7 +20,7 @@ namespace Hsp.GenericFramework.Services.Services
         readonly IGenericRepository<Area> _areaRepository;
         readonly IGenericRepository<AreaTranslation> _areaTranslationRepository;
         public UserProfileLogin _currentUser;
-        public AreaService(IUnitOfWork unitOfWork, IGenericRepository<Area> areaRepository, IGenericRepository<AreaTranslation> areaTranslationRepository):base(unitOfWork)
+        public AreaService(IUnitOfWork unitOfWork, IGenericRepository<Area> areaRepository, IGenericRepository<AreaTranslation> areaTranslationRepository, ILogManager<AreaService> logManager) : base(unitOfWork, logManager.GetLog())
         {
             _areaRepository = areaRepository;
             _areaTranslationRepository = areaTranslationRepository;

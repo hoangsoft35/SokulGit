@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web;
 using AutoMapper;
 using Hsp.GenericFramework.Commons.Dtos.Models;
+using Hsp.GenericFramework.Commons.Logging;
 using Hsp.GenericFramework.Commons.Security;
 using Hsp.GenericFramework.Entities.Models;
 using Hsp.GenericFramework.IGenericRepositories;
@@ -17,7 +18,7 @@ namespace Hsp.GenericFramework.Services.Services
         readonly IUnitOfWork _unitOfWork;
         readonly IGenericRepository<Language> _languageRepository;
         public UserProfileLogin _currentUser;
-        public LanguageService(IUnitOfWork unitOfWork, IGenericRepository<Language> languageRepository) : base(unitOfWork)
+        public LanguageService(IUnitOfWork unitOfWork, IGenericRepository<Language> languageRepository, ILogManager<LanguageService> logManager) : base(unitOfWork, logManager.GetLog())
         {
             _languageRepository = languageRepository;
             _unitOfWork = unitOfWork;

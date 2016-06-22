@@ -10,6 +10,7 @@ using Hsp.GenericFramework.IServices.IServices;
 using Hsp.GenericFramework.IUnitOfWorks;
 using Hsp.GenericFramework.Services.Base;
 using System;
+using Hsp.GenericFramework.Commons.Logging;
 
 namespace Hsp.GenericFramework.Services.Services
 {
@@ -18,7 +19,7 @@ namespace Hsp.GenericFramework.Services.Services
         readonly IUnitOfWork _unitOfWork;
         readonly IGenericRepository<Resource> _resourceRepository;
         
-        public ResourceService(IUnitOfWork unitOfWork, IGenericRepository<Resource> loopkupRepository) : base(unitOfWork)
+        public ResourceService(IUnitOfWork unitOfWork, IGenericRepository<Resource> loopkupRepository, ILogManager<ResourceService> logManager) : base(unitOfWork, logManager.GetLog())
         {
             _resourceRepository = loopkupRepository;
             _unitOfWork = unitOfWork;

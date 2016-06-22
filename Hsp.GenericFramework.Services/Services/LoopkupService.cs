@@ -3,6 +3,7 @@ using System.Linq;
 using System.Web;
 using AutoMapper;
 using Hsp.GenericFramework.Commons.Dtos.Models;
+using Hsp.GenericFramework.Commons.Logging;
 using Hsp.GenericFramework.Commons.Security;
 using Hsp.GenericFramework.Entities.Models;
 using Hsp.GenericFramework.IGenericRepositories;
@@ -17,7 +18,7 @@ namespace Hsp.GenericFramework.Services.Services
         readonly IUnitOfWork _unitOfWork;
         readonly IGenericRepository<Loopkup> _loopkupRepository;
         
-        public LoopkupService(IUnitOfWork unitOfWork, IGenericRepository<Loopkup> loopkupRepository) : base(unitOfWork)
+        public LoopkupService(IUnitOfWork unitOfWork, IGenericRepository<Loopkup> loopkupRepository, ILogManager<LoopkupService> logManager) : base(unitOfWork, logManager.GetLog())
         {
             _loopkupRepository = loopkupRepository;
             _unitOfWork = unitOfWork;
