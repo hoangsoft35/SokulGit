@@ -1,14 +1,4 @@
-﻿using System;
-using System.Data;
-using System.Data.Sql;
-using System.Data.SqlClient;
-using System.IO;
-using System.Linq;
-using System.Windows.Forms;
-using System.Xml.Linq;
-
-
-namespace CoffeeSoft.App
+﻿namespace CoffeeSoft.App
 {
     public partial class frmBackup : DevExpress.XtraEditors.XtraForm
     {

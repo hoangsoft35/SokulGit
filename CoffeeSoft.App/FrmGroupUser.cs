@@ -1,7 +1,5 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
-using CoffeeSoft.App.General;
 namespace CoffeeSoft.App
 {
     public partial class FrmGroupUser : Form

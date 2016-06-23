@@ -1,9 +1,5 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using Hsp.GenericFramework.Commons.Dtos.Models;
-using Hsp.GenericFramework.Commons.Security;
-using Hsp.GenericFramework.IServices.IServices;
+using Hsp.GenericFramework.Dto.Models.Models;
 
 namespace Hsp.GenericFramework.Web.Admin.Base
 {

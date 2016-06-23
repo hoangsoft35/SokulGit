@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows.Forms;
-using CoffeeSoft.App.General;
+﻿using System.Windows.Forms;
 
 namespace CoffeeSoft.App
 {

@@ -1,4 +1,4 @@
-namespace Hsp.GenericFramwork.Api.Areas.HelpPage
+namespace Hsp.GenericFramwork.Api.Areas.HelpPage.SampleGeneration
 {
     /// <summary>
     /// Indicates whether the sample is used for request or response

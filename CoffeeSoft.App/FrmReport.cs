@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using DevExpress.XtraGrid;
-using DevExpress.XtraGrid.Columns;
-using DevExpress.XtraGrid.Views.Grid;
+﻿using System.Windows.Forms;
 
 namespace CoffeeSoft.App
 {
-
-    using DevExpress.Utils;
-
     public partial class FrmReport : Form
     {
         //private GridControl grid;

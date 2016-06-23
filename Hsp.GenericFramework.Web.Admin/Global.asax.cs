@@ -1,18 +1,12 @@
 ﻿using System.Configuration;
-using System.IO;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Autofac;
-using Autofac.Core;
 using Autofac.Integration.Mvc;
 using Hsp.GenericFramework.Commons.Logging;
 using Hsp.GenericFramework.Commons.Security;
-using Hsp.GenericFramework.IServices.IServices;
 using Hsp.GenericFramework.Services;
-using Hsp.GenericFramework.Services.Base;
-using Hsp.GenericFramework.Services.Services;
-using WebGrease;
 
 namespace Hsp.GenericFramework.Web.Admin
 {

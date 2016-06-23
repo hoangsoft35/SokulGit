@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using AutoMapper;
-using Hsp.GenericFramework.Commons.Dtos.Models;
+using Hsp.GenericFramework.Dto.Models.Models;
 using Hsp.GenericFramework.Entities.Models;
 
 namespace Hsp.GenericFramework.Services.MapperProfiles

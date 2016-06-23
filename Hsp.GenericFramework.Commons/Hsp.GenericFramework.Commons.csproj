@@ -39,11 +39,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
-    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
@@ -51,39 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Consts.cs" />
-    <Compile Include="Dtos\Base\BaseEntityModel.cs" />
-    <Compile Include="Dtos\ErrorModel.cs" />
-    <Compile Include="Dtos\Models\CustomerModel.cs" />
-    <Compile Include="Dtos\Models\AreaModel.cs" />
-    <Compile Include="Dtos\Models\AreaTranslationModel.cs" />
-    <Compile Include="Dtos\Models\CompanyModel.cs" />
-    <Compile Include="Dtos\Models\CompanyTranslationModel.cs" />
-    <Compile Include="Dtos\Models\ExportModel.cs" />
-    <Compile Include="Dtos\Models\ExportDetailModel.cs" />
-    <Compile Include="Dtos\Models\GroupUserRoleModel.cs" />
-    <Compile Include="Dtos\Models\GroupUserModel.cs" />
-    <Compile Include="Dtos\Models\ItemModel.cs" />
-    <Compile Include="Dtos\Models\ItemPriceModel.cs" />
-    <Compile Include="Dtos\Models\ItemTranslationModel.cs" />
-    <Compile Include="Dtos\Models\ItemTypeModel.cs" />
-    <Compile Include="Dtos\Models\ItemTypeTranslationModel.cs" />
-    <Compile Include="Dtos\Models\LoginModel.cs" />
-    <Compile Include="Dtos\Models\MenuItemTypeTranslationModel.cs" />
-    <Compile Include="Dtos\Models\MenuItemTypeModel.cs" />
-    <Compile Include="Dtos\Models\ResourceModel.cs" />
-    <Compile Include="Dtos\Models\MenuItemAuthorisationModel.cs" />
-    <Compile Include="Dtos\Models\MenuItemModel.cs" />
-    <Compile Include="Dtos\Models\MenuItemTranslationModel.cs" />
-    <Compile Include="Dtos\Models\LoopkupModel.cs" />
-    <Compile Include="Dtos\Models\RoleModel.cs" />
-    <Compile Include="Dtos\Models\StatusModel.cs" />
-    <Compile Include="Dtos\Models\TableModel.cs" />
-    <Compile Include="Dtos\Models\TableTranslationModel.cs" />
-    <Compile Include="Dtos\Models\UnitModel.cs" />
-    <Compile Include="Dtos\Models\UnitTranslationModel.cs" />
-    <Compile Include="Dtos\Models\UserModel.cs" />
-    <Compile Include="Dtos\Models\PasswordRuleModel.cs" />
-    <Compile Include="Dtos\Models\LanguageModel.cs" />
     <Compile Include="Exception\BaseEx\BaseException.cs" />
     <Compile Include="Exception\BusinessException.cs" />
     <Compile Include="Exception\ExceptionHelper.cs" />
@@ -115,6 +79,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Hsp.GenericFramework.Dto.Models\Hsp.GenericFramework.Dto.Models.csproj">
+      <Project>{9b9d195a-7461-4a5f-84c9-1375caca6210}</Project>
+      <Name>Hsp.GenericFramework.Dto.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

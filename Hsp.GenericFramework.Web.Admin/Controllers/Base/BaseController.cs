@@ -1,14 +1,11 @@
 ﻿using System.Collections.Generic;
-using System.IO.Pipes;
 using System.Linq;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
 using Hsp.GenericFramework.Commons.Security;
 using Hsp.GenericFramework.IServices.IServices;
 using Hsp.GenericFramework.Web.Admin.Base;
 using Hsp.GenericFramework.Commons;
-using Hsp.GenericFramework.Commons.Dtos.Models;
-using Hsp.GenericFramework.Services.MapperProfiles;
+using Hsp.GenericFramework.Dto.Models.Models;
 
 namespace Hsp.GenericFramework.Web.Admin.Controllers.Base
 {

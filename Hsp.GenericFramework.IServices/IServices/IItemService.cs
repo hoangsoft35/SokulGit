@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Hsp.GenericFramework.Commons.Dtos.Models;
+using Hsp.GenericFramework.Dto.Models.Models;
 
 namespace Hsp.GenericFramework.IServices.IServices
 {

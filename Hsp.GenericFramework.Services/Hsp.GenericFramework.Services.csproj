@@ -46,7 +46,6 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Base\BaseService.cs" />
@@ -70,6 +69,10 @@
     <ProjectReference Include="..\Hsp.GenericFramework.Commons\Hsp.GenericFramework.Commons.csproj">
       <Project>{47387447-96B7-42FA-A69B-D97D75702B54}</Project>
       <Name>Hsp.GenericFramework.Commons</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hsp.GenericFramework.Dto.Models\Hsp.GenericFramework.Dto.Models.csproj">
+      <Project>{9b9d195a-7461-4a5f-84c9-1375caca6210}</Project>
+      <Name>Hsp.GenericFramework.Dto.Models</Name>
     </ProjectReference>
     <ProjectReference Include="..\Hsp.GenericFramework.Entities\Hsp.GenericFramework.Entities.csproj">
       <Project>{1909A947-0647-4AB6-8427-082B99A99985}</Project>

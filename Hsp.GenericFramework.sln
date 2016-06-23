@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hsp.GenericFramwork.Api", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hsp.GenericFramework.Web.Client", "Hsp.GenericFramework.Web.Client\Hsp.GenericFramework.Web.Client.csproj", "{8EA26B15-3A20-406B-8820-FB5DE85C8F12}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hsp.GenericFramework.Dto.Models", "Hsp.GenericFramework.Dto.Models\Hsp.GenericFramework.Dto.Models.csproj", "{9B9D195A-7461-4A5F-84C9-1375CACA6210}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,10 @@ Global
 		{8EA26B15-3A20-406B-8820-FB5DE85C8F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8EA26B15-3A20-406B-8820-FB5DE85C8F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8EA26B15-3A20-406B-8820-FB5DE85C8F12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B9D195A-7461-4A5F-84C9-1375CACA6210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B9D195A-7461-4A5F-84C9-1375CACA6210}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B9D195A-7461-4A5F-84C9-1375CACA6210}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B9D195A-7461-4A5F-84C9-1375CACA6210}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -84,6 +84,10 @@
       <Project>{47387447-96B7-42FA-A69B-D97D75702B54}</Project>
       <Name>Hsp.GenericFramework.Commons</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Hsp.GenericFramework.Dto.Models\Hsp.GenericFramework.Dto.Models.csproj">
+      <Project>{9b9d195a-7461-4a5f-84c9-1375caca6210}</Project>
+      <Name>Hsp.GenericFramework.Dto.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Hsp.GenericFramework.Entities\Hsp.GenericFramework.Entities.csproj">
       <Project>{1909a947-0647-4ab6-8427-082b99a99985}</Project>
       <Name>Hsp.GenericFramework.Entities</Name>

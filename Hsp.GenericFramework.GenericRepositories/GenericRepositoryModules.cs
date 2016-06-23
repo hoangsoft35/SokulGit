@@ -1,5 +1,4 @@
-﻿using System.Configuration;
-using Autofac;
+﻿using Autofac;
 using Hsp.GenericFramework.Entities;
 using Hsp.GenericFramework.IGenericRepositories;
 

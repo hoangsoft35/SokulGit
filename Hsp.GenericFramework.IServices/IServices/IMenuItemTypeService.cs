@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Hsp.GenericFramework.Commons.Dtos.Models;
+﻿using System.Collections.Generic;
+using Hsp.GenericFramework.Dto.Models.Models;
 
 namespace Hsp.GenericFramework.IServices.IServices
 {

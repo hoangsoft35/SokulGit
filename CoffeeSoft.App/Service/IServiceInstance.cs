@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Hsp.GenericFramework.IServices.IServices;
+﻿using Hsp.GenericFramework.IServices.IServices;
 
 namespace CoffeeSoft.App.Service
 {

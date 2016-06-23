@@ -3,10 +3,6 @@ using Autofac;
 using Hsp.GenericFramework.GenericRepositories;
 using Hsp.GenericFramework.Services.MapperProfiles;
 using Hsp.GenericFramework.UnitOfWorks;
-using System.Web;
-using Hsp.GenericFramework.Commons.Security;
-using Hsp.GenericFramework.IServices.IServices;
-using Hsp.GenericFramework.Services.Base;
 using Module = Autofac.Module;
 
 

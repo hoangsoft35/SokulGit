@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
 using AutoMapper;
-using Hsp.GenericFramework.Commons.Dtos.Models;
 using Hsp.GenericFramework.Entities;
 using Hsp.GenericFramework.Entities.Models;
 using Hsp.GenericFramework.IGenericRepositories;
 using Hsp.GenericFramework.IServices.IServices;
 using Hsp.GenericFramework.IUnitOfWorks;
 using Hsp.GenericFramework.Services;
-using Hsp.GenericFramework.Services.MapperProfiles;
-using Hsp.GenericFramework.Services.Services;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 

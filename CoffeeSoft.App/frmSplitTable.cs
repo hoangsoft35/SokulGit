@@ -14,7 +14,7 @@ using CoffeeSoft.App.General;
 using CoffeeSoft.App.Service;
 using DevExpress.Utils;
 using Hsp.GenericFramework.Commons;
-using Hsp.GenericFramework.Commons.Dtos.Models;
+using Hsp.GenericFramework.Dto.Models.Models;
 
 namespace CoffeeSoft.App
 {

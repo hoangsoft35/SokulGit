@@ -858,6 +858,10 @@
       <Project>{47387447-96B7-42FA-A69B-D97D75702B54}</Project>
       <Name>Hsp.GenericFramework.Commons</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Hsp.GenericFramework.Dto.Models\Hsp.GenericFramework.Dto.Models.csproj">
+      <Project>{9b9d195a-7461-4a5f-84c9-1375caca6210}</Project>
+      <Name>Hsp.GenericFramework.Dto.Models</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Hsp.GenericFramework.IServices\Hsp.GenericFramework.IServices.csproj">
       <Project>{C386717B-AE8C-4844-B73D-306864F47163}</Project>
       <Name>Hsp.GenericFramework.IServices</Name>
@@ -869,6 +873,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

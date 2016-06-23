@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Windows.Forms;
-using CoffeeSoft.App.General;
-
-namespace CoffeeSoft.App
+﻿namespace CoffeeSoft.App
 {
     public partial class frmPrintAgain : DevExpress.XtraEditors.XtraForm
     {

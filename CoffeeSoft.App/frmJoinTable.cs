@@ -13,7 +13,7 @@ using System.Windows.Forms;
 using CoffeeSoft.App.General;
 using CoffeeSoft.App.Service;
 using Hsp.GenericFramework.Commons;
-using Hsp.GenericFramework.Commons.Dtos.Models;
+using Hsp.GenericFramework.Dto.Models.Models;
 
 namespace CoffeeSoft.App
 {

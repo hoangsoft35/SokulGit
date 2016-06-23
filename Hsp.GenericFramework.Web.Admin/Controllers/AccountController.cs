@@ -1,12 +1,7 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
-using Hsp.GenericFramework.Commons.Dtos.Models;
-using Hsp.GenericFramework.Commons.Security;
 using Hsp.GenericFramework.IServices.IServices;
 using Hsp.GenericFramework.Web.Admin.Controllers.Base;
 using Microsoft.AspNet.Identity;
@@ -14,9 +9,8 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Hsp.GenericFramework.Web.Admin.Models;
 using Hsp.GenericFramework.Commons;
-using CaptchaMvc.Attributes;
 using CaptchaMvc.HtmlHelpers;
-using CaptchaMvc.Interface;
+using Hsp.GenericFramework.Dto.Models.Models;
 
 namespace Hsp.GenericFramework.Web.Admin.Controllers
 {

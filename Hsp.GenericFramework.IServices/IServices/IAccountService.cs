@@ -1,6 +1,5 @@
-﻿using Hsp.GenericFramework.Commons.Dtos;
-using Hsp.GenericFramework.Commons.Security;
-using System.Security.Cryptography.X509Certificates;
+﻿using Hsp.GenericFramework.Commons.Security;
+using Hsp.GenericFramework.Dto.Models;
 
 namespace Hsp.GenericFramework.IServices.IServices
 {

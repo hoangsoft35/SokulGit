@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Text;
-using System.Windows.Forms;
-using DevExpress.XtraEditors;
-
-namespace CoffeeSoft.App
+﻿namespace CoffeeSoft.App
 {
     public partial class XtraUserControl1 : DevExpress.XtraEditors.XtraUserControl
     {

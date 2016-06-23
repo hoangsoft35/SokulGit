@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
-using AutoMapper;
 using Hsp.GenericFramework.Commons;
-using Hsp.GenericFramework.Commons.Dtos.Models;
 using Hsp.GenericFramework.Commons.Logging;
 using Hsp.GenericFramework.Commons.Security;
+using Hsp.GenericFramework.Dto.Models.Models;
 using Hsp.GenericFramework.Entities.Models;
 using Hsp.GenericFramework.IGenericRepositories;
 using Hsp.GenericFramework.IServices.IServices;

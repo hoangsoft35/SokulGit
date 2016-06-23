@@ -1,5 +1,4 @@
-﻿@using Hsp.GenericFramework.Commons.Dtos.Models
-@using Hsp.GenericFramework.Web.Admin.Base;
+﻿@using Hsp.GenericFramework.Web.Admin.Base;
 @{
     var BaseViewModel = (BaseViewModel)TempData["BaseViewModel"];
     var menus = BaseViewModel.MenuItems.OrderBy(x=>x.Label);

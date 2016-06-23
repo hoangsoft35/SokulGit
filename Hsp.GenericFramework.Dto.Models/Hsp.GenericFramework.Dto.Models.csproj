@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9B9D195A-7461-4A5F-84C9-1375CACA6210}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hsp.GenericFramework.Dto.Models</RootNamespace>
+    <AssemblyName>Hsp.GenericFramework.Dto.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\BaseEntityModel.cs" />
+    <Compile Include="ErrorModel.cs" />
+    <Compile Include="Models\AreaModel.cs" />
+    <Compile Include="Models\AreaTranslationModel.cs" />
+    <Compile Include="Models\CompanyModel.cs" />
+    <Compile Include="Models\CompanyTranslationModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\ExportDetailModel.cs" />
+    <Compile Include="Models\ExportModel.cs" />
+    <Compile Include="Models\GroupUserModel.cs" />
+    <Compile Include="Models\GroupUserRoleModel.cs" />
+    <Compile Include="Models\ItemModel.cs" />
+    <Compile Include="Models\ItemPriceModel.cs" />
+    <Compile Include="Models\ItemTranslationModel.cs" />
+    <Compile Include="Models\ItemTypeModel.cs" />
+    <Compile Include="Models\ItemTypeTranslationModel.cs" />
+    <Compile Include="Models\LanguageModel.cs" />
+    <Compile Include="Models\LoginModel.cs" />
+    <Compile Include="Models\LoopkupModel.cs" />
+    <Compile Include="Models\MenuItemAuthorisationModel.cs" />
+    <Compile Include="Models\MenuItemModel.cs" />
+    <Compile Include="Models\MenuItemTranslationModel.cs" />
+    <Compile Include="Models\MenuItemTypeModel.cs" />
+    <Compile Include="Models\MenuItemTypeTranslationModel.cs" />
+    <Compile Include="Models\PasswordRuleModel.cs" />
+    <Compile Include="Models\ResourceModel.cs" />
+    <Compile Include="Models\RoleModel.cs" />
+    <Compile Include="Models\StatusModel.cs" />
+    <Compile Include="Models\TableModel.cs" />
+    <Compile Include="Models\TableTranslationModel.cs" />
+    <Compile Include="Models\UnitModel.cs" />
+    <Compile Include="Models\UnitTranslationModel.cs" />
+    <Compile Include="Models\UserModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

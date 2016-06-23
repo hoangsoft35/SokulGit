@@ -1,9 +1,6 @@
 ﻿namespace CoffeeSoft.App
 {
-    using System;
     using System.Windows.Forms;
-
-    using CoffeeSoft.App.General;
 
 
     public partial class FrmChangePassword : Form

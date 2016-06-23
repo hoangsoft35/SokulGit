@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 
 namespace CoffeeSoft.App
@@ -7,8 +6,7 @@ namespace CoffeeSoft.App
     //using CoffeeSoft.Contract.Models;
     //using CoffeeSoft.Contract.Services;
     //using CoffeeSoft.Service.Services;
-    using CoffeeSoft.App.General;
-    using DevExpress.XtraEditors;
+    
     public partial class FrmEmployer : Form
     {
         //private EmployerModel model = new EmployerModel();

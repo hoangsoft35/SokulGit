@@ -13,7 +13,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid;
 using Hsp.GenericFramework.Commons;
-using Hsp.GenericFramework.Commons.Dtos.Models;
+using Hsp.GenericFramework.Dto.Models.Models;
 
 namespace CoffeeSoft.App
 {

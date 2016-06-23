@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using FluentMigrator;
-using FluentMigrator.Expressions;
 
 namespace Migration.Admin.Migrations
 {

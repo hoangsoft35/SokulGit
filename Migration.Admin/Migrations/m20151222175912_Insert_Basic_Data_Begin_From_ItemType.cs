@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using FluentMigrator;
-using FluentMigrator.Expressions;
+﻿using FluentMigrator;
 
 namespace Migration.Admin.Migrations
 {

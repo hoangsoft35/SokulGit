@@ -1,6 +1,5 @@
-﻿using Hsp.GenericFramework.Commons.Dtos.Models;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using Hsp.GenericFramework.Dto.Models.Models;
 
 namespace Hsp.GenericFramework.Web.Admin.Models
 {

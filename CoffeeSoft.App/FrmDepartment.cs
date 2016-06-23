@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-//using System.ComponentModel;
+﻿//using System.ComponentModel;
 //using System.Data;
 //using System.Drawing;
 //using System.Linq;
@@ -12,8 +10,6 @@ using System.Windows.Forms;
 
 namespace CoffeeSoft.App
 {
-
-    using CoffeeSoft.App.General;
     public partial class FrmDepartment : Form
     {
         //private DepartmentModel model = new DepartmentModel();
