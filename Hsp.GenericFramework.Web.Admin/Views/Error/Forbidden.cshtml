@@ -1,8 +1,7 @@
-﻿@model System.Web.Mvc.HandleErrorInfo
+﻿
+@model System.Web.Mvc.HandleErrorInfo
 
-@{
-    ViewBag.Title = "Error";
-}
+
 
 <!DOCTYPE html>
 <html class=" ">
@@ -33,8 +32,8 @@
                 <div class="row">
                     <div class="col-md-12 col-sm-12 col-xs-12">
 
-                        @*<h1 class="page_error_code text-primary">@ViewBag.ErrorCode</h1>*@
-                        <h1 class="page_error_info">Oops! Something went wrong.</h1>
+                        <h1 class="page_error_code text-primary">403</h1>
+                        <h1 class="page_error_info">Oops! Forbidden.</h1>
 
                         <div class="col-md-6 col-sm-6 col-xs-8 col-md-offset-3 col-sm-offset-3 col-xs-offset-2">
                             <form action="javascript:;" method="post" class="page_error_search">

@@ -844,6 +844,11 @@
     <Content Include="Views\Shared\MultiLanguageContentBoxPartial\MultiLanguageContentBoxTemplateStart.cshtml" />
     <Content Include="Views\Shared\MultiLanguageContentBoxPartial\MultiLanguageContentBoxTemplateEnd.cshtml" />
     <Content Include="Views\MenuItem\RenderHtmlControlFollowLanguage.cshtml" />
+    <Content Include="Views\MenuItem\AddEditMenuItem.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Error\Forbidden.cshtml" />
+    <Content Include="Views\Error\InternalError.cshtml" />
+    <Content Include="Views\Error\UnAuthorization.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

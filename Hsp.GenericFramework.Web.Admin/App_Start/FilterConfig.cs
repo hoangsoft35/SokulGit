@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Hsp.GenericFramework.Commons.HandleErrors;
 
 namespace Hsp.GenericFramework.Web.Admin
 {
@@ -6,7 +7,7 @@ namespace Hsp.GenericFramework.Web.Admin
     {
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
-            filters.Add(new HandleErrorAttribute());
+            filters.Add(new WebHandleErrorAttribute());
         }
     }
 }

@@ -54,6 +54,8 @@
     <Compile Include="Exception\ExceptionMessage.cs" />
     <Compile Include="Exception\IExceptionHelper.cs" />
     <Compile Include="Exception\InternalException.cs" />
+    <Compile Include="HandleErrors\ApiHandleErrorAttribute.cs" />
+    <Compile Include="HandleErrors\WebHandleErrorAttribute.cs" />
     <Compile Include="Logging\ILogManager.cs" />
     <Compile Include="Logging\LogManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

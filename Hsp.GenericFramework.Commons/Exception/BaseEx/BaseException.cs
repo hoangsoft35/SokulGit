@@ -1,4 +1,6 @@
-﻿namespace Hsp.GenericFramework.Commons.Exception.BaseEx
+﻿using System.Collections;
+
+namespace Hsp.GenericFramework.Commons.Exception.BaseEx
 {
     using System;
     public class BaseException : Exception
@@ -12,7 +14,11 @@
                 ErrorCode = errorCode,
                 ErrorMessage = message
             };
+
+         
         }
+
+
 
         public BaseException(ExceptionMessage exceptionMessage)
         {
@@ -26,5 +32,7 @@
                 ErrorMessage = message
             };
         }
+        
+
     }
 }

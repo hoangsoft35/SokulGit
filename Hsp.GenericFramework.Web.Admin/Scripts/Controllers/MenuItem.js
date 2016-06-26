@@ -1,21 +1,4 @@
-﻿//$(function () {
-//    $('.treeview li:has(ul)').find(' > span.icon').removeClass('glyphicon-minus');
-//    $('.treeview li:has(ul)').find(' > span.icon').addClass('glyphicon-plus');
-//    //$('.treeview li.parent_li > span').on('click', function (e) {
-//    //    var children = $(this).parent('li.parent_li').find(' > ul > li');
-//    //    if (children.is(":visible")) {
-//    //        children.hide('fast');
-//    //        $(this).attr('title', 'Expand this branch').find(' > i').addClass('icon-plus-sign').removeClass('icon-minus-sign');
-//    //    } else {
-//    //        children.show('fast');
-//    //        $(this).attr('title', 'Collapse this branch').find(' > i').addClass('icon-minus-sign').removeClass('icon-plus-sign');
-//    //    }
-//    //    e.stopPropagation();
-//    //});
-//});
-
-
-$(document).ready(function () {
+﻿$(document).ready(function () {
     menuItemTypeChange();
     
     $('#btnAdd').on('click', function () {
@@ -26,6 +9,21 @@ $(document).ready(function () {
             var selectedMenuItemType = $("#menu-item-type").val();
             $("input[name=MenuItemTypeId]").val(selectedMenuItemType);
             $("input[name=ParentId]").val(selectedNode.Id);
+
+            $.ajax({
+                url: '/MenuItem/AddEditMenuItem?menuItemId=' + selectedNode.Id,
+                type:'GET',
+                success:function(data) {
+                    $('#menu-item-model-body').empty().append(data);
+                  
+                },
+                error:function(error) {
+                    console.log(error);
+                }
+                
+            });
+
+
         }       
     });
 
@@ -227,3 +225,4 @@ function addNode() {
     $('#tree').treeview('expandNode', parent, { ignoreChildren: false, silent: false });
     console.log(tree);
 }
+

@@ -8,6 +8,7 @@ using Hsp.GenericFramework.IUnitOfWorks;
 using Hsp.GenericFramework.Services.Base;
 using Hsp.GenericFramework.Commons;
 using System;
+using Hsp.GenericFramework.Commons.Exception;
 using Hsp.GenericFramework.Commons.Logging;
 using Hsp.GenericFramework.Dto.Models;
 using Hsp.GenericFramework.Dto.Models.Models;
@@ -28,13 +29,14 @@ namespace Hsp.GenericFramework.Services.Services
         }
         public ErrorModel<UserProfileLogin> SignIn(string userName, string password)
         {
+            //throw new BusinessException(1011, "test bussiness exception signin", _log, new Exception("just test exception"));
             ErrorModel<UserProfileLogin> errorModel = new ErrorModel<UserProfileLogin>();
             // check user name is valid and get information of this user
             var userValid = CheckUserName(userName);
             if(userValid == null)
             {
-                errorModel.Code = Consts.ErrorStatus.Error;
-                errorModel.Message = "Invalid login attempt.";
+                errorModel.ErrorCode = Consts.ErrorStatus.Error;
+                errorModel.ErrorMessage = "Invalid login attempt.";
                 return errorModel;
             }
 
@@ -44,16 +46,16 @@ namespace Hsp.GenericFramework.Services.Services
             userValid = CheckLockLoginFailNumber(userValid, isValidPassword);
             if (userValid.IsLocked)
             {
-                errorModel.Code = Consts.ErrorStatus.Error;
-                errorModel.Message = string.Format("You have logined failt {0} times. Please try it after {1} munites", Consts.Loopkups.LockLoginFailNumber, Consts.Loopkups.LockLoginFailResetTime);
+                errorModel.ErrorCode = Consts.ErrorStatus.Error;
+                errorModel.ErrorMessage = string.Format("You have logined failt {0} times. Please try it after {1} munites", Consts.Loopkups.LockLoginFailNumber, Consts.Loopkups.LockLoginFailResetTime);
                 return errorModel;
             }
 
 
             if (!isValidPassword)
             {
-                errorModel.Code = Consts.ErrorStatus.Error;
-                errorModel.Message = "Invalid login attempt.";
+                errorModel.ErrorCode = Consts.ErrorStatus.Error;
+                errorModel.ErrorMessage = "Invalid login attempt.";
                 return errorModel;
             }
 

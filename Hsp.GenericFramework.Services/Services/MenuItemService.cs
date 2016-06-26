@@ -8,6 +8,7 @@ using Hsp.GenericFramework.IUnitOfWorks;
 using Hsp.GenericFramework.Services.Base;
 using System;
 using Hsp.GenericFramework.Commons;
+using Hsp.GenericFramework.Commons.Exception;
 using Hsp.GenericFramework.Commons.Logging;
 using Hsp.GenericFramework.Dto.Models;
 using Hsp.GenericFramework.Dto.Models.Models;
@@ -79,8 +80,21 @@ namespace Hsp.GenericFramework.Services.Services
             }
             catch(Exception ex)
             {
-                return new ErrorModel() { Code = Consts.ErrorStatus.Error, Message = ex.Message };
+                throw new InternalException(1000, "Somthing went wrong",_log, ex);
             }            
+        }
+
+        public MenuItemModel GetMenuItemById(Guid menuItemId)
+        {
+            try
+            {
+                var menuItem = _menuItemRepository.Find(menuItemId);
+                return menuItem != null ? Mapper.Map<MenuItemModel>(menuItem) : null;
+            }
+            catch (Exception ex)
+            {
+                throw new InternalException(1000, "Somthing went wrong", _log, ex);
+            }
         }
     }
 }

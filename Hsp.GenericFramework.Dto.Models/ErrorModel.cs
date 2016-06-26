@@ -4,8 +4,8 @@ namespace Hsp.GenericFramework.Dto.Models
 {
     public class ErrorModel<T>
     {
-        public int Code { get; set; }
-        public string Message { get; set; }
+        public int ErrorCode { get; set; }
+        public string ErrorMessage { get; set; }
         public T ObjectData {get;set;}
         public List<T> ListData { get; set; }
 
@@ -13,7 +13,7 @@ namespace Hsp.GenericFramework.Dto.Models
     }
     public class ErrorModel
     {
-        public int Code { get; set; }
-        public string Message { get; set; }
+        public int ErrorCode { get; set; }
+        public string ErrorMessage { get; set; }
     }
 }

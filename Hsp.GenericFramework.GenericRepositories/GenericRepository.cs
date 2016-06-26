@@ -33,7 +33,7 @@ namespace Hsp.GenericFramework.GenericRepositories
             catch (Exception ex)
             {
                 _log.ErrorFormat("System error when excuting GetAll() {0} {1} Detail : {2}", _log.GetType(), Environment.NewLine, ex);
-                throw new InternalException(2501, "System error when excuting GetAll() function");
+                throw new InternalException(2501, "System error when excuting GetAll() function", _log, ex);
             }
 
            
@@ -48,7 +48,7 @@ namespace Hsp.GenericFramework.GenericRepositories
             catch (Exception ex)
             {
                 _log.ErrorFormat("System error when excuting Find(params object[] keyValues) {0} {1} Detail : {2}", _log.GetType(), Environment.NewLine, ex);
-                throw new InternalException(2501, "System error when excuting Find(params object[] keyValues) function");
+                throw new InternalException(2501, "System error when excuting Find(params object[] keyValues) function", _log, ex);
             }
         
         }
@@ -63,7 +63,7 @@ namespace Hsp.GenericFramework.GenericRepositories
             {
 
                 _log.ErrorFormat("System error when excuting FindBy(Expression<Func<TEntity, bool>> predicate) {0} {1} Detail : {2}", _log.GetType(), Environment.NewLine, ex);
-                throw new InternalException(2501, "System error when excuting FindBy(Expression<Func<TEntity, bool>> predicate) function");
+                throw new InternalException(2501, "System error when excuting FindBy(Expression<Func<TEntity, bool>> predicate) function", _log, ex);
             }
             
         }
@@ -78,7 +78,7 @@ namespace Hsp.GenericFramework.GenericRepositories
             {
 
                 _log.ErrorFormat("System error when excuting Add(TEntity entity) {0} {1} Detail : {2}", _log.GetType(), Environment.NewLine, ex);
-                throw new InternalException(2501, "System error when excuting Add(TEntity entity) function");
+                throw new InternalException(2501, "System error when excuting Add(TEntity entity) function", _log, ex);
             }
            
         }
@@ -93,7 +93,7 @@ namespace Hsp.GenericFramework.GenericRepositories
             {
 
                 _log.ErrorFormat("System error when excuting AddRange(List<TEntity> entities) {0} {1} Detail : {2}", _log.GetType(), Environment.NewLine, ex);
-                throw new InternalException(2501, "System error when excuting AddRange(List<TEntity> entities) function");
+                throw new InternalException(2501, "System error when excuting AddRange(List<TEntity> entities) function", _log, ex);
             }
             
         }
@@ -109,7 +109,7 @@ namespace Hsp.GenericFramework.GenericRepositories
             {
 
                 _log.ErrorFormat("System error when excuting TEntity Update(TEntity entity) {0} {1} Detail : {2}", _log.GetType(), Environment.NewLine, ex);
-                throw new InternalException(2501, "System error when excuting TEntity Update(TEntity entity) function");
+                throw new InternalException(2501, "System error when excuting TEntity Update(TEntity entity) function", _log, ex);
             }
           
         }
@@ -127,7 +127,7 @@ namespace Hsp.GenericFramework.GenericRepositories
             catch (Exception ex)
             {
                 _log.ErrorFormat("System error when excuting Delete(TEntity entity) {0} {1} Detail : {2}", _log.GetType(), Environment.NewLine, ex);
-                throw new InternalException(2501, "System error when excuting Delete(TEntity entity) function");
+                throw new InternalException(2501, "System error when excuting Delete(TEntity entity) function", _log, ex);
             }
             
         }
@@ -143,7 +143,7 @@ namespace Hsp.GenericFramework.GenericRepositories
             {
 
                 _log.ErrorFormat("System error when excuting Delete(object id) {0} {1} Detail : {2}", _log.GetType(), Environment.NewLine, ex);
-                throw new InternalException(2501, "System error when excuting Delete(object id) function");
+                throw new InternalException(2501, "System error when excuting Delete(object id) function", _log, ex);
             }
 
         }
@@ -158,7 +158,7 @@ namespace Hsp.GenericFramework.GenericRepositories
             {
 
                 _log.ErrorFormat("System error when excuting DeleteRange(List<TEntity> entities) {0} {1} Detail : {2}", _log.GetType(), Environment.NewLine, ex);
-                throw new InternalException(2501, "System error when excuting DeleteRange(List<TEntity> entities) function");
+                throw new InternalException(2501, "System error when excuting DeleteRange(List<TEntity> entities) function", _log, ex);
             }
             
         }
@@ -213,7 +213,7 @@ namespace Hsp.GenericFramework.GenericRepositories
             {
 
                 _log.ErrorFormat("System error when excuting Get() {0} {1} Detail : {2}", _log.GetType(), Environment.NewLine, ex);
-                throw new InternalException(2501, "System error when excuting Get() function");
+                throw new InternalException(2501, "System error when excuting Get() function", _log, ex);
             }
             
         }

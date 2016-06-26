@@ -10,6 +10,7 @@ using Microsoft.Owin.Security;
 using Hsp.GenericFramework.Web.Admin.Models;
 using Hsp.GenericFramework.Commons;
 using CaptchaMvc.HtmlHelpers;
+using Hsp.GenericFramework.Commons.Exception;
 using Hsp.GenericFramework.Dto.Models.Models;
 
 namespace Hsp.GenericFramework.Web.Admin.Controllers
@@ -70,8 +71,12 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
-            return View();
+            if (Session["HspUser"] == null)
+            {
+                ViewBag.ReturnUrl = returnUrl;
+                return View();
+            }
+            return RedirectToAction("Index", "Home");
         }
 
         //
@@ -81,7 +86,6 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Login(LoginModel model, string returnUrl)
         {
-
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -95,9 +99,9 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers
             
 
             var errorModel = _accountService.SignIn(model.UserName, model.Password);
-            if(errorModel.Code != Consts.ErrorStatus.Success)
+            if(errorModel.ErrorCode != Consts.ErrorStatus.Success)
             {
-                ModelState.AddModelError("", errorModel.Message);
+                ModelState.AddModelError("", errorModel.ErrorMessage);
                 return View(model);
             }
 
