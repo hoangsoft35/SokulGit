@@ -49,8 +49,7 @@ namespace Hsp.GenericFramework.Web.Admin
                 "~/Scripts/Libs/bootstrap-switch.min.js",
                 "~/Scripts/Libs/jquery.serializejson.min.js",
                 "~/Scripts/Libs/jquery.validate.min.js",
-                "~/Scripts/Libs/lodash.js",
-                "~/Scripts/Controllers/MenuItem.js"));
+                "~/Scripts/Libs/lodash.js"));
 
             #endregion
 

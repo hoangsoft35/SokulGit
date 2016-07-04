@@ -759,6 +759,7 @@
     <Content Include="Global.asax" />
     <Content Include="Scripts\Commons\dropdownlist.js" />
     <Content Include="Scripts\Commons\_layout.js" />
+    <Content Include="Scripts\Controllers\AddEditMenuItem.js" />
     <Content Include="Scripts\Controllers\MenuItem.js" />
     <Content Include="Scripts\Libs\bootstrap-switch.min.js" />
     <Content Include="Scripts\Libs\bootstrap-treeview.min.js" />

@@ -1,4 +1,5 @@
-﻿
+﻿@model Hsp.GenericFramework.Web.Admin.ViewModels.MenuItemCreateViewModels
+@using Hsp.GenericFramework.Dto.Models.Models
 @using Hsp.GenericFramework.Web.Admin.Base
 @{
     var BaseViewModel = (BaseViewModel)TempData["BaseViewModel"];
@@ -9,46 +10,76 @@
     {
         BaseViewModel.CurrentLanguageId = int.Parse(Session["LanguageId"].ToString());
     }
+
+    foreach (var lang in BaseViewModel.LanguageModels.Where(x => x.Id != Model.DefaulTranslationModel.LanguageId))
+     {
+         if (!Model.MenuItemTranslationModels.Any())
+         {
+             var initLanguage = new MenuItemTranslationModel {LanguageId = lang.Id, Label = ""};
+             Model.MenuItemTranslationModels.Add(initLanguage);
+         }
+     }
 }
 
-@foreach (var lang in BaseViewModel.LanguageModels)
-{
-    if (lang.IsDefault)
-    {
-        <div class="tab-pane fade active in" id="lang-id-@lang.Id">
+<div class="tab-pane fade in active " id="lang-id-@Model.DefaulTranslationModel.LanguageId">
 
 
-            @*Put content of html inside here START*@
+    @*Put content of html inside here START*@
 
-            <div class="form-group">
-                <label class="control-label col-sm-3" for="Name">Display name:</label>
-                <div class="col-sm-9">
-                    <input type="text" data-lang="@lang.Id"  class="form-control" name="label-lang-@lang.Id" />
-                </div>
-            </div>
-
-            @*Put content of html inside here END*@
-
-
+    <div class="form-group">
+        <label class="form-label" for="Name">Display name:</label>
+        <div class="">
+            @*<input type="text" dataLang="@lang.Id" class="form-control" name="label-lang-@lang.Id"/>*@
+            @Html.HiddenFor(x=>x.DefaulTranslationModel.LanguageId)
+            @Html.HiddenFor(x=>x.DefaulTranslationModel.MenuItemId)
+            
+            @Html.TextBoxFor(c => c.DefaulTranslationModel.Label, new {dataLang = Model.DefaulTranslationModel.LanguageId, @class = "form-control", name = "label-lang-" + Model.DefaulTranslationModel.LanguageId})
+            @Html.ValidationMessageFor(c => c.DefaulTranslationModel.Label, "", new { @class = "text-danger" })
         </div>
-    }
-    else
-    {
+    </div>
+
+    @*Put content of html inside here END*@
+
+
+</div>
+
+@for (int i = 0; i < Model.MenuItemTranslationModels.Count(); i++)
+{
+    <div class="tab-pane fade in" id="lang-id-@Model.MenuItemTranslationModels[i].LanguageId">
+
+        @*Put content of html inside here START*@
+
+        <div class="form-group">
+            <label class="form-label" for="Name">Display name:</label>
+            <div class="">
+                @Html.TextBoxFor(it => Model.MenuItemTranslationModels[i].Label, new { dataLang = Model.MenuItemTranslationModels[i].LanguageId, @class = "form-control", name = "label-lang-" + Model.MenuItemTranslationModels[i].LanguageId })
+                @Html.HiddenFor(it => Model.MenuItemTranslationModels[i].LanguageId)
+
+                @*<input type="text" dataLang="@Model.MenuItemTranslationModels[i].LanguageId" class="form-control" name="@Model.MenuItemTranslationModels[i].LanguageId"/>*@
+            </div>
+        </div>
+
+        @*Put content of html inside here END*@
+    </div>
+}
+
+
+@*@foreach (var lang in BaseViewModel.LanguageModels.Where(x=>x.Id != Model.DefaulTranslationModel.LanguageId))
+{
+    
+
         <div class="tab-pane fade in" id="lang-id-@lang.Id">
 
-            @*Put content of html inside here START*@
-
             <div class="form-group">
-                <label class="control-label col-sm-3" for="Name">Display name:</label>
-                <div class="col-sm-9">
-                    <input type="text" data-lang="@lang.Id"  class="form-control" name="label-lang-@lang.Id" />
+                <label class="form-label" for="Name">Display name:</label>
+                <div class="">
+                    <input type="text" dataLang="@lang.Id"  class="form-control" name="label-lang-@lang.Id" />
                 </div>
             </div>
 
-            @*Put content of html inside here END*@
         </div>
 
-    }
+    
 
-}
+}*@
 

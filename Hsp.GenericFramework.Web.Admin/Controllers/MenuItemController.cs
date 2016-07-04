@@ -36,19 +36,23 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers
         }
 
         [HttpPost]
-        public JsonResult CreateMenuItem(MenuItemCreateViewModels menuItemCreateViewModels)
+        public ActionResult CreateMenuItem(MenuItemCreateViewModels menuItemCreateViewModels)
         {
-            var result = _menuItemService.SaveMenuItem(menuItemCreateViewModels.MenuItemModel, menuItemCreateViewModels.MenuItemTranslationModels);
-            return Json(result, JsonRequestBehavior.AllowGet);
-            return null;
+            if (ModelState.IsValid)
+            {
+                var result = _menuItemService.SaveMenuItem(menuItemCreateViewModels.MenuItemModel, menuItemCreateViewModels.MenuItemTranslationModels);
+                RedirectToAction("Index");
+            }
+            return View("AddEditMenuItem",menuItemCreateViewModels);
         }
 
         public ActionResult AddEditMenuItem(string menuItemId = "")
         {
-            var model = new MenuItemModel();
+            var model = new MenuItemCreateViewModels();
+            model.DefaulTranslationModel.LanguageId = LanguageId;
             if (!string.IsNullOrEmpty(menuItemId))
             {
-                model = _menuItemService.GetMenuItemById(new Guid(menuItemId));
+                model.MenuItemModel = _menuItemService.GetMenuItemById(new Guid(menuItemId));
             }
             return View(model);
         }
