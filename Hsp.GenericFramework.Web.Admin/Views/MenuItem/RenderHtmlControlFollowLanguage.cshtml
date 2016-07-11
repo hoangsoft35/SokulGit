@@ -64,6 +64,14 @@
 }
 
 
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
+        <a type="submit" href="javascript:void(0)" onclick="$('#frmAddNewMenuItem').submit()" class="btn btn-success btn-md"><i class="fa fa-save"></i> &nbsp; Save </a>
+        <a href="/MenuItem/Index/" target="_blank" class="btn btn-md"><i class="fa fa-remove"></i> &nbsp; Cancel </a>
+    </div>
+</div>
+
+
 @*@foreach (var lang in BaseViewModel.LanguageModels.Where(x=>x.Id != Model.DefaulTranslationModel.LanguageId))
 {
     

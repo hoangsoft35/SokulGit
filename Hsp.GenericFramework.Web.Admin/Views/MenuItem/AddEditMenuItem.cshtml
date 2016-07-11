@@ -10,11 +10,19 @@
 
 @using (Html.BeginForm("CreateMenuItem","MenuItem", FormMethod.Post, new {id= "frmAddNewMenuItem" }) )
 {
-    @Html.ValidationSummary(false, "ValidationSummary")
+   
     <div class="hide">
         <input type="text" name="MenuItemTypeId" value=""/>
         <input type="text" name="ParentId" value=""/>
     </div>
+    <div class="form-group">
+        <label class="form-label col-sm-2 text-right controls" for="IsRoot"></label>
+        <div class="col-sm-10 controls">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
+        </div>
+    </div>
+
     <div class="form-group">
         <label class="form-label col-sm-2 text-right controls" for="IsRoot">Is root:</label>
         <div class="col-sm-10 controls">
@@ -67,13 +75,6 @@ Html.RenderPartial("RenderHtmlControlFollowLanguage", Model);
 Html.RenderPartial("MultiLanguageContentBoxPartial/MultiLanguageContentBoxTemplateEnd");
 
 
-<div class="form-group"></div>
-<div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12 text-center">
-        <a type="submit"  href="javascript:void(0)" onclick="$('#frmAddNewMenuItem').submit()" class="btn btn-success btn-md"><i class="fa fa-save"></i> &nbsp; Save </a>
-        <a href="/MenuItem/Index/" target="_blank" class="btn btn-md"><i class="fa fa-remove"></i> &nbsp; Cancel </a>
-    </div>
-</div>
 
 
 }

@@ -7942,4 +7942,6 @@ ul.nav.nav-tabs li a img {
     height: 20px;
 }
 
+/*.field-validation-error{ color: red; font-weight: bold; }*/
+.input-validation-error{ border: 1px solid red!important }
 /*Hoang End*/
