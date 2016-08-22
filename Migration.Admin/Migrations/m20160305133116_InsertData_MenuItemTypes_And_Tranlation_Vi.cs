@@ -10,10 +10,10 @@ namespace Migration.Admin.Migrations
             #region Insert VI data for MenuItemTypeTranslations
 
             Execute.Sql("insert into MenuItemTypeTranslations(MenuItemTypeId, MenuItemTypeName, LanguageId, Created, CreatedBy, Updated, UpdatedBy) " +
-                        "values ((select top 1 MenuItemTypeId from MenuItemTypeTranslations where MenuItemTypeName = 'Client site'),N'Người dùng',2,getDate(),(select id from Users where username ='hsproot'), getDate(),(select id from Users where username ='hsproot'))");
+                        "values ((select top 1 MenuItemTypeId from MenuItemTypeTranslations where MenuItemTypeName = 'Client site'),N'Trình đơn cho client',2,getDate(),(select id from Users where username ='hsproot'), getDate(),(select id from Users where username ='hsproot'))");
 
             Execute.Sql("insert into MenuItemTypeTranslations(MenuItemTypeId, MenuItemTypeName, LanguageId, Created, CreatedBy, Updated, UpdatedBy) " +
-                        "values ((select top 1 MenuItemTypeId from MenuItemTypeTranslations where MenuItemTypeName = 'Admin site'),N'Quản trị người dùng',2,getDate(),(select id from Users where username ='hsproot'), getDate(),(select id from Users where username ='hsproot'))");
+                        "values ((select top 1 MenuItemTypeId from MenuItemTypeTranslations where MenuItemTypeName = 'Admin site'),N'Trình đơn cho admin',2,getDate(),(select id from Users where username ='hsproot'), getDate(),(select id from Users where username ='hsproot'))");
                        
 
             #endregion
@@ -21,8 +21,8 @@ namespace Migration.Admin.Migrations
 
         public override void Down()
         {
-            Execute.Sql("DELETE FROM MenuItemTypeTranslations WHERE MenuItemTypeName=N'Người dùng' and LanguageId =2");
-            Execute.Sql("DELETE FROM MenuItemTypeTranslations WHERE MenuItemTypeName=N'Quản trị người dùng' and LanguageId =2");            
+            Execute.Sql("DELETE FROM MenuItemTypeTranslations WHERE MenuItemTypeName=N'Trình đơn cho client' and LanguageId =2");
+            Execute.Sql("DELETE FROM MenuItemTypeTranslations WHERE MenuItemTypeName=N'Trình đơn cho admin' and LanguageId =2");            
         }
     }
 }

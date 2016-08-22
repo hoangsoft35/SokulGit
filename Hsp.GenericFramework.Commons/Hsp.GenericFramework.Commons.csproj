@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="Consts.cs" />
     <Compile Include="CustomValidationAttribute\EnsureOneLanguageRequire.cs" />
+    <Compile Include="CustomValidationAttribute\IgnoreValidateFieldOnModelAttribute.cs" />
     <Compile Include="Exception\BaseEx\BaseException.cs" />
     <Compile Include="Exception\BusinessException.cs" />
     <Compile Include="Exception\ExceptionHelper.cs" />

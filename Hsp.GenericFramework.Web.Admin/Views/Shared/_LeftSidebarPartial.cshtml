@@ -4,8 +4,8 @@
     var menus = BaseViewModel.MenuItems.OrderBy(x=>x.Label);
     var topMenus = menus.Where(x => x.IsRoot);
     var signout = topMenus.FirstOrDefault(x => x.ActionName == "LogOff" && x.ControllerName == "Account");
-    var leftMenus = menus.Where(x => !x.IsRoot);
-    var leftMenuTitles = leftMenus.Where(x => x.IsTitle).ToList();
+    var leftMenus = menus.Where(x => !x.IsRoot).ToList();
+    var leftMenuTitles = menus.Where(x => x.IsTitle && (x.ControllerName !="Home" && x.ActionName != "Index") && (x.ControllerName != "Account" && x.ActionName != "LogOff")).ToList();
     var activeClass = "";
     var activeParentClass = "";
 }
@@ -48,7 +48,7 @@
                     {
                         foreach (var title in leftMenuTitles)
                         {
-                            var childMenu = leftMenus.Where(x => x.ParentId == title.Id);
+                            var childMenu = leftMenus.Where(x => x.ParentId == title.Id && x.Id != title.Id);
                             if (childMenu.Any(x=>x.IsCurrentSelected))
                             {
                                 activeClass = "active";
@@ -76,10 +76,26 @@
                                     <ul class="sub-menu">
                                         @foreach (var leftMenuItem in childMenu)
                                         {
-                                           
-                                            <li>@Html.ActionLink(@leftMenuItem.Label, @leftMenuItem.ActionName, @leftMenuItem.ControllerName, null, new Dictionary<string, object> {{"m", @leftMenuItem.SectionParameter}, {"data-id", @leftMenuItem.Id}, {"data-parent-id", @leftMenuItem.ParentId}, {"Class",@activeClass}
+                                            if (leftMenuItem.IsCurrentSelected)
+                                            {
+                                                <li>
+                                                    @Html.ActionLink(@leftMenuItem.Label, @leftMenuItem.ActionName, @leftMenuItem.ControllerName, null, new Dictionary<string, object>
+                                                    {
+                                                        {"m", @leftMenuItem.SectionParameter}, {"data-id", @leftMenuItem.Id}, {"data-parent-id", @leftMenuItem.ParentId}, {"Class", @activeClass}
 
-                                            })</li>
+                                                    })
+                                                </li>
+                                            }
+                                            else
+                                            {
+                                                <li>
+                                                    @Html.ActionLink(@leftMenuItem.Label, @leftMenuItem.ActionName, @leftMenuItem.ControllerName, null, new Dictionary<string, object> {{"m", @leftMenuItem.SectionParameter}, {"data-id", @leftMenuItem.Id}, {"data-parent-id", @leftMenuItem.ParentId}
+
+                                            })
+                                            </li>
+                                            }
+
+
                                         }
 
                                     </ul>

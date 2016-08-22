@@ -56,7 +56,7 @@ namespace Hsp.GenericFramework.Services.Services
             return itemModels;
         }
 
-        public ErrorModel SaveMenuItem(MenuItemModel menuItemModel, List<MenuItemTranslationModel> menuItemTranslationModels)
+        public ErrorModel SaveMenuItem(MenuItemModel menuItemModel, List<MenuItemTranslationModel> menuItemTranslationModels, MenuItemTranslationModel menuItemTranslationDefaultModel)
         {
             try {
 

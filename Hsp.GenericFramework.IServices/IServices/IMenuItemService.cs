@@ -9,7 +9,7 @@ namespace Hsp.GenericFramework.IServices.IServices
     {
         List<MenuItemModel> GetMenuByRole(string[] roles, int languageId);
         List<MenuItemModel> GetMenuByMenuType(int languageId, string menuItemTypeId);
-        ErrorModel SaveMenuItem(MenuItemModel menuItemModel, List<MenuItemTranslationModel> menuItemTranslationModels);
+        ErrorModel SaveMenuItem(MenuItemModel menuItemModel, List<MenuItemTranslationModel> menuItemTranslationModels, MenuItemTranslationModel menuItemTranslationDefaultModel);
         MenuItemModel GetMenuItemById(Guid menuItemId);
     }
 }

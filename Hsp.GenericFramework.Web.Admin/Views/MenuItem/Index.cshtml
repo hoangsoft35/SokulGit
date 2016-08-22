@@ -17,7 +17,7 @@
 
     <div class="row">
         <div class="">
-            <button type="button" class="btn btn-success" disabled id="btnAdd" onclick="window.location.href = '@Url.Action("AddEditMenuItem", "MenuItem" , new {menuItemId = ""})'"><i class="fa fa-asterisk"></i> New</button>
+            <button type="button" class="btn btn-success" disabled id="btnAdd" ><i class="fa fa-asterisk"></i> New</button>
             <button type="button" class="btn btn-warning" onclick="treedata_rename();"><i class="fa fa-pencil"></i> Edit</button>
             <button type="button" class="btn btn-danger" onclick="treedata_delete();"><i class="fa fa-remove"></i> Del</button>
         </div>
@@ -29,7 +29,14 @@
     // button end
 
     // Main content start
+    <div class="form-group">
+        <label class="form-label" for="field-5">Menu tree test</label>
+        <span class="desc"></span>
+        <select class="form-control">
+            
+        </select>
 
+    </div>
 
     <div class="form-group">
         <label class="form-label" for="field-5">Menu type</label>

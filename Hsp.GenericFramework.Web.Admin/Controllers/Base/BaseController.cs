@@ -112,15 +112,15 @@ namespace Hsp.GenericFramework.Web.Admin.Controllers.Base
                 if (leafNode != null)
                 {
                     leafNode.IsCurrentSelected = true;
-                    var leftMenu = BaseViewModel.MenuItems.FirstOrDefault(x => x.Id == leafNode.ParentId && !x.IsRoot);
+                    var leftMenu = BaseViewModel.MenuItems.FirstOrDefault(x => x.Id == leafNode.ParentId && x.Id != leafNode.Id);
                     // check top menu
                     if (leftMenu != null)
                     {
-                        var leftChildMenu = BaseViewModel.MenuItems.FirstOrDefault(x => x.Id == leftMenu.ParentId && x.IsRoot);
+                        var leftChildMenu = BaseViewModel.MenuItems.FirstOrDefault(x => x.Id == leftMenu.ParentId && x.IsRoot && x.Id != leftMenu.Id);
                         if (leftChildMenu != null)
                         {
                             // add home menu
-                            BaseViewModel.Breadcrumbs.Add(BaseViewModel.MenuItems.FirstOrDefault(x => x.ActionName == "Index" && x.ControllerName=="Home" && x.IsRoot));
+                           // BaseViewModel.Breadcrumbs.Add(BaseViewModel.MenuItems.FirstOrDefault(x => x.ActionName == "Index" && x.ControllerName=="Home" && x.IsRoot));
                             BaseViewModel.Breadcrumbs.Add(leftChildMenu);
                         }
                         BaseViewModel.Breadcrumbs.Add(leftMenu);

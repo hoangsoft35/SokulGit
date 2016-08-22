@@ -10,10 +10,10 @@ namespace Migration.Admin.Migrations
             #region Update MenuItems LogOff
 
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) " +
-                        "values ((select top 1 MenuItemId from MenuItemTranslations where Label = 'Menus'),N'Trình đơn',2,getDate(),(select id from Users where username ='hsproot'))");
+                        "values ((select top 1 MenuItemId from MenuItemTranslations where Label = 'Menus'),N'Quản lý trình đơn',2,getDate(),(select id from Users where username ='hsproot'))");
 
-            Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) " +
-                        "values ((select top 1 MenuItemId from MenuItemTranslations where Label = 'Authorisations'),N'Quản lý quyền',2,getDate(),(select id from Users where username ='hsproot'))");
+            //Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) " +
+            //            "values ((select top 1 MenuItemId from MenuItemTranslations where Label = 'Authorisations'),N'Quản lý quyền',2,getDate(),(select id from Users where username ='hsproot'))");
 
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) " +
                         "values ((select top 1 MenuItemId from MenuItemTranslations where Label = 'Languages'),N'Quản lý ngôn ngữ',2,getDate(),(select id from Users where username ='hsproot'))");
@@ -24,10 +24,7 @@ namespace Migration.Admin.Migrations
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) " +
                         "values ((select top 1 MenuItemId from MenuItemTranslations where Label = 'Password Rule'),N'Luật mật khẩu',2,getDate(),(select id from Users where username ='hsproot'))");
 
-            Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) " +
-                        "values ((select top 1 MenuItemId from MenuItemTranslations where Label = 'Language'),N'Ngôn ngữ',2,getDate(),(select id from Users where username ='hsproot'))");
-
-            
+       
 
             #endregion
         }
@@ -35,11 +32,10 @@ namespace Migration.Admin.Migrations
         public override void Down()
         {
             Execute.Sql("DELETE FROM MenuItemTranslations WHERE Label = N'Trình đơn' and LanguageId =2");
-            Execute.Sql("DELETE FROM MenuItemTranslations WHERE Label = N'Quản lý quyền' and LanguageId =2");
+            //Execute.Sql("DELETE FROM MenuItemTranslations WHERE Label = N'Quản lý quyền' and LanguageId =2");
             Execute.Sql("DELETE FROM MenuItemTranslations WHERE Label = N'Quản lý ngôn ngữ' and LanguageId =2");
             Execute.Sql("DELETE FROM MenuItemTranslations WHERE Label = N'Người dùng' and LanguageId =2");
             Execute.Sql("DELETE FROM MenuItemTranslations WHERE Label = N'Luật mật khẩu' and LanguageId =2");
-            Execute.Sql("DELETE FROM MenuItemTranslations WHERE Label = N'Ngôn ngữ' and LanguageId =2");
         }
     }
 }

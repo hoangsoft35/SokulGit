@@ -10,77 +10,89 @@
 
 @using (Html.BeginForm("CreateMenuItem","MenuItem", FormMethod.Post, new {id= "frmAddNewMenuItem" }) )
 {
-   
+
     <div class="hide">
         <input type="text" name="MenuItemTypeId" value=""/>
         <input type="text" name="ParentId" value=""/>
     </div>
-    <div class="form-group">
-        <label class="form-label col-sm-2 text-right controls" for="IsRoot"></label>
-        <div class="col-sm-10 controls">
-            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
 
+  
+    <div class="row">
+        <div class="form-group">
+            
+            <label class="form-label col-sm-1 text-right controls" for="IsRoot">Is root:</label>
+            <div class="col-sm-4 controls">
+                @*<input type="checkbox" name="IsRoot">*@
+                @Html.CheckBoxFor(x => x.MenuItemModel.IsRoot)
+
+            </div>
+            <div class="col-sm-8"></div>
         </div>
     </div>
-
-    <div class="form-group">
-        <label class="form-label col-sm-2 text-right controls" for="IsRoot">Is root:</label>
-        <div class="col-sm-10 controls">
-            @*<input type="checkbox" name="IsRoot">*@
-            @Html.CheckBoxFor(x => x.MenuItemModel.IsRoot)
-
+    <div class="row">
+        <div class="form-group">
+            
+            <label class="form-label col-sm-1 text-right controls" for="IsTitle">Is title:</label>
+            <div class="col-sm-10 controls">
+                @*<input type="checkbox" name="IsTitle" checked>*@
+                @Html.CheckBoxFor(x => x.MenuItemModel.IsTitle)
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        <label class="form-label col-sm-2 text-right controls" for="IsTitle">Is title:</label>
-        <div class="col-sm-10 controls">
-            @*<input type="checkbox" name="IsTitle" checked>*@
-            @Html.CheckBoxFor(x => x.MenuItemModel.IsTitle)
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="form-label  col-sm-2 text-right controls" for="IsLink">Is link:</label>
-        <div class="col-sm-10 controls">
-            @*<input type="checkbox" name="IsLink">*@
-            @Html.CheckBoxFor(x => x.MenuItemModel.IsLink)
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="form-label  col-sm-2 text-right controls" for="ControllerName">Controller:</label>
-        <div class="col-sm-10 controls">
-            @*<input type="text" class="form-control" name="ControllerName"/>*@
-            @Html.TextBoxFor(x => x.MenuItemModel.ControllerName, new {@class = "form-control"})
-            @Html.ValidationMessageFor(x => x.MenuItemModel.ControllerName, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="form-label  col-sm-2 text-right controls" for="ActionName">Action:</label>
-        <div class="col-sm-10 controls">
-            @*<input type="text" class="form-control" name="@*ActionName"/>*@
-            @Html.TextBoxFor(x => x.MenuItemModel.ActionName, new {@class = "form-control"})
-            @Html.ValidationMessageFor(x => x.MenuItemModel.ActionName, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="form-label col-sm-2 text-right controls" for="Order">Order:</label>
-        <div class="col-sm-10 controls">
-            @*<input type="number" class="form-control" name="Order" min="1" max="100" value="1"/>*@
-            @Html.TextBoxFor(x => x.MenuItemModel.Order, new {@class = "form-control", min = "1", max = "100", value = "1", type = "number"})
-            @Html.ValidationMessageFor(x => x.MenuItemModel.Order, "", new { @class = "text-danger" })
-        </div>
-    </div>
+            <div class="row">
+            <div class="form-group">
+                <label class="form-label  col-sm-1 text-right controls" for="IsLink">Is link:</label>
+                <div class="col-sm-10 controls">
+                    @*<input type="checkbox" name="IsLink">*@
+                    @Html.CheckBoxFor(x => x.MenuItemModel.IsLink)
+                </div>
+            </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="form-label  col-sm-1 text-right controls" for="ControllerName">Controller:</label>
+                            <div class="col-sm-4 controls">
+                                @*<input type="text" class="form-control" name="ControllerName"/>*@
+                                @Html.TextBoxFor(x => x.MenuItemModel.ControllerName, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(x => x.MenuItemModel.ControllerName, "", new {@class = "text-danger"})
+                            </div>
+                            <div class="col-sm-6"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="form-label  col-sm-1 text-right controls" for="ActionName">Action:</label>
+                            <div class="col-sm-4 controls">
+                                @*<input type="text" class="form-control" name="@*ActionName"/>*@
+                                @Html.TextBoxFor(x => x.MenuItemModel.ActionName, new {@class = "form-control"})
+                                @Html.ValidationMessageFor(x => x.MenuItemModel.ActionName, "", new {@class = "text-danger"})
+                            </div>
+                            <div class="col-sm-6"></div>
+                        </div>
 
-Html.RenderPartial("MultiLanguageContentBoxPartial/MultiLanguageContentBoxTemplateStart");
-Html.RenderPartial("RenderHtmlControlFollowLanguage", Model);
-Html.RenderPartial("MultiLanguageContentBoxPartial/MultiLanguageContentBoxTemplateEnd");
+                    </div>
+                    <div class="row">
+                        <div class="form-group">
+                            <label class="form-label col-sm-1 text-right controls" for="Order">Order:</label>
+                            <div class="col-sm-4 controls">
+                                @*<input type="number" class="form-control" name="Order" min="1" max="100" value="1"/>*@
+                                @Html.TextBoxFor(x => x.MenuItemModel.Order, new {@class = "form-control", min = "1", max = "100", value = "1", type = "number"})
+                                @Html.ValidationMessageFor(x => x.MenuItemModel.Order, "", new {@class = "text-danger"})
+                            </div>
+                            <div class="col-sm-6"></div>
+                        </div>
+                    </div>
+                            Html.RenderPartial("MultiLanguageContentBoxPartial/MultiLanguageContentBoxTemplateStart");
+                            Html.RenderPartial("RenderHtmlControlFollowLanguage", Model);
+                            Html.RenderPartial("MultiLanguageContentBoxPartial/MultiLanguageContentBoxTemplateEnd");
 
 
 
 
-}
+                        }
 
 
-@section scripts{
-   @Scripts.Render("~/bundles/scripts/menuItemController")
-<script src="~/Scripts/Controllers/AddEditMenuItem.js"></script>
-}
+                            @section scripts{
+                                @Scripts.Render("~/bundles/scripts/menuItemController")
+                                <script src="~/Scripts/Controllers/AddEditMenuItem.js"></script>
+                            }

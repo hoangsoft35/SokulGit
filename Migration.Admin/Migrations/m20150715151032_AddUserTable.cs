@@ -80,10 +80,10 @@ namespace Migration.Admin.Migrations
             var userId = Guid.NewGuid();
             Create.Table("Users").InSchema("dbo")
                 .WithColumn("Id").AsGuid().NotNullable().PrimaryKey("PK_Users_Id")
-                .WithColumn("Email").AsString(256).NotNullable()
-                .WithColumn("EmailConfirmed").AsBoolean().NotNullable()
+                .WithColumn("Email").AsString(256).Nullable()
+                .WithColumn("EmailConfirmed").AsBoolean().Nullable()
                 .WithColumn("PhoneNumber").AsAnsiString(30).Nullable()
-                .WithColumn("PhoneNumberConfirmed").AsBoolean().NotNullable()
+                .WithColumn("PhoneNumberConfirmed").AsBoolean().Nullable()
                 .WithColumn("AccessFailedCount").AsInt16().NotNullable()
                 .WithColumn("LockoutEndDateUtc").AsDateTimeOffset().Nullable()
                 .WithColumn("IsLockout").AsBoolean().NotNullable()
@@ -95,6 +95,7 @@ namespace Migration.Admin.Migrations
                 .WithColumn("PasswordHash").AsString(int.MaxValue).Nullable()
                 .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
                 .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("IsSocialAccount").AsBoolean().NotNullable()
                 .WithColumn("PasswordRuleId")
                 .AsGuid()
                 .NotNullable()
@@ -127,7 +128,8 @@ namespace Migration.Admin.Migrations
                     "1000:8H4ZP2o73ReLhuw3fXyCqj2XoJMvOUsMs3uLTVc/GxFIo51gl3KrZ68OcZPtNgVaP8+gk/oSE+hf4cayhnge8Q==:pf8/M7IABslB08I+8Iv99q36FPtFjQie6v1/QQGLCASAGWhdHVqC3AKvfYiVSt8XL7BXJCrIzQIwTpq9ipDzQQ=="
                 }, // password is 123456ssAA11@@ 
                 {"PasswordRuleId", passwordRuleId},
-                {"GroupUserId", groupUserId}
+                {"GroupUserId", groupUserId},
+                {"IsSocialAccount", false}
             });
 
             #endregion
@@ -345,7 +347,7 @@ namespace Migration.Admin.Migrations
             var homeMenuItemId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter, MenuItemTypeId, ParentId,[Order], CssClassIcon)" +
-                "values('" + homeMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + homeMenuItemId + "', '" + -int.MaxValue + "','fa fa-home')"
+                "values('" + homeMenuItemId + "',1,1,1,1,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + homeMenuItemId + "', '" + -int.MaxValue + "','fa fa-home')"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
                         homeMenuItemId + "',N'Home',1,getDate(),'" + userId + "')");
@@ -354,7 +356,7 @@ namespace Migration.Admin.Migrations
             var dashboardMenuItemId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter, MenuItemTypeId, ParentId,[Order], CssClassIcon)" +
-                "values('" + dashboardMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + dashboardMenuItemId + "',1,'fa fa-dashboard')"
+                "values('" + dashboardMenuItemId + "',1,1,1,1,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + homeMenuItemId + "',1,'fa fa-dashboard')"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
                         dashboardMenuItemId + "',N'Dashboard',1,getDate(),'" + userId + "')");
@@ -365,7 +367,7 @@ namespace Migration.Admin.Migrations
             var adminMenuItemId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter, MenuItemTypeId, ParentId,[Order], CssClassIcon)" +
-                "values('" + adminMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + adminMenuItemId + "',2,'fa fa-users')"
+                "values('" + adminMenuItemId + "',1,1,1,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + homeMenuItemId + "',2,'fa fa-users')"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
                         adminMenuItemId + "',N'Administration',1,getDate(),'" + userId + "')");
@@ -374,91 +376,76 @@ namespace Migration.Admin.Migrations
             var sysAdminMenuItemId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter, MenuItemTypeId, ParentId,[Order], CssClassIcon)" +
-                "values('" + sysAdminMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + sysAdminMenuItemId + "',3,'fa fa-user-secret')"
+                "values('" + sysAdminMenuItemId + "',1,1,1,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + homeMenuItemId + "',3,'fa fa-user-secret')"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
                         sysAdminMenuItemId + "',N'System Admin',1,getDate(),'" + userId + "')");
 
 
+
+
+
             var logoutMenuItemId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter, MenuItemTypeId, ParentId,[Order], CssClassIcon)" +
-                "values('" + logoutMenuItemId + "',1,1,0,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + logoutMenuItemId + "','" + int.MaxValue + "','fa fa-sign-out')"
+                "values('" + logoutMenuItemId + "',1,1,1,1,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + homeMenuItemId + "','" + int.MaxValue + "','fa fa-sign-out')"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
                         logoutMenuItemId + "',N'Sign Out',1,getDate(),'" + userId + "')");
 
-
-            // insert child menu for administration 
-            // title
-            var languageTitleId = Guid.NewGuid();
+            var configMenuItemId = Guid.NewGuid();
             Execute.Sql(
-                "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter,ParentId, MenuItemTypeId, [Order], CssClassIcon)" +
-                "values('" + languageTitleId + "',0,1,1,0,'NULL','NULL',1,'" + adminMenuItemId + "','" + adminMenuItemTypeId + "',3,'fa fa-language')"
+                "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter, MenuItemTypeId, ParentId,[Order], CssClassIcon)" +
+                "values('" + configMenuItemId + "',1,1,1,0,'NULL','NULL',0,'" + adminMenuItemTypeId + "','" + homeMenuItemId + "',3,'fa fa-user-secret')"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
-                        languageTitleId + "',N'Languages',1,getDate(),'" + userId + "')");
+                        configMenuItemId + "',N'Configurations',1,getDate(),'" + userId + "')");
 
+
+            // insert child menu for system admin  
             // link 
             var languageId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter,ParentId, MenuItemTypeId, [Order])" +
-                "values('" + languageId + "',0,1,0,1,'Language','Index',1,'" + languageTitleId + "','" + adminMenuItemTypeId + "',4)"
+                "values('" + languageId + "',0,1,0,1,'Language','Index',1,'" + sysAdminMenuItemId + "','" + adminMenuItemTypeId + "',4)"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
-                        languageId + "',N'Language',1,getDate(),'" + userId + "')");
+                        languageId + "',N'Languages',1,getDate(),'" + userId + "')");
 
 
             // insert child menu for system admin 
-            // title authorise
-            var authorisationTitleId = Guid.NewGuid();
-            Execute.Sql(
-                "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter,ParentId, MenuItemTypeId, [Order], CssClassIcon)" +
-                "values('" + authorisationTitleId + "',0,1,1,0,'NULL','NULL',1,'" + sysAdminMenuItemId + "','" + adminMenuItemTypeId + "',5,'fa fa-user-secret')"
-                );
-            Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
-                        authorisationTitleId + "',N'Authorisations',1,getDate(),'" + userId + "')");
 
             // link 
             var menuAuthorisationId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter,ParentId, MenuItemTypeId, [Order])" +
-                "values('" + menuAuthorisationId + "',0,1,0,1,'MenuItem','Index',1,'" + authorisationTitleId + "','" + adminMenuItemTypeId + "',6)"
+                "values('" + menuAuthorisationId + "',0,1,0,1,'MenuItem','Index',1,'" + sysAdminMenuItemId + "','" + adminMenuItemTypeId + "',6)"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
                         menuAuthorisationId + "',N'Menus',1,getDate(),'" + userId + "')");
 
 
-            // title
-            var manageUserTitleId = Guid.NewGuid();
-            Execute.Sql(
-                "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter,ParentId, MenuItemTypeId, [Order], CssClassIcon)" +
-                "values('" + manageUserTitleId + "',0,1,1,0,'NULL','NULL',1,'" + sysAdminMenuItemId + "','" + adminMenuItemTypeId + "',7,'fa fa-user')"
-                );
-            Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
-                        manageUserTitleId + "',N'Users',1,getDate(),'" + userId + "')");
-
-
-        
-
-
-            // title setting
-            var settingTitleId = Guid.NewGuid();
-            Execute.Sql(
-                "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter,ParentId, MenuItemTypeId, [Order], CssClassIcon)" +
-                "values('" + settingTitleId + "',0,1,1,0,'NULL','NULL',1,'" + sysAdminMenuItemId + "','" + adminMenuItemTypeId + "',5,'fa fa-cogs')"
-                );
-            Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
-                        settingTitleId + "',N'Settings',1,getDate(),'" + userId + "')");
+            
 
             // password rule 
             var passwordRuleLinkId = Guid.NewGuid();
             Execute.Sql(
                 "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter,ParentId, MenuItemTypeId, [Order])" +
-                "values('" + passwordRuleLinkId + "',0,1,0,1,'User','PasswordRule',1,'" + settingTitleId + "','" + adminMenuItemTypeId + "',8)"
+                "values('" + passwordRuleLinkId + "',0,1,0,1,'PasswordRule','Index',1,'" + sysAdminMenuItemId + "','" + adminMenuItemTypeId + "',8)"
                 );
             Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
                         passwordRuleLinkId + "',N'Password Rule',1,getDate(),'" + userId + "')");
+
+
+            // users
+            var userLinkId = Guid.NewGuid();
+            Execute.Sql(
+                "insert into MenuItems(Id,IsRoot,IsActive,IsTitle,IsLink,ControllerName,ActionName,SectionParameter,ParentId, MenuItemTypeId, [Order])" +
+                "values('" + userLinkId + "',0,1,0,1,'User','Index',1,'" + sysAdminMenuItemId + "','" + adminMenuItemTypeId + "',8)"
+                );
+            Execute.Sql("insert into MenuItemTranslations(MenuItemId, Label, LanguageId, Created, CreatedBy) values('" +
+                        userLinkId + "',N'Users',1,getDate(),'" + userId + "')");
+
 
 
 
@@ -494,27 +481,73 @@ namespace Migration.Admin.Migrations
                         roleId + "')");
             Execute.Sql("insert into MenuItemAuthorisations(MenuItemId, RoleId) values('" + logoutMenuItemId + "','" +
                         roleId + "')");
-            Execute.Sql("insert into MenuItemAuthorisations(MenuItemId, RoleId) values('" + languageTitleId + "','" +
+            Execute.Sql("insert into MenuItemAuthorisations(MenuItemId, RoleId) values('" + dashboardMenuItemId + "','" +
                         roleId + "')");
             Execute.Sql("insert into MenuItemAuthorisations(MenuItemId, RoleId) values('" + languageId + "','" + roleId +
                         "')");
-            Execute.Sql("insert into MenuItemAuthorisations(MenuItemId, RoleId) values('" + authorisationTitleId + "','" +
-                        roleId + "')");
             Execute.Sql("insert into MenuItemAuthorisations(MenuItemId, RoleId) values('" + menuAuthorisationId + "','" +
                         roleId + "')");
-            Execute.Sql("insert into MenuItemAuthorisations(MenuItemId, RoleId) values('" + manageUserTitleId + "','" +
+            Execute.Sql("insert into MenuItemAuthorisations(MenuItemId, RoleId) values('" + configMenuItemId + "','" +
                         roleId + "')");
             Execute.Sql("insert into MenuItemAuthorisations(MenuItemId, RoleId) values('" + passwordRuleLinkId + "','" +
                         roleId + "')");
-
-            Execute.Sql("insert into MenuItemAuthorisations(MenuItemId, RoleId) values('" + settingTitleId + "','" +
+            Execute.Sql("insert into MenuItemAuthorisations(MenuItemId, RoleId) values('" + userLinkId + "','" +
             roleId + "')");
 
+
             #endregion
+
+
+            #region HistoryTypes & HistoryTypeTranslation
+
+            Create.Table("HistoryTypes").InSchema("dbo")
+                .WithColumn("Id").AsInt16().NotNullable().PrimaryKey("PK_HistoryTypes_Id")
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("Updated").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("StatusId").AsInt32().NotNullable().WithDefaultValue(0)
+                .WithColumn("CreatedBy").AsGuid().NotNullable()
+                .WithColumn("UpdatedBy").AsGuid().NotNullable();
+
+            Create.Table("HistoryTypeTranslations").InSchema("dbo")
+                .WithColumn("Id").AsInt16().NotNullable().Identity().PrimaryKey("PK_HistoryTypeTranslations_Id")
+                .WithColumn("HistoryTypeId")
+                .AsInt16()
+                .NotNullable()
+                .ForeignKey("FK_HistoryTypeTranslations_HistoryTypeId_HistoryTypes_Id", "HistoryTypes", "Id")
+                .WithColumn("LanguageId")
+                .AsInt32()
+                .NotNullable()
+                .ForeignKey("FK_HistoryTypeTranslations_LanguageId_Languages_Id", "Languages", "Id")
+                .WithColumn("HistoryTypeName").AsString(50).NotNullable()
+                .WithColumn("Created").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime)
+                .WithColumn("CreatedBy").AsGuid().NotNullable()
+                .WithColumn("Updated").AsDateTimeOffset().Nullable()
+                .WithColumn("UpdatedBy").AsGuid().Nullable();
+            Create.UniqueConstraint("UK_HistoryTypeTranslations_HistoryTypeId_LanguageId_HistoryTypeName")
+                .OnTable("HistoryTypeTranslations")
+                .Columns("HistoryTypeId", "LanguageId", "HistoryTypeName");
+
+            #endregion
+
+            #region UserLoginHistories
+
+            Create.Table("UserLoginHistories").InSchema("dbo")
+                .WithColumn("Id").AsInt64().NotNullable().PrimaryKey("PK_UserHistories_Id").Identity()
+                .WithColumn("UserId").AsGuid().NotNullable().ForeignKey("Users", "Id")
+                .WithColumn("HistoryTypeId").AsInt16().NotNullable().ForeignKey("HistoryTypes", "Id")
+                .WithColumn("IpAccessed").AsString().Nullable()
+                .WithColumn("MachineAccessedName").AsString().Nullable()
+                .WithColumn("AccessedDate").AsDateTimeOffset().NotNullable().WithDefault(SystemMethods.CurrentDateTime);
+
+            #endregion
+
         }
 
         public override void Down()
         {
+            Delete.Table("UserLoginHistories").InSchema("dbo");
+            Delete.Table("HistoryTypeTranslations").InSchema("dbo");
+            Delete.Table("HistoryTypes").InSchema("dbo");
             Delete.Table("GroupUserRoles").InSchema("dbo");
             Delete.Table("Users").InSchema("dbo");
             Delete.Table("PasswordRules").InSchema("dbo");

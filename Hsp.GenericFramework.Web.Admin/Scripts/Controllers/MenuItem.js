@@ -1,36 +1,31 @@
 ﻿$(document).ready(function () {
     menuItemTypeChange();
     
-    //$('#btnAdd').on('click', function () {
-    //    var selectedNode = $('#tree').treeview('getSelected');
-    //    if (selectedNode && selectedNode.length)
-    //    {
-    //        selectedNode = selectedNode[0];
-    //        var selectedMenuItemType = $("#menu-item-type").val();
-    //        $("input[name=MenuItemTypeId]").val(selectedMenuItemType);
-    //        $("input[name=ParentId]").val(selectedNode.Id);
+    $('#btnAdd').on('click', function () {
+        var selectedNode = $('#tree').treeview('getSelected');
+        if (selectedNode && selectedNode.length)
+        {
+            selectedNode = selectedNode[0];
+            var selectedMenuItemType = $("#menu-item-type").val();
+            window.location.href = '/MenuItem/AddEditMenuItem?parentId=' + selectedNode.Id + '&menuItemTypeId=' + selectedMenuItemType ;
 
-    //        $.ajax({
-    //            url: '/MenuItem/AddEditMenuItem?menuItemId=' + selectedNode.Id,
-    //            type:'GET',
-    //            success:function(data) {
-    //                $('#menu-item-model-body').empty().append(data);
-                  
-    //            },
-    //            error:function(error) {
-    //                console.log(error);
-    //            }
-                
-    //        });
+            
 
-
-    //    }       
-    //});
+        }       
+    });
 
   
 
 });
-
+function getMenuItemId() {
+    var selectedNode = $('#tree').treeview('getSelected');
+    if (selectedNode && selectedNode.length) {
+        selectedNode = selectedNode[0];
+        return selectedNode.Id;
+    } else {
+        return "";
+    }
+}
 var _menuItems = [];
 
 function mapMenuItemsData() {

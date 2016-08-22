@@ -52,7 +52,7 @@
         <div class="form-group">
             <label class="form-label" for="Name">Display name:</label>
             <div class="">
-                @Html.TextBoxFor(it => Model.MenuItemTranslationModels[i].Label, new { dataLang = Model.MenuItemTranslationModels[i].LanguageId, @class = "form-control", name = "label-lang-" + Model.MenuItemTranslationModels[i].LanguageId })
+                @Html.TextBoxFor(it => Model.MenuItemTranslationModels[i].Label, new { dataLang = Model.MenuItemTranslationModels[i].LanguageId, @class = "form-control", name = "label-lang-" + Model.MenuItemTranslationModels[i].LanguageId , data_val = false })
                 @Html.HiddenFor(it => Model.MenuItemTranslationModels[i].LanguageId)
 
                 @*<input type="text" dataLang="@Model.MenuItemTranslationModels[i].LanguageId" class="form-control" name="@Model.MenuItemTranslationModels[i].LanguageId"/>*@
